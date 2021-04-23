@@ -3,8 +3,13 @@
 <head>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Indie+Flower&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
 	<style type="text/css">
+		body{
+			overflow: hidden;
+		}
 
 		h1{
 			text-align: center;
@@ -29,7 +34,33 @@
 
 		h2{
 			text-align: center;
+			font-size: 40px;
+			font-family: 'Ubuntu Mono', monospace;
+		}
+
+		button{
+
+			text-align: center;
 			font-size: 50px;
+			margin-right: 400px;
+			margin-left: 400px;
+			border-radius: 10px;
+			color: black;
+		    background-color: #428bca;
+		    border-color: #357ebd;
+		    font-family: 'Black Han Sans', sans-serif;
+		}
+
+		a{
+			color: #428bca;
+			text-decoration: none;
+			font-family: 'Cedarville Cursive', cursive;
+			font-size: 20px;
+		}
+		
+		#refresh_msg{
+			text-align: center;
+			font-size: 20px;
 			font-family: 'Ubuntu Mono', monospace;
 		}
 	</style>
@@ -42,6 +73,11 @@
 <p id="pos_text">Current Serving Serial Number:</p>
 <h1 id="livecount">	</h1>
 <h2 id="livestatus"></h2>
+<br>
+<p id="refresh_msg">This page will auto refresh in every 30 seconds</p>
+<br>
+<button onclick="refresh()">Refresh</button>
+<p style="text-align: right;"><a href="https://github.com/AryanRai/">made with 🧡 by aryan</a></p>
 
 
 <script type="text/javascript">
@@ -49,6 +85,10 @@
 	var returndata = "";
 	var updatedelay = 30000;
 	
+	function refresh() {
+		location.reload();
+	}
+
 
 	function live_count_update() {
 		jQuery.ajax({
@@ -58,7 +98,7 @@
 				          ajaxResult.push(data);
 				          returndata = data;
 				          if (returndata == 0) {
-				          	document.getElementById('livestatus').textContent = "Not Started ⚫";
+				          	document.getElementById('livestatus').textContent = "Not Started yet :( ⚫";
 				          }
 
 				          if (returndata > 0) {
