@@ -12,9 +12,9 @@
 <div class="wrapper">
     <div class="form-signin">       
       <h2 class="form-signin-heading">Please login</h2>
-      <input type="password" id="blynk_key" class="form-control" name="username" placeholder="Enter Key" required="" autofocus="" />
-      <input type="number" id="val" class="form-control" name="password" placeholder="Count" required=""/>      
-      <br>
+      <input type="password" id="firebase_key" class="form-control" name="username" placeholder="Enter Key" required="" autofocus="" />
+      <input type="number" id="val" class="form-control" name="password" placeholder="Count" required=""/> 
+      <label class="" id="request_status"></label>
       <button class="btn btn-lg btn-primary btn-block" id="send" onclick="send()">Update</button>   
     </div>
   </div>
@@ -23,12 +23,20 @@
 var ajaxResult = [];
 
 function send(){
-  var blynk_token = document.getElementById('blynk_key').value;
+  var firebase_token = document.getElementById('firebase_key').value;
   var count = document.getElementById('val').value;
-  console.log(blynk_token, count)
+  console.log(firebase_token, count)
   
+  if (firebase_token != atob('TmlsZUAyMDIx')) {
+    document.getElementById('request_status').textContent = "error wrong key"
+    document.getElementById('request_status').style.color = "red";
+    document.getElementById('request_status').style.visibility = "visible";
+    setTimeout(() => { document.getElementById('request_status').style.visibility = "hidden"; },5000 );
+  }
+
+  if (firebase_token == atob('TmlsZUAyMDIx')) {
         var settings = {
-      "url": "https://nile-covid-camp-default-rtdb.firebaseio.com/.json",
+      "url": "https://" + atob('bmlsZS1jb3ZpZC1jYW1wLWRlZmF1bHQtcnRkYg==') + ".firebaseio.com/.json",
       "method": "PATCH",
       "timeout": 0,
       "headers": {
@@ -39,10 +47,14 @@ function send(){
 
       $.ajax(settings).done(function (response) {
         console.log(response);
-    });             
+        document.getElementById('request_status').textContent = "successfully updated"
+        document.getElementById('request_status').style.color = "green";
+        document.getElementById('request_status').style.visibility = "visible";
+        setTimeout(() => { document.getElementById('request_status').style.visibility = "hidden"; },5000 );
+      });             
                   
+    }
   }
-
  
 
 

@@ -2,6 +2,10 @@ body {
   background: #eee !important;
 }
 
+#request_status{
+visibility: hidden;
+}
+
 .wrapper {
   margin-top: 80px;
   margin-bottom: 80px;
