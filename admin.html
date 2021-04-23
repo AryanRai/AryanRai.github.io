@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ADMIN</title>
+  <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'><link rel="stylesheet" href="./admin_style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+    <div class="form-signin">       
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="password" id="blynk_key" class="form-control" name="username" placeholder="Enter Key" required="" autofocus="" />
+      <input type="number" id="val" class="form-control" name="password" placeholder="Count" required=""/>      
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" id="send" onclick="send()">Update</button>   
+    </div>
+  </div>
+<!-- partial -->
+  <script type="text/javascript">
+var ajaxResult = [];
+
+function send(){
+  var blynk_token = document.getElementById('blynk_key').value;
+  var count = document.getElementById('val').value;
+  console.log(blynk_token, count)
+  jQuery.ajax({
+                url : 'http://blynk-cloud.com/' + blynk_token + '/update/V0?value=' + count,
+                type: 'GET',
+                success: function(data) {
+                  ajaxResult.push(data);
+                  returndata = data;
+                  
+                  
+            }
+
+      });
+};
+
+
+</script>
+</body>
+</html>
