@@ -23,10 +23,11 @@
 	<title>Nile Covid Camp Live Queue</title>
 </head>
 <body>
+<button onclick="login_portal()">LOGIN TO CHANGE</button>
 <p>Current position</p>
 <h1 id="livecount">	</h1>
 <h2 id="livestatus"></h2>
-<button onclick="login_portal()">LOGIN TO CHANGE</button>
+
 
 <script type="text/javascript">
 	var ajaxResult = [];
@@ -40,7 +41,7 @@
 
 	function live_count_update() {
 		jQuery.ajax({
-				        url : 'http://blynk-cloud.com/' + atob('bmtTc3dfQmdrdTF6bHNjVzNpXzJ3NjB1OWhtaTU3MmY=') + '/get/V0',
+				        url : 'https://' + atob('bmlsZS1jb3ZpZC1jYW1wLWRlZmF1bHQtcnRkYg==') + '.firebaseio.com/queue.json',
 				        type: 'GET',
 				        success: function(data) {
 				          ajaxResult.push(data);
