@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+.ui-dark-theme {
+  --color-text: #fff;
+  --color-custom: #ffeba7;
+  --color-bg: #26242e;
+  --color-primary: #ffeba7;
+  --color-switch-theme: #fff;
+}
+
+.ui-light-theme {
+  --color-text: #26242e;
+  --color-custom: #ff3671;
+  --color-bg: #fff;
+  --color-primary: #ff3671;
+  --color-switch-theme: #26242e;
+}
+.ui-light-theme .c-theme-switch .c-theme-switch__toggle {
+  transform: translateX(37px);
+}
+
+/* ****************** */
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-bg);
+  font-family: "Oswald", sans-serif;
+  transition: 500ms background ease;
+}
+
+.l-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-size: 4vw;
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+}
+.l-heading span {
+  font-size: 52px;
+  color: var(--color-custom);
+}
+
+body,
+.l-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.c-theme-switch {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  margin-bottom: 16px;
+  border-radius: 50px;
+  color: var(--color-text);
+  border: 1px solid var(--color-switch-theme);
+  cursor: pointer;
+}
+.c-theme-switch .c-theme-switch__toggle {
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  border-radius: 100%;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: 500ms all ease;
+}
+
+.c-navigation {
+  display: flex;
+  justify-content: center;
+}
+.c-navigation .c-navigation__items {
+  display: flex;
+  list-style-type: none;
+}
+.c-navigation .c-navigation__items .c-navigation__item a {
+  position: relative;
+  margin: 10px 30px;
+  color: var(--color-text);
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.c-navigation .c-navigation__items .c-navigation__item a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+  height: 3px;
+  background: var(--color-primary);
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.c-navigation .c-navigation__items .c-navigation__item a:hover:before {
+  opacity: 1;
+  transition: 500ms transform ease, 800ms opacity ease;
+  transform: translateX(0);
+}
+.c-navigation .c-navigation__items .c-navigation__item a.is-active {
+  color: var(--color-primary);
+}
+.c-navigation .c-navigation__items .c-navigation__item a.is-active:hover:before {
+  opacity: 0;
+}
