@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+/* ------------------------- *\
+\* ------- CSS RESET ------- */
+
+/**
+ * Eric Meyer's Reset CSS v2.0 
+(https://meyerweb.com/
+eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+ 	margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* End CSS Reset */
+
+/* ------------------------ *\
+\* --------- BODY --------- */
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+html, body {
+  font-size: 16px;
+  font-family: 'Times New Roman';
+  text-align: center;
+  margin: 0 auto;
+  background-color: #efefef;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 50px 0;
+  /*padding: 250px 0;*/
+  /*border-top: 5px solid black;*/
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+
+.a i:hover {
+  text-decoration: none;
+}
+
+/* ------------------------- *\
+\* ---------- NAV ---------- */
+
+.navbar {
+  margin: 0;
+  border: none;
+}
+.navbar-default {
+  background-color: rgba(255,255,255,0.8);
+}
+.navbar-brand > img {
+  width: 25px;
+  border-radius: .5em;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+  color: #b9a176;
+  /* do not use
+  font-weight: bold;
+  text-shadow: 0 1px 1px #d3d3d3; */
+  font-size: 16px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #8a6d3b;
+  text-decoration: underline;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #554427bd;
+  background: none;
+  text-decoration: underline;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: rgba(255,255,255,0.5);
+}
+/* mobile version */
+.navbar-default .navbar-toggle {
+  border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: rgba(255,255,255,0.7);
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #333;
+}
+
+/* ---------------------------- *\
+\* --------- WELCOME ---------- */
+
+.welcome-page {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 30% 25%;
+  background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8SmdtMVRkdVJBdlU");
+  /* use without jumbotron
+  text-shadow: 0 0 15px #eee; */
+}
+
+.welcome-page > .jumbotron {
+  background-color: rgba(255,255,255,0.5);
+  padding: 110px;
+}
+
+.welcome-page h1 {
+  font-size: 2.85em;
+  font-family: Righteous, cursive;
+  margin: .25em 0;
+}
+
+.welcome-page h1:after {
+  content: "";
+  display: block;
+  background-color: #222;
+  height: 2px;
+  width: 200px;
+  border-radius: 25%;
+  margin: 15px auto;
+}
+
+.welcome-page p {
+  font-size: 1.15em;
+  /* use without jumbotron */
+  line-height: 1.5em;
+}
+
+.welcome-page a {
+  margin-right: 1.25em;
+}
+.welcome-page a:last-child {
+  margin-right: 0;
+}
+
+/* ------------------------------ *\
+\* --------- BIOGRAPHY ---------- */
+
+.biography-david-regg {
+  border: 3px solid black;
+  border-radius: 50%;
+  margin-bottom: 1em;
+  width: 200px;
+  height: auto;
+}
+
+.biography__text {
+  padding: 0 2em;
+  line-height: 1.25em;
+}
+.biography__text--body:first-line {
+  color: #c99a3f;
+}
+.biography__text--body {
+  font-size: 1.15em;
+  color: #333;
+}
+
+/* ------------------------------ *\
+\* --------- PORTFOLIO ---------- */
+
+.portfolio {
+  background: #fff;
+  width: 100%;
+}
+
+.portfolio .col-xs-12 {
+  margin-bottom: 1em;
+}
+.portfolio .row:last-child .col-xs-12:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio img {
+  height: 250px;
+  width: auto;
+  
+}
+.portfolio img:hover {
+  box-shadow: 0 0 20px #333;
+}
+
+/* ---------------------------- *\
+\* --------- CONTACT ---------- */
+
+.icons {
+  margin-bottom: 1em;
+}
+.icons-left {
+  text-align: right;
+}
+.icons-right {
+  text-align: left;
+}
+
+/* --------------------------- *\
+\* --------- FOOTER ---------- */
+
+footer {
+  padding: 5em 0;
+}
+
+footer p {
+  font-size: .8em;
+  line-height: 1.25em;
+}
+
+/* -------------------------------- *\
+\* --------- MEDIA QUERY ---------- */
+
+@media only screen and (min-width: 992px) { /* DESKTOP */
+
+  /* ---------------------------- *\
+  \* --------- WELCOME ---------- */
+  
+  .welcome-page {
+    background-attachment: fixed;
+    background-position: center;
+  }
+  .welcome-page h1 {
+    font-size: 5em;
+  }
+  .welcome-page h1:after {
+    width: 500px;
+  }
+  .welcome-page p {
+    font-size: 1.6em;
+  }
+  
+  .biography img {
+    margin-bottom: 0;
+  }
+  .biography__text--body:first-line {
+    color: #c99a3f;
+  }
+  .biography__text--body {
+    font-size: 1.25em;
+  }
+  
+  .portfolio .row {
+    margin-bottom: 1em;
+  }
+  .portfolio .row:last-child {
+    margin-bottom: 0;
+  }
+  
+  .contact .icons {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) { /* TABLET */
+  
+  /* ------------------------ *\
+  \* --------- NAV ---------- */
+  
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #00670D;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #4CB359;
+    text-decoration: underline;
+  }
+}
+
+
+
+/* =========== COLORS ============ */
+
+/*
+primary-color-teal {
+  Main-color: #77C9D4;
+  Lightest-color: #C0ECF2;
+  Light-color: #9ADCE5;
+  Dark-color: #59B4C1;
+  Darkest-color: #3F9DAA;
+}
+
+secondary-color-blue { 
+  Main-color: #8499DB;
+  Lightest-color: #C7D1F4;
+  Light-color: #A4B4E9;
+  Dark-color: #687FCB;
+  Darkest-color: #4F68B9;
+}
+
+secondary-color-green {
+  Main-color: #7FE68C;
+  Lightest-color: #C3F8CA;
+  Light-color: #A0F0AA;
+  Dark-color: #62DB71;
+  Darkest-color: #49CE59;
+}
+*/
+
+/* =========== LAYOUT ============
+
+body {
+  font-family: Verdana;
+  font-size: 16px;
+  text-align: center;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+ul li {
+  display: inline-block;
+  padding: .2em 5em;
+}
+
+.container-fluid {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.topnav {
+  background-color: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.topnav .container-fluid {
+  padding-top: .2em;
+  padding-bottom: .2em;
+}
+
+.welcome {
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+footer {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+/* =========== FONT ============
+
+h1 {
+  font-size: 4em;
+  font-family: Righteous, cursive;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin: -25px 0 25px 0;
+  font-variant: small-caps;
+  color: #7FE68C;
+}
+
+h3 {
+  font-size: 1.12em;
+  margin-top: -50px;
+  font-weight: bold;
+  color: #3F9DAA;
+  text-shadow: 1px 2px 0 #000;
+  pointer-events: none;
+}
+
+.welcome p {
+  font-family: Righteous, cursive;
+  font-size: 1.5em;
+}
+
+.bio p {
+  padding: 0 4em;
+  text-align: left;
+  font-size: .9em;
+}
+
+footer p, h6 {
+  font-size: .7em;
+}
+
+/* =========== COLORS ============
+
+a {
+  color: #77C9D4;
+}
+
+a:hover {
+  color: #C0ECF2;
+}
+
+.topnav li {
+  background-color: #C7D1F4;
+  color: #4F68B9;
+  padding: .2em 8.4em;
+}
+
+.topnav li:hover {
+  text-decoration: none;
+  background-color: #4F68B9;
+  color: #C7D1F4;
+}
+
+h1, .welcome p {
+  color: #C0ECF2;
+  text-shadow: 2px 1px 10px #000;
+}
+
+img {
+  border: 5px solid #9ADCE5;
+}
+
+.port a:hover {
+  text-decoration: none;
+}
+
+.port img {
+  transition: all 0.5s ease;
+}
+
+.port img:hover {
+  opacity: 0.5;
+}
+
+i:hover {
+  color: #49CE59;
+}
+
+footer {
+  background-color: #C3F8CA;
+  color: #49CE59;
+  border-top: 1px solid #49CE59;
+  border-bottom: 1px solid #49CE59;
+}
+
+footer a {
+  color: #62DB71;
+}
+
+footer a:hover {
+  color: #62DB71;
+  text-decoration: underline;
+}
+
+/* =========== IMAGES ============
+
+.welcome, .port {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.welcome {
+  background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8SmdtMVRkdVJBdlU");
+}
+
+.port {
+  background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8a0toTTRyelRJbEU");
+}
+
+.bio img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.port img {
+  margin: 15px 0;
+}
+*/
+
+a {
+  color: #7b92a5;
+  text-decoration: none;
+}
