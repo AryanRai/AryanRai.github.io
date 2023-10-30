@@ -8,7 +8,10 @@
 <link href=" assets="" css="" bootstrap-responsive.css"="">
 
 <script src="https://use.fontawesome.com/3606f702fd.js"></script><link rel="stylesheet" href="https://use.fontawesome.com/3606f702fd.css" media="all"><link rel="stylesheet" href="https://use.fontawesome.com/3606f702fd.css" media="all"><link rel="stylesheet" href="./style.css">
-
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+rel="stylesheet"
+/>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="10">
 <!-- partial:index.partial.html -->
@@ -59,6 +62,16 @@ IDEA:
           <li class=""><a href="#biography">Bio</a></li>
           <li class=""><a href="#portfolio">Portfolio</a></li>
           <li class="active"><a href="#contact">Contact</a></li>
+          <li class="">
+            <div>
+              <input type="checkbox" class="checkbox" id="toggleBtn" />
+              <label class="switch" for="toggleBtn">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+              </label>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -72,8 +85,11 @@ IDEA:
         Aryan <span>Rai</span>
       </h1>
       <p>
-        mechanical/electrical/electronic/software developer
-      </p>
+        
+      
+      <button class="button" type="button" data-hover="Mechanical/Electrical/Electronic
+      /Software developer" data-active="I'M ACTIVE"><span>Mechatronic Engineering at USYD</span></button>
+    </p>
       <a href="#" target="_blank">
         <i class="fa fa-2x fa-linkedin" aria-hidden="true"></i>
       </a>
@@ -218,7 +234,7 @@ IDEA:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 
-
+<script src="script.js"></script>
 </body><!-- OLD
 <nav>
   <ul class="topnav">
