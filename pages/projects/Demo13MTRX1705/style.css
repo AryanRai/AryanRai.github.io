@@ -53,8 +53,8 @@ body,
 
 .c-theme-switch {
   position: relative;
-  width: 70px;
-  height: 30px;
+  width: 183px;
+  height: 80px;
   margin-bottom: 16px;
   border-radius: 50px;
   color: var(--color-text);
@@ -62,8 +62,8 @@ body,
   cursor: pointer;
 }
 .c-theme-switch .c-theme-switch__toggle {
-  width: 24px;
-  height: 24px;
+  width: 71px;
+  height: 71px;
   background: var(--color-primary);
   border-radius: 100%;
   position: absolute;
