@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aryan's Blog</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet
+
+<link href=" assets="" css="" bootstrap-responsive.css"="">
+
+<script src="https://use.fontawesome.com/3606f702fd.js"></script><link rel="stylesheet" href="https://use.fontawesome.com/3606f702fd.css" media="all"><link rel="stylesheet" href="https://use.fontawesome.com/3606f702fd.css" media="all"><link rel="stylesheet" href="./style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#extra-small-navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#home" class="navbar-brand">
+              <span>AR</span>
+            </a>
+          </div>
+          
+          <div class="collapse navbar-collapse" id="extra-small-navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class=""><a href="./index.html">Home <span class="sr-only">(current)</span></a></li>
+              <li class=""><a href="./index.html#biography">Bio</a></li>
+              <li class=""><a href="./index.html#portfolio">Portfolio</a></li>
+              <li class=""><a href="./index.html#contact">Contact</a></li>
+              <li class=""><a href="./index.html#code-stats">Code Stats</a></li>
+              <li class=""><a href="./index.html#gallery">Gallery</a></li>
+              <li class="active"><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <section class="container blog" id="blog">
+        <h2>Blog Posts</h2>
+        <article>
+            <div class="row" id="blog-posts"></div>
+            <div class="text-center">
+                <button id="add-post" class="btn btn-primary" style="margin-top: 20px;">Add New Post</button>
+            </div>
+        </article>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+     // Initialize Supabase with your credentials
+     const supabase = window.supabase.createClient('https://tqelchlmlsqjqrpfbeio.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxZWxjaGxtbHNxanFycGZiZWlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5MTYzNDQsImV4cCI6MjA1NjQ5MjM0NH0.uLr6hazBy6QNiy81OztDJofwKVqLG59DdaSm9klidn4');
+
+    async function fetchBlogPosts() {
+        const { data, error } = await supabase.from('blogs').select('*').order('created_at', { ascending: false });
+        if (error) {
+            console.error('Error fetching blog posts:', error);
+            return;
+        }
+
+        const blogContainer = document.getElementById('blog-posts');
+        data.forEach(post => {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'col-xs-12 col-md-6';
+            postDiv.innerHTML = `
+                <div class="blog-post">
+                    <h3>${post.title}</h3>
+                    <p>${post.content.substring(0, 150)}...</p>
+                    <span class="date">Posted on: ${new Date(post.created_at).toLocaleDateString()}</span>
+                </div>
+            `;
+            blogContainer.appendChild(postDiv);
+        });
+    }
+
+    async function addBlogPost() {
+        const title = prompt('Enter blog post title:');
+        const content = prompt('Enter blog post content:');
+        if (!title || !content) return;
+
+        const { error } = await supabase.from('blogs').insert([{ title, content }]);
+        if (error) {
+            console.error('Error adding blog post:', error);
+        } else {
+            fetchBlogPosts();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchBlogPosts);
+    document.getElementById('add-post').addEventListener('click', addBlogPost);
+    </script>
+</body>
+</html>

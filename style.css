@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@400;500;700&display=swap');
 
+
+:root {
+  --font-family-body: "DM Sans", Arial, sans-serif;
+  --font-family-button: "Fraunces", Georgia, serif;
+  --font-family-heading: "SharpGrotesk", Georgia, Impact, sans-serif;
+  --font-family-highlight: "Fraunces", Georgia, serif;
+  --font-family-navigation: "Fraunces", Georgia, serif;
+}
+
+/* Note: SharpGrotesk isn't freely available on Google Fonts. 
+   If you have a license/source, include it here, or we'll use fallbacks. */
 /* ------------------------- *\
 \* ------- CSS RESET ------- */
 
@@ -113,13 +125,13 @@ h2 {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #8a6d3b;
+  color: #65956d;
   text-decoration: underline;
 }
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #554427bd;
+  color: #65956d;
   background: none;
   text-decoration: underline;
 }
@@ -230,7 +242,7 @@ h2 {
 
 .portfolio img {
   height: 250px;
-  width: auto;
+  width: 100%;
   
 }
 .portfolio img:hover {
@@ -324,213 +336,487 @@ footer p {
 
 
 
-/* =========== COLORS ============ */
-
-/*
-primary-color-teal {
-  Main-color: #77C9D4;
-  Lightest-color: #C0ECF2;
-  Light-color: #9ADCE5;
-  Dark-color: #59B4C1;
-  Darkest-color: #3F9DAA;
-}
-
-secondary-color-blue { 
-  Main-color: #8499DB;
-  Lightest-color: #C7D1F4;
-  Light-color: #A4B4E9;
-  Dark-color: #687FCB;
-  Darkest-color: #4F68B9;
-}
-
-secondary-color-green {
-  Main-color: #7FE68C;
-  Lightest-color: #C3F8CA;
-  Light-color: #A0F0AA;
-  Dark-color: #62DB71;
-  Darkest-color: #49CE59;
-}
-*/
-
-/* =========== LAYOUT ============
-
-body {
-  font-family: Verdana;
-  font-size: 16px;
-  text-align: center;
-  background-color: #fff;
-  margin: 0 auto;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-
-ul li {
-  display: inline-block;
-  padding: .2em 5em;
-}
-
-.container-fluid {
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.topnav {
-  background-color: #fff;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
-
-.topnav .container-fluid {
-  padding-top: .2em;
-  padding-bottom: .2em;
-}
-
-.welcome {
-  padding-top: 250px;
-  padding-bottom: 250px;
-}
-
-footer {
-  padding-top: 150px;
-  padding-bottom: 150px;
-}
-
-/* =========== FONT ============
-
-h1 {
-  font-size: 4em;
-  font-family: Righteous, cursive;
-}
-
-h2 {
-  font-size: 2.5em;
-  margin: -25px 0 25px 0;
-  font-variant: small-caps;
-  color: #7FE68C;
-}
-
-h3 {
-  font-size: 1.12em;
-  margin-top: -50px;
-  font-weight: bold;
-  color: #3F9DAA;
-  text-shadow: 1px 2px 0 #000;
-  pointer-events: none;
-}
-
-.welcome p {
-  font-family: Righteous, cursive;
-  font-size: 1.5em;
-}
-
-.bio p {
-  padding: 0 4em;
-  text-align: left;
-  font-size: .9em;
-}
-
-footer p, h6 {
-  font-size: .7em;
-}
-
-/* =========== COLORS ============
-
-a {
-  color: #77C9D4;
-}
-
-a:hover {
-  color: #C0ECF2;
-}
-
-.topnav li {
-  background-color: #C7D1F4;
-  color: #4F68B9;
-  padding: .2em 8.4em;
-}
-
-.topnav li:hover {
-  text-decoration: none;
-  background-color: #4F68B9;
-  color: #C7D1F4;
-}
-
-h1, .welcome p {
-  color: #C0ECF2;
-  text-shadow: 2px 1px 10px #000;
-}
-
-img {
-  border: 5px solid #9ADCE5;
-}
-
-.port a:hover {
-  text-decoration: none;
-}
-
-.port img {
-  transition: all 0.5s ease;
-}
-
-.port img:hover {
-  opacity: 0.5;
-}
-
-i:hover {
-  color: #49CE59;
-}
-
-footer {
-  background-color: #C3F8CA;
-  color: #49CE59;
-  border-top: 1px solid #49CE59;
-  border-bottom: 1px solid #49CE59;
-}
-
-footer a {
-  color: #62DB71;
-}
-
-footer a:hover {
-  color: #62DB71;
-  text-decoration: underline;
-}
-
-/* =========== IMAGES ============
-
-.welcome, .port {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-.welcome {
-  background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8SmdtMVRkdVJBdlU");
-}
-
-.port {
-  background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8a0toTTRyelRJbEU");
-}
-
-.bio img {
-  max-width: 100%;
-  border-radius: 50%;
-}
-
-.port img {
-  margin: 15px 0;
-}
-*/
-
 a {
   color: #7b92a5;
   text-decoration: none;
+}
+
+/* Portfolio enhancements */
+.portfolio h3 {
+  margin-top: 15px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.portfolio p {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive images */
+.portfolio img {
+  transition: transform 0.3s ease;
+}
+
+.portfolio img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #333;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -12.5px;
+  background-color: #fff;
+  border: 4px solid #7b92a5;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  left: 50%;
+}
+
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid #333;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #333;
+}
+
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #333;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #333 transparent transparent;
+}
+
+.right::after {
+  left: -12.5px;
+}
+
+.timeline-content {
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: #7b92a5;
+}
+
+.timeline-content p {
+  margin: 10px 0;
+}
+
+.timeline-content .date {
+  font-size: 0.9em;
+  color: #666;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline::after {
+      left: 31px;
+  }
+  
+  .timeline-item {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+  }
+  
+  .timeline-item::before {
+      left: 60px;
+      border: medium solid #333;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #333 transparent transparent;
+  }
+
+  .left::after, .right::after {
+      left: 15px;
+  }
+  
+  .right {
+      left: 0%;
+  }
+}
+
+#education, #experience {
+  padding: 50px 0;
+}
+
+#education h3, #experience h3 {
+  color: #7b92a5;
+  margin-top: 20px;
+}
+
+#experience ul {
+  text-align: left;
+  margin-left: 20px;
+}
+
+/* Details Section */
+.details {
+  background: #f9f9f9;
+  padding: 50px 0;
+}
+
+.details p {
+  font-size: 1.1em;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Academic Details Section */
+.academic-details {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.academic-details h3 {
+  font-size: 1.5em;
+  color: #7b92a5;
+  margin-top: 20px;
+}
+
+.academic-details p {
+  font-size: 1.1em;
+  margin: 5px 0;
+}
+
+/* Positions Timeline (Reuse existing timeline styles with minor adjustments) */
+.positions {
+  padding: 50px 0;
+  
+}
+
+.positions .timeline-content p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Key Skills & Interests Section */
+.skills-interests {
+  padding: 50px;
+  background: #f9f9f9;
+}
+
+.skills-interests ul {
+  list-style-type: disc;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.skills-interests li {
+  font-size: 1.1em;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.skills-interests h3 {
+  font-size: 1.5em;
+  color: #7b92a5;
+  margin-bottom: 15px;
+}
+
+/* Body Text */
+html, body {
+    font-size: 16px;
+    font-family: var(--font-family-body);
+    text-align: center;
+    margin: 0 auto;
+    background-color: #efefef;
+    overflow-x: hidden;
+}
+
+/* Headings */
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    font-family: var(--font-family-heading);
+}
+
+h3 {
+    font-family: var(--font-family-heading);
+}
+
+/* Navigation */
+.navbar-default .navbar-nav > li > a {
+    color: #000000;
+    font-size: 16px;
+    font-family: var(--font-family-navigation);
+}
+
+.navbar-default .navbar-brand span {
+    font-family: var(--font-family-navigation);
+}
+
+/* Welcome Section */
+.welcome-page h1 {
+    font-size: 9.85em;
+    font-family: var(--font-family-heading); /* Replacing Righteous */
+    margin: .25em 0;
+}
+
+.welcome-page p {
+    font-size: 1.15em;
+    font-family: var(--font-family-body);
+}
+
+/* Biography */
+.biography__text--body {
+    font-size: 100%;
+    color: #333;
+    font-family: var(--font-family-body);
+}
+
+/* Portfolio Timeline */
+.timeline-content h3 {
+    margin-top: 0;
+    color: #7b92a5;
+    font-family: var(--font-family-heading);
+}
+
+.timeline-content p {
+    font-family: var(--font-family-body);
+}
+
+.timeline-content .date,
+.timeline-content .stats {
+    font-family: var(--font-family-body);
+}
+
+/* Buttons (Load More) */
+.btn-primary {
+    background-color: #7b92a5;
+    border-color: #7b92a5;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-family: var(--font-family-button);
+}
+
+/* Details, Academic, Skills Sections */
+.details p,
+.academic-details p,
+.skills-interests li {
+    font-family: var(--font-family-body);
+}
+
+.academic-details h3,
+.skills-interests h3 {
+    font-family: var(--font-family-heading);
+}
+
+/* Footer */
+footer p {
+    font-size: .8em;
+    line-height: 1.25em;
+    font-family: var(--font-family-body);
+}
+
+/* Highlight (e.g., first line of bio) */
+.biography__text--body:first-line {
+    color: #7b92a5;
+    font-weight: bold;
+    font-family: var(--font-family-highlight);
+}
+
+.code-stats {
+  padding: 50px 0;
+  
+}
+
+.code-stats p {
+  font-size: 1.2em;
+  font-family: var(--font-family-body);
+  margin: 10px 0;
+}
+
+.code-stats strong {
+  color: #7b92a5;
+  font-family: var(--font-family-highlight);
+}
+
+.code-stats small {
+  font-size: 0.9em;
+  color: #666;
+  font-family: var(--font-family-body);
+}
+
+.gallery {
+  padding: 50px 0;
+  background: #f9f9f9;
+}
+
+.gallery .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-photo {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.blog {
+  padding: 100px 0 50px;
+}
+
+.blog-post {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.blog-post h3 {
+  font-family: var(--font-family-heading);
+  color: #7b92a5;
+}
+
+.blog-post p {
+  font-family: var(--font-family-body);
+}
+
+.blog-post .date {
+  font-size: 0.9em;
+  color: #666;
+  font-family: var(--font-family-body);
+}
+
+.connect {
+  padding: 50px 20px;
+}
+
+.connect h3 {
+  font-size: 1.5em;
+  color: #7b92a5;
+  font-family: var(--font-family-heading);
+  margin-bottom: 15px;
+}
+
+.connect p {
+  font-size: 1.1em;
+  font-family: var(--font-family-body);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  font-family: var(--font-family-body);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #7b92a5;
+  box-shadow: 0 0 5px rgba(123, 146, 165, 0.5);
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+.connect .btn-primary {
+  font-family: var(--font-family-button);
+}
+
+.resume-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.resume-list li {
+  font-family: var(--font-family-body);
+  font-size: 1.1em;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resume-list a {
+  color: #7b92a5;
+  text-decoration: none;
+}
+
+.resume-list a:hover {
+  text-decoration: underline;
+}
+
+.resume-list span {
+  font-size: 0.9em;
+  color: #666;
 }

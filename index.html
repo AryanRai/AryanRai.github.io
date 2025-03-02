@@ -12,29 +12,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="10">
 <!-- partial:index.partial.html -->
-<!--
 
-TO DO LIST:
-
-* Create a logo
-* Make navigation a bit narrower
-* Navigation background color the same as the page background color
-* Update colors on elements- text / borders / icons and hover colors
-* Make <h3> larger
-* Update <h1> and <h2> font family
-
-DESKTOP:
-
-* Biography section is boring - Update and vertically align the text
-* Biography - Maybe add Skills images (HTML5 / CSS3 / JS)
-* Portfolio section, make the images larger(?)
-* Make <h2> text larger, maybe add an underline
-* Contact Icons - Transition on hover effect to practice
-
-IDEA:
-* Remove background image and Biography section altogether. Between Home and Portfolio / Portfolio and Contact, create a filler div with background images with fixed positions while user scrolls
-
--->
 
   
   
@@ -58,7 +36,10 @@ IDEA:
           <li class=""><a href="#home">Home <span class="sr-only">(current)</span></a></li>
           <li class=""><a href="#biography">Bio</a></li>
           <li class=""><a href="#portfolio">Portfolio</a></li>
-          <li class="active"><a href="#contact">Contact</a></li>
+          <li class=""><a href="#code-stats">Code Stats</a></li>
+          <li class=""><a href="#social-photos">Gallery</a></li>
+          <li class=""><a href="#contact">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
         </ul>
       </div>
     </div>
@@ -87,72 +68,240 @@ IDEA:
   </div>
   
   
-  
   <section class="container biography" id="biography">
     <h2>Biography</h2>
     <article class="row">
-      <div class="col-xs-12 col-md-4 col-lg-4">
-        <img class="portfolio" src="https://raw.githubusercontent.com/AryanRai/AryanRai.github.io/main/root/assets/BioPic.jpg" alt="bio picture">
-      </div>
-      <div class="col-xs-12 col-md-8 col-lg-8 biography__text">
-        <p class="biography__text--body">
-          I am a passionate tech visionary who loves to explore, innovate &amp; continuously strive to challenge myself and pilot new ideas in creating technology with the right human and machine partnership. I am a student currently studying Mechatronic Engineering at The University of Sydney. (UN-UPDATED Work in progress)
-        </p>
+        <div class="col-xs-12 col-md-4 col-lg-4">
+            <img class="portfolio" id="bio-pic" src="" alt="bio picture">
+        </div>
+        <div class="col-xs-12 col-md-8 col-lg-8 biography__text">
+            <p class="biography__text--body" id="bio-content">Loading bio...</p>
+            <button id="edit-bio" class="btn btn-primary" style="margin-top: 10px;">Edit Bio</button>
+        </div>
+    </article>
+</section>
+  <!--
+  <section class="container biography" id="biography">
+    <h2>Biography</h2>
+    <article class="row">
+        <div class="col-xs-12 col-md-4 col-lg-4">
+            <img class="portfolio" id="bio-pic" src="" alt="bio picture">
+        </div>
+        <div class="col-xs-12 col-md-8 col-lg-8 biography__text">
+          <p class="biography__text--body">
+              I’ve been fascinated by computers, electronics, microcontrollers, robotics, IoT devices, and sensors for as long as I can remember. Currently pursuing a Mechatronics Engineering (Honours) degree at The University of Sydney, I specialize in embedded systems and have hands-on experience with a diverse set of programming languages, including Python, C, C++, and JavaScript, alongside exposure to C#, Node.js, and Rust. My skills extend beyond coding—I’m proficient in CAD (SolidWorks), PCB design (KiCad, EasyEDA), and technical documentation (LaTeX, Markdown), honed through student clubs, coursework, and personal projects.
+          </p>
+          <p class="biography__text--body">
+              I thrive in collaborative environments, leading teams and contributing student initiatives focused on electronics and robotics. While my foundation is in mechatronics, I’m passionate about bridging software, electronics, and innovative technologies. My goal is to leverage platforms like this to learn, innovate, and connect with inspiring professionals while working on impactful engineering challenges.
+          </p>
       </div>
     </article>
-  </section>
-  
-  
-  
-  <section class="container portfolio" id="portfolio">
-    <h2>Portfolio</h2>
-    <article>
+</section>
+  -->
+  <!-- Existing sections remain unchanged until Portfolio -->
+
+<!-- Details Section -->
+
+
+<!-- Academic Details Section -->
+<section class="container academic-details" id="academic-details">
+  <h2>Academic Details</h2>
+  <article>
       <div class="row">
-        <div class="col-xs-12 col-md-4 col-lg-4">
-          <a href="https://github.com/AryanRai/smartlights" target="_blank">
-            <img src="http://www.placehold.it/250x250" class="img-fluid" alt="wikipedia viewer image" name="Wikipedia Viewer">
-          </a>
-          <h3>smartlights</h3>
-        </div>
-        <div class="col-xs-12 col-md-4 col-lg-4">
-          <a href="https://github.com/AryanRai/DoorUnlock" target="_blank">
-            <img src="http://www.placehold.it/250x250" class="img-fluid" alt="local weather app image" name="Local Weather App">
-          </a>
-          <h3>DoorUnlock</h3>
-        </div>
-        <div class="col-xs-12 col-md-4 col-lg-4">
-          <a href="https://github.com/AryanRai/RGBeatz" target="_blank">
-            <img src="http://www.placehold.it/250x250" class="img-fluid" alt="random quote generator image" name="Random Quote Generator">
-          </a>
-          <h3>RGBeatz</h3>
-        </div>
+          <div class="col-xs-12">
+              <h3>B.Eng (Hons) Mechatronics - Robotics & Intelligent Systems</h3>
+              <p><strong>Institution:</strong> The University of Sydney</p>
+              <p><strong>Duration:</strong> 2023 - 2027</p>
+              <p><strong>Performance:</strong> 70 WAM</p>
+          </div>
+          <div class="col-xs-12">
+              <h3>Year 12</h3>
+              <p><strong>Institution:</strong> Presidium Gurgaon Delhi, CBSE Board</p>
+              <p><strong>Duration:</strong> 2022 - 2023</p>
+              <p><strong>Performance:</strong> 85% (Subjects: Computer Science, Physics, Maths, Chemistry - 93%)</p>
+          </div>
       </div>
-      
+  </article>
+</section>
+
+<!-- Positions of Responsibility Section (Timeline) -->
+<section class="container positions" id="positions">
+  <h2>Positions of Responsibility</h2>
+  <article>
+      <div class="timeline" id="positions-timeline">
+          <div class="timeline-item left">
+              <div class="timeline-content">
+                  <h3>Lead Electrical and Instrumentation Engineer</h3>
+                  <p><strong>Sydney Interplanetary Rover Initiative (USYD)</strong></p>
+                  <span class="date">March 2024 - Present</span>
+                  <p>Team Lead for Electrical/Electronics (17 engineers), designed rover power systems with Nvidia Jetson, managed 60-person collaboration.</p>
+              </div>
+          </div>
+          <div class="timeline-item right">
+              <div class="timeline-content">
+                  <h3>Embedded Systems/Ground Control Engineer</h3>
+                  <p><strong>USYD Rocketry Team</strong></p>
+                  <span class="date">February 2024 - Present</span>
+                  <p>Developed STM32-based data logger for Pardalote VI rocket, built DAQ systems for testing.</p>
+              </div>
+          </div>
+          <div class="timeline-item left">
+              <div class="timeline-content">
+                  <h3>Drone Flight Engineer</h3>
+                  <p><strong>Sydney UAV Engineering (USYD)</strong></p>
+                  <span class="date">Ongoing</span>
+                  <p>Built and tested Pixhawk-based autonomous drones, implemented OpenCV waypoint navigation.</p>
+              </div>
+          </div>
+      </div>
+  </article>
+</section>
+
+<!-- Key Skills & Interests Section -->
+<section class="container skills-interests" id="skills-interests">
+  <h2>Key Skills & Interests</h2>
+  <article>
       <div class="row">
-        <div class="col-xs-12 col-md-4 col-lg-4">
-          <a href="https://github.com/AryanRai/TestGame" target="_blank">
-            <img src="http://www.placehold.it/250x250" class="img-fluid" alt="project 4" name="project 4">
-          </a>
-          <h3>TestGame</h3>
-        </div>
-        <div class="col-xs-12 col-md-4 col-lg-4">
-          <a href="https://github.com/AryanRai/Spotify-Audio-Bar-Visualizer-Python" target="_blank">
-            <img src="http://www.placehold.it/250x250" class="img-fluid" alt="project 5" name="project 5">
-          </a>
-          <h3>Spotify-Audio-Bar-Visualizer-Python</h3>
-        </div>
-        <div class="col-xs-12 col-md-4 col-lg-4">
-          <a href="./pages/projects/Demo13MTRX1705/index.html" target="_blank">
-            <img src="http://www.placehold.it/250x250" class="img-fluid" alt="project 6" name="project 6">
-          </a>
-          <h3>USYD MTRX Demo 13</h3>
-        </div>
+          <div class="col-xs-12 col-md-6">
+              <h3>Skills</h3>
+              <ul>
+                  <li>Mechatronics (Robotics, Intelligent Systems)</li>
+                  <li>Embedded Systems & Microcontrollers</li>
+                  <li>Hardware/Software Integration</li>
+                  <li>Electrical & Electronics Design</li>
+                  <li>Autonomous Systems (Drones, Rovers)</li>
+                  <li>Team Leadership</li>
+              </ul>
+          </div>
+          <div class="col-xs-12 col-md-6">
+              <h3>Interests</h3>
+              <ul>
+                  <li>Robotics & Automation</li>
+                  <li>Aerospace Engineering</li>
+                  <li>Computer Vision</li>
+                  <li>Embedded Programming</li>
+                  <li>Innovative Technology Solutions</li>
+              </ul>
+          </div>
       </div>
-    </article>
-  </section>
+  </article>
+</section>
+
+
+
+<!-- Existing Contact section follows -->
   
-  
-  
+<section class="container " id="portfolio">
+  <h2>Portfolio Timeline</h2>
+  <article>
+      <div class="timeline" id="github-timeline"></div>
+      <div class="text-center">
+          <button id="load-more" class="btn btn-primary" style="margin-top: 20px;">Load More</button>
+      </div>
+  </article>
+</section>
+<section class="container code-stats" id="code-stats">
+  <h2>Code Statistics</h2>
+  <article>
+      <div class="row">
+          <div class="col-xs-12">
+              <p><strong>Total Lines of Code (Estimated for fun):</strong> <span id="loc-count">Calculating...</span></p>
+              <p><small>Based on public GitHub repositories as of March 02, 2025</small></p>
+          </div>
+      </div>
+  </article>
+</section>
+
+<!-- Social Photos Gallery -->
+<section class="container gallery" id="social-photos">
+  <h2>Social Photos</h2>
+  <article>
+      <div class="row" id="social-photos-gallery"></div>
+      <div class="text-center">
+          <button id="upload-social-photo" class="btn btn-primary" style="margin-top: 20px;">Upload Social Photo</button>
+      </div>
+  </article>
+</section>
+
+<!-- Project Photos Gallery -->
+<section class="container gallery" id="project-photos">
+  <h2>Project Photos</h2>
+  <article>
+      <div class="row" id="project-photos-gallery"></div>
+      <div class="text-center">
+          <button id="upload-project-photo" class="btn btn-primary" style="margin-top: 20px;">Upload Project Photo</button>
+      </div>
+  </article>
+</section>
+
+<!-- Photography Gallery -->
+<section class="container gallery" id="photography">
+  <h2>Photography</h2>
+  <article>
+      <div class="row" id="photography-gallery"></div>
+      <div class="text-center">
+          <button id="upload-photography" class="btn btn-primary" style="margin-top: 20px;">Upload Photography</button>
+      </div>
+  </article>
+</section>
+
+<!-- Personal Pics Gallery -->
+<section class="container gallery" id="personal-pics">
+  <h2>Personal Pics</h2>
+  <article>
+      <div class="row" id="personal-pics-gallery"></div>
+      <div class="text-center">
+          <button id="upload-personal-pic" class="btn btn-primary" style="margin-top: 20px;">Upload Personal Pic</button>
+      </div>
+  </article>
+</section>
+<!-- Connect Section -->
+<!-- Connect Section -->
+<section class="container connect" id="connect">
+  <h2>Connect With Me</h2>
+  <article>
+      <div class="row">
+          <div class="col-xs-12 col-md-6">
+              <h3>Resume Versions</h3>
+              <p>Download any version of my resume below:</p>
+              <ul id="resume-list" class="resume-list"></ul>
+              <button id="upload-resume" class="btn btn-primary" style="margin-top: 20px;">Upload New Resume</button>
+          </div>
+          <div class="col-xs-12 col-md-6">
+              <h3>Send Me a Message</h3>
+              <form id="contact-form">
+                  <div class="form-group">
+                      <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group">
+                      <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group">
+                      <textarea id="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Send Message</button>
+              </form>
+          </div>
+      </div>
+  </article>
+</section>
+<section class="container details" id="details">
+  <h2>Details</h2>
+  <article>
+      <div class="row">
+          <div class="col-xs-12">
+              <p><strong>Name:</strong> Aryan Rai</p>
+              <p><strong>Contact:</strong> 0492 964 003 | <a href="mailto:aryanrai170@gmail.com">aryanrai170@gmail.com</a></p>
+              <p><strong>Location:</strong> Sydney, NSW, Australia</p>
+              <p><strong>Social:</strong> 
+                  <a href="https://www.linkedin.com/in/aryan-rai-503a59201/" target="_blank">LinkedIn</a> | 
+                  <a href="https://github.com/AryanRai" target="_blank">GitHub</a>
+              </p>
+          </div>
+      </div>
+  </article>
+</section>
+
   <section class="container contact" id="contact">
     <h2>Contact</h2>
     <article class="row">
@@ -191,176 +340,392 @@ IDEA:
   
   <footer>
     <p>
-      ~ <a href="#" target="_blank">Aryan Rai</a>
+      ~ <a href="#" target="_blank">Aryanyanyanyanyanyan Rai</a>
       <br>
-      aryanrai170@gmail.com | Sydney, NSW, AU
+      aryanrai170@gmail.com | Sydney, NSW, Australia
   </p></footer>
 
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 
+<script>
+  async function fetchGitHubTimeline(startIndex = 0, batchSize = 6) {
+      try {
+          const response = await fetch(`https://api.github.com/users/AryanRai/repos?sort=updated&direction=desc&per_page=100`);
+          const repos = await response.json();
+          const timelineContainer = document.getElementById('github-timeline');
+          const loadMoreBtn = document.getElementById('load-more');
+  
+          // Slice repos based on current batch
+          const batch = repos.slice(startIndex, startIndex + batchSize);
+  
+          batch.forEach((repo, index) => {
+              const timelineItem = document.createElement('div');
+              timelineItem.className = `timeline-item ${((startIndex + index) % 2 === 0) ? 'left' : 'right'}`;
+  
+              // Format the update date
+              const updatedDate = new Date(repo.updated_at).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+              });
+  
+              // Truncate description if too long
+              const description = repo.description 
+                  ? (repo.description.length > 150 ? repo.description.substring(0, 150) + '...' : repo.description)
+                  : 'No description available';
+  
+              timelineItem.innerHTML = `
+                  <div class="timeline-content">
+                      <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                      <p>${description}</p>
+                      <span class="date">Last updated: ${updatedDate}</span>
+                      <p class="stats">
+                          <i class="fa fa-star"></i> ${repo.stargazers_count} | 
+                          <i class="fa fa-code-fork"></i> ${repo.forks_count} | 
+                          <span class="language" style="color: ${getLanguageColor(repo.language)}">${repo.language || 'Unknown'}</span>
+                      </p>
+                  </div>
+              `;
+              timelineContainer.appendChild(timelineItem);
+          });
+  
+          // Show/hide Load More button
+          if (startIndex + batchSize >= repos.length) {
+              loadMoreBtn.style.display = 'none';
+          } else {
+              loadMoreBtn.style.display = 'block';
+              loadMoreBtn.onclick = () => fetchGitHubTimeline(startIndex + batchSize, batchSize);
+          }
+  
+      } catch (error) {
+          console.error('Error fetching GitHub timeline:', error);
+          document.getElementById('github-timeline').innerHTML = 
+              '<p>Error loading projects. Please try again later.</p>';
+      }
+  }
+  
+  // Language color function (simplified)
+  function getLanguageColor(language) {
+      const colors = {
+          'Python': '#3572A5',
+          'C': '#555555',
+          'C++': '#f34b7d',
+          'JavaScript': '#f1e05a',
+          'Rust': '#dea584',
+          'C#': '#178600',
+          'Unknown': '#666'
+      };
+      return colors[language] || colors['Unknown'];
+  }
+  
+  // Initial load
+  document.addEventListener('DOMContentLoaded', () => fetchGitHubTimeline(0, 6));
+  </script>
+  <script>
+    async function fetchCodeStats() {
+        try {
+            const response = await fetch('https://api.github.com/users/AryanRai/repos?per_page=100');
+            const repos = await response.json();
+            const locElement = document.getElementById('loc-count');
+    
+            // Estimate lines of code
+            let totalSize = 0;
+            repos.forEach(repo => {
+                totalSize += repo.size; // Size in KB
+            });
+    
+            // Rough heuristic: 1 KB ≈ 30-50 lines of code (varies by language/file type)
+            const estimatedLines = Math.round(totalSize * 40); // Using 40 as midpoint
+            const formattedLines = estimatedLines.toLocaleString(); // Add commas for readability
+    
+            locElement.textContent = `${formattedLines} lines`;
+        } catch (error) {
+            console.error('Error fetching code stats:', error);
+            document.getElementById('loc-count').textContent = 'Error loading stats';
+        }
+    }
+    
+    // Load code stats on page load
+    document.addEventListener('DOMContentLoaded', fetchCodeStats);
+    </script>
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+      
+      <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+      <script>
+        // Initialize Supabase with your credentials
+        const supabase = window.supabase.createClient('https://tqelchlmlsqjqrpfbeio.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxZWxjaGxtbHNxanFycGZiZWlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5MTYzNDQsImV4cCI6MjA1NjQ5MjM0NH0.uLr6hazBy6QNiy81OztDJofwKVqLG59DdaSm9klidn4');
 
-</body><!-- OLD
-<nav>
-  <ul class="topnav">
-    <div class="container-fluid">
-      <a href="#home">
-        <li>Home</li>
-      </a>
-      <a href="#about">
-        <li>About</li>
-      </a>
-      <a href="#portfolio">
-        <li>Portfolio</li>
-      </a>
-      <a href="#contact">
-        <li>Contact</li>
-      </a>
-    </div>
-  </ul>
-</nav>
+// Check authentication status
+async function checkAuth() {
+    const { data: { session } } = await supabase.auth.getSession();
+    return session;
+}
 
-<div class="container-fluid welcome" id="home">
-  <h1>Dave Regg's Portfolio</h1>
-  <p>
-      Front end web developer
-  </p>
-</div>
-    
-<div class="container-fluid bio" id="about">
-    <h2>About Me</h2>
-    <div class="row">
-      <div class="col-md-10">
-        <p>
-                Lorem ipsum dolor sit amet, eu vis error legimus, qui ei quod tritani delenit. Ex eros animal eos, et eam inimicus constituto honestatis. Est an harum ignota, ex pro novum atomorum. Mel ut esse splendide, cum id unum mazim. Has adhuc dicta disputando ut.
+// Handle login
+async function login() {
+    const email = prompt('Enter your email:');
+    const password = prompt('Enter your password:');
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+        alert('Login failed: ' + error.message);
+        return false;
+    }
+    return true;
+}
 
-Mei et vidit omnes maiestatis, animal elaboraret delicatissimi his no. Eros nostrum tincidunt sed cu, an diam noster eos. Mea labitur theophrastus ne, euismod maiestatis ne per. Affert facete expetendis no eam, ad nibh nemore pericula sed. Nemore dictas voluptaria ut usu, ut vim deleniti periculis elaboraret.
-        </p>
-      </div>
-      <div class="col-md-2">
-        <img src="https://docs.google.com/uc?export=download&id=0B3_V506_wrD8NmxRX0Ftd3FUT2c" alt="Picture of David Regg" name="This is me!" class="img-fluid">
-      </div>
-  </div>
-</div>
+// Generic function to fetch photos
+async function fetchPhotos(bucket, containerId) {
+    const { data, error } = await supabase.storage.from(bucket).list('', { limit: 100 });
+    if (error) {
+        console.error(`Error fetching ${bucket} photos:`, error.message);
+        return;
+    }
+
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    console.log(`${bucket} files:`, data);
+    data.forEach(file => {
+        if (file.name === '.emptyFolderPlaceholder') return;
+        const imgUrl = supabase.storage.from(bucket).getPublicUrl(file.name).data.publicUrl;
+        console.log(`${bucket} URL:`, imgUrl);
+        const img = document.createElement('img');
+        img.src = imgUrl;
+        img.className = 'gallery-photo';
+        img.alt = file.name;
+        img.onerror = () => console.error(`Failed to load ${bucket}:`, imgUrl);
+        img.onload = () => console.log(`Loaded ${bucket}:`, imgUrl);
+        container.appendChild(img);
+
+        // Use the first personal pic as bio pic
+        if (bucket === 'personal-pics' && container.children.length === 1) {
+            document.getElementById('bio-pic').src = imgUrl;
+        }
+    });
+}
+
+// Generic function to upload photos
+// Upload photo (updated for multiple files)
+async function uploadPhoto(bucket, containerId) {
+    const session = await checkAuth();
+    if (!session) {
+        const loggedIn = await login();
+        if (!loggedIn) return;
+    }
+
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.multiple = true; // Allow multiple file selection
+    input.onchange = async (event) => {
+        const files = event.target.files;
+        if (!files || files.length === 0) return;
+
+        const container = document.getElementById(containerId);
+        for (const file of files) {
+            const fileName = `${Date.now()}-${file.name}`;
+            console.log(`Uploading to ${bucket}:`, fileName);
+            const { data, error } = await supabase.storage.from(bucket).upload(fileName, file, {
+                cacheControl: '3600',
+                contentType: file.type
+            });
+
+            if (error) {
+                console.error(`Upload error to ${bucket}:`, error.message, error.status);
+                alert(`Upload failed for ${fileName}: ${error.message}`);
+            } else {
+                console.log(`Upload success to ${bucket}:`, data);
+                const imgUrl = supabase.storage.from(bucket).getPublicUrl(fileName).data.publicUrl;
+                console.log(`Public URL for ${bucket}:`, imgUrl);
+                const img = document.createElement('img');
+                img.src = imgUrl;
+                img.className = 'gallery-photo';
+                img.alt = fileName;
+                img.onerror = () => console.error(`Failed to load ${bucket}:`, imgUrl);
+                img.onload = () => console.log(`Loaded ${bucket}:`, imgUrl);
+                container.appendChild(img);
+
+                // Update bio pic if it's the first personal pic
+                if (bucket === 'personal-pics' && container.children.length === 1) {
+                    document.getElementById('bio-pic').src = imgUrl;
+                }
+            }
+        }
+    };
+    input.click();
+}
+
+// Fetch bio content
+async function fetchBio() {
+    const { data, error } = await supabase.from('bio').select('content').limit(1).single();
+    if (error) {
+        console.error('Error fetching bio:', error.message);
+        document.getElementById('bio-content').textContent = 'Error loading bio';
+    } else {
+        document.getElementById('bio-content').textContent = data.content;
+    }
+}
+
+// Edit bio
+async function editBio() {
+    const session = await checkAuth();
+    if (!session) {
+        const loggedIn = await login();
+        if (!loggedIn) return;
+    }
+
+    const currentBio = document.getElementById('bio-content').textContent;
+    const newBio = prompt('Edit your bio:', currentBio);
+    if (!newBio || newBio === currentBio) return;
+
+    const { error } = await supabase.from('bio').upsert(
+        { id: 1, content: newBio, updated_at: new Date().toISOString() },
+        { onConflict: 'id' }
+    );
+    if (error) {
+        console.error('Error updating bio:', error.message);
+        alert('Failed to update bio: ' + error.message);
+    } else {
+        document.getElementById('bio-content').textContent = newBio;
+    }
+}
+
+
+// Handle contact form submission
+async function sendMessage(event) {
+    event.preventDefault();
     
-<div class="container-fluid port" id="portfolio">
-  <h2>Projects</h2>
-  <div class="row">
-    <div class="col-md-4">
-      <a href="https://codepen.io/daveregg/full/MyWKdY/" target="_blank">
-        <img src="https://docs.google.com/uc?export=download&id=0B3_V506_wrD8MVJBQVNpaDlmR1k" name="placeholder" alt="placeholder" class="img-fluid">
-          <h3>Coen Brothers Tribute</h3>
-      </a>          
-    </div>
-    <div class="col-md-4">
-      <a href="https://codepen.io/daveregg/full/VKkbJd/" target="_blank">
-        <img src="https://docs.google.com/uc?export=download&id=0B3_V506_wrD8S1U1U285WW4yLXM" name="placeholder" alt="placeholder" class="img-fluid">
-        <h3>Philip J Fry Tribute</h3>
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="https://codepen.io/daveregg/full/gwwvRQ/" target="_blank">
-        <img src="https://docs.google.com/uc?export=download&id=0B3_V506_wrD8alY4SU8zeE5tT28" name="placeholder" alt="placeholder" class="img-fluid">
-        <h3>Quote Generator</h3>
-      </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <a href="https://codepen.io/daveregg/full/GjyQLL/" target="_blank">
-        <img src="https://docs.google.com/uc?export=download&id=0B3_V506_wrD8U2tDbjVtTGNjbEE" name="placeholder" alt="placeholder" class="img-fluid">
-        <h3>Local Weather</h3>
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="https://codepen.io/daveregg/full/pEMOXN/" target="_blank">
-        <img src="https://docs.google.com/uc?export=download&id=0B3_V506_wrD8a1VNbmVxRlRXekk" name="placeholder" alt="placeholder" class="img-fluid">
-        <h3>Wikipedia App</h3>
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="#">
-        <img src="http://www.placehold.it/250x250" name="placeholder" alt="placeholder" class="img-fluid">
-        <h3>Project Six</h3>
-      </a>
-    </div>
-  </div>
-</div>
-    
-<div class="container-fluid" id="contact">
-  <h2>Contact Me</h2>
-  <ul class="icons">
-    <li>
-      <a href="#">
-        <i class="fa fa-3x fa-facebook-square" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-3x fa-github" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-3x fa-code" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-3x fa-codepen" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-3x fa-instagram" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-3x fa-twitter-square" aria-hidden="true"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-    
-<footer class="container-fluid">
-  <h6>&copy;2016 Dave Regg</h6>
-  <p>
-    <a href="#">freeCodeCamp</a> | <a href="#">Twitter</a> | <a href="#">Facebook</a> | <a href="#">Github</a> | <a href="#">Instagram</a>
-  </p>
-</footer>
---><!--
-        <div class="row skills">
-          <div class="col-xs-6 col-lg-3">
-            <img src="https://cdn0.iconfinder.com/data/icons/HTML5/128/HTML_Logo.png" class="img-fluid" alt="html5" name="html5 icon">
-          </div>
-          <div class="col-xs-6 col-lg-3">
-            <img src="http://css.markupwand.com/assets/css3.png" class="img-fluid" alt="css3" name="css3 icon">
-          </div>
-          <div class="col-xs-6 col-lg-3">
-            <img src="http://www.placehold.it/50x100" class="img-fluid" alt="javascript" name="javascript icon">
-          </div>
-          <div class="col-xs-6 col-lg-3">
-            <img src="http://www.placehold.it/50x100" class="img-fluid" alt="jquery" name="jquery icon">
-          </div>
-        </div>
---><!-- partial --></html>
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const { error } = await supabase.from('messages').insert([
+        { name, email, message }
+    ]);
+
+    if (error) {
+        console.error('Error sending message:', error.message);
+        alert('Failed to send message: ' + error.message);
+    } else {
+        alert('Message sent successfully! I’ll get back to you soon.');
+        document.getElementById('contact-form').reset();
+    }
+}
+// Fetch resume versions
+async function fetchResumes() {
+    const { data, error } = await supabase.storage.from('resume').list('', { limit: 100 });
+    if (error) {
+        console.error('Error fetching resumes:', error.message);
+        return;
+    }
+
+    const resumeList = document.getElementById('resume-list');
+    resumeList.innerHTML = '';
+    console.log('Resume files:', data);
+    data.forEach(file => {
+        if (file.name === '.emptyFolderPlaceholder') return;
+        const resumeUrl = supabase.storage.from('resume').getPublicUrl(file.name).data.publicUrl;
+        const li = document.createElement('li');
+        const uploadDate = file.created_at ? new Date(file.created_at).toLocaleDateString() : 'Unknown date';
+        li.innerHTML = `
+            <a href="${resumeUrl}" download="${file.name}">${file.name}</a>
+            <span>Uploaded: ${uploadDate}</span>
+        `;
+        resumeList.appendChild(li);
+    });
+}
+
+// Upload resume
+
+async function uploadResume() {
+    let session = await checkAuth();
+    console.log('Initial session:', session);
+    if (!session) {
+        const loggedIn = await login();
+        console.log('Login result:', loggedIn);
+        if (!loggedIn) return;
+        session = await checkAuth(); // Re-check session after login
+        console.log('Session after login:', session);
+    }
+
+    if (!session) {
+        alert('Authentication failed. Please try again.');
+        return;
+    }
+
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/pdf';
+    input.multiple = true;
+    input.onchange = async (event) => {
+        const files = event.target.files;
+        if (!files || files.length === 0) return;
+
+        const resumeList = document.getElementById('resume-list');
+        for (const file of files) {
+            const fileName = `${Date.now()}-${file.name}`;
+            console.log('Uploading resume:', fileName);
+            const { data, error } = await supabase.storage.from('resume').upload(fileName, file, {
+                cacheControl: '3600',
+                contentType: 'application/pdf'
+            });
+
+            if (error) {
+                console.error('Upload error for resume:', error.message, error.status, error);
+                alert(`Upload failed for ${fileName}: ${error.message}`);
+            } else {
+                console.log('Upload success for resume:', data);
+                const resumeUrl = supabase.storage.from('resume').getPublicUrl(fileName).data.publicUrl;
+                console.log('Resume URL:', resumeUrl);
+                const li = document.createElement('li');
+                const uploadDate = new Date().toLocaleDateString();
+                li.innerHTML = `
+                    <a href="${resumeUrl}" download="${fileName}">${fileName}</a>
+                    <span>Uploaded: ${uploadDate}</span>
+                `;
+                resumeList.appendChild(li);
+            }
+        }
+    };
+    input.click();
+}
+
+// Monitor auth state changes
+supabase.auth.onAuthStateChange((event, session) => {
+    console.log('Auth state changed:', event, session);
+});
+
+
+// Load resumes and add event listeners on page load
+document.addEventListener('DOMContentLoaded', () => {
+    fetchResumes();
+    // ... (other existing listeners like fetchPhotos, fetchBio, etc.)
+});
+document.getElementById('upload-resume').addEventListener('click', uploadResume);
+// Add event listener for form submission
+document.getElementById('contact-form').addEventListener('submit', sendMessage);
+
+// Load bio on page load
+document.addEventListener('DOMContentLoaded', fetchBio);
+document.getElementById('edit-bio').addEventListener('click', editBio);
+// Load all galleries and set bio pic on page load
+document.addEventListener('DOMContentLoaded', () => {
+    fetchPhotos('social-photos', 'social-photos-gallery');
+    fetchPhotos('project-photos', 'project-photos-gallery');
+    fetchPhotos('photography', 'photography-gallery');
+    fetchPhotos('personal-pics', 'personal-pics-gallery');
+});
+
+// Attach upload listeners
+document.getElementById('upload-social-photo').addEventListener('click', () => uploadPhoto('social-photos', 'social-photos-gallery'));
+document.getElementById('upload-project-photo').addEventListener('click', () => uploadPhoto('project-photos', 'project-photos-gallery'));
+document.getElementById('upload-photography').addEventListener('click', () => uploadPhoto('photography', 'photography-gallery'));
+document.getElementById('upload-personal-pic').addEventListener('click', () => uploadPhoto('personal-pics', 'personal-pics-gallery'));
+
+
+</script>
+</body><!-- partial --></html>
