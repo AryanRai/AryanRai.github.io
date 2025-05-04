@@ -1,36 +1,53 @@
-/* --- FONT IMPORTS --- */
-/* Replacing original fonts with retro-future options */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /* Sci-fi/Tech Heading Font */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap'); /* Clean, slightly retro Sans-Serif for Body */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* Optional: Pixel/Mono font for specific highlights */
+/*
+ * Grainy Gradient Shape Trend Makeover
+ *
+ * Key additions:
+ * - CSS variables for colors suitable for gradients.
+ * - Background gradients applied to body and sections.
+ * - A pseudo-element added to the body for a site-wide grain overlay.
+ * - Examples of how to apply soft shapes (using border-radius) and apply the gradient/grain.
+ *
+ * Note: Creating complex, dynamic organic shapes often requires JavaScript or SVG.
+ * The CSS below focuses on applying the grainy gradient effect to existing elements
+ * and showing how soft CSS shapes can be styled.
+ */
 
-/* --- ROOT VARIABLES --- */
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@400;500;700&display=swap');
+
 :root {
-  /* Color Palette (Dark Theme with Retro Accents) */
-  --clr-bg: #121828; /* Deep Space Blue/Black */
-  --clr-bg-alt: #1f2a40; /* Slightly Lighter Background for Cards/Sections */
-  --clr-text: #d0d8e8; /* Light Grey/Blue Text */
-  --clr-text-muted: #8899a6; /* Muted text for secondary info */
-  --clr-accent1: #00f5d4; /* Bright Cyan/Teal Accent */
-  --clr-accent2: #ff4d94; /* Bright Magenta/Pink Accent */
-  --clr-border: #3a4a69; /* Subtle Border Color */
-  --clr-shadow: rgba(0, 245, 212, 0.3); /* Shadow color based on accent1 */
+    --font-family-body: "DM Sans", Arial, sans-serif;
+    --font-family-button: "Fraunces", Georgia, serif;
+    --font-family-heading: "SharpGrotesk", Georgia, Impact, sans-serif;
+    --font-family-highlight: "Fraunces", Georgia, serif;
+    --font-family-navigation: "Fraunces", Georgia, serif;
 
-  /* Typography */
-  --font-family-heading: 'Orbitron', sans-serif;
-  --font-family-body: 'Space Grotesk', Arial, sans-serif;
-  --font-family-mono: 'VT323', monospace; /* For code snippets or specific highlights */
-  --font-family-navigation: 'Space Grotesk', sans-serif; /* Using body font for nav for clarity */
-  --font-family-button: 'Space Grotesk', sans-serif;
-  --font-family-highlight: 'Orbitron', sans-serif; /* Using heading font for strong highlights */
+    /* -- Grainy Gradient Colors -- */
+    /* Define a palette that works well together in gradients */
+    --color-gradient-start: #a8edea; /* Soft Teal */
+    --color-gradient-mid: #fed6e3;   /* Muted Pink */
+    --color-gradient-end: #f0b0e0;   /* Light Purple */
+    --color-dark: #333;
+    --color-text-dark: #444;
+    --color-text-light: #f9f9f9;
+    --color-accent: #7b92a5; /* Keeping one original accent */
 
-  /* UI Elements */
-  --border-radius: 4px;
-  --transition-speed: 0.3s;
+    /* -- Grain Effect -- */
+    /* Define properties for the pseudo-element grain overlay */
+    --grain-opacity: 0.05; /* Adjust for desired intensity */
 }
 
-/* --- CSS RESET --- */
-/* Eric Meyer's Reset CSS v2.0 - Kept as is */
+/* Note: SharpGrotesk isn't freely available on Google Fonts.
+   If you have a license/source, include it here, or we'll use fallbacks. */
+/* ------------------------- *\
+\* ------- CSS RESET ------- */
+
+/**
+ * Eric Meyer's Reset CSS v2.0
+(https://meyerweb.com/
+eric/tools/css/reset/)
+ * http://cssreset.com
+ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -44,770 +61,846 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
- 	margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block;
+    display: block;
 }
 body {
-  line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-  list-style: none;
+    list-style: none;
 }
 blockquote, q {
-  quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
-  content: none;
+    content: '';
+    content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 /* End CSS Reset */
 
-/* --- GLOBAL STYLES --- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* ------------------------ *\
+\* --------- BODY --------- */
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
 }
 
-html {
-  font-size: 16px; /* Base font size */
-  scroll-behavior: smooth;
-  color-scheme: dark; /* Hint for browser UI like scrollbars */
+html, body {
+    font-size: 16px;
+    font-family: var(--font-family-body);
+    text-align: center;
+    margin: 0 auto;
+    /* Apply the base gradient background */
+    background: linear-gradient(to bottom right, var(--color-gradient-start), var(--color-gradient-mid), var(--color-gradient-end));
+    color: var(--color-text-dark); /* Default text color */
+    overflow-x: hidden;
+    position: relative; /* Needed for the grain overlay pseudo-element */
+    min-height: 100vh; /* Ensure gradient covers the whole page */
 }
 
-body {
-  font-family: var(--font-family-body);
-  background-color: var(--clr-bg);
-  color: var(--clr-text);
-  line-height: 1.6;
-  margin: 0 auto;
-  overflow-x: hidden;
-  text-align: center; /* Default alignment, override as needed */
+/* Grain Overlay Pseudo-element */
+body::before {
+    content: '';
+    position: fixed; /* Fixed so it covers the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Create a noise pattern using CSS gradients */
+    background-image: radial-gradient(circle, #000 10%, transparent 10%), radial-gradient(circle, #fff 10%, transparent 10%);
+    background-size: 2px 2px; /* Adjust size for grain density */
+    background-position: 0 0, 1px 1px; /* Offset the two patterns */
+    opacity: var(--grain-opacity);
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 9999; /* Ensure it's on top */
 }
 
-/* --- LAYOUT CONTAINER --- */
+
 .container {
-  padding: 60px 20px; /* Adjusted padding */
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+    padding: 50px 0;
+    position: relative; /* Ensure content is above the grain overlay */
+    z-index: 1;
 }
 
-/* Section Separation */
-section:not(.welcome-page) {
-    border-top: 1px solid var(--clr-border);
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    font-family: var(--font-family-heading);
+    color: var(--color-dark);
 }
 
-/* --- TYPOGRAPHY --- */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-heading);
-  color: var(--clr-accent1); /* Use accent for major headings */
-  margin: 1.5em 0 0.8em 0;
-  line-height: 1.2;
-  text-shadow: 0 0 8px var(--clr-shadow); /* Subtle glow */
-}
-
-h1 { font-size: 3.5rem; } /* Was very large, adjusted */
-h2 { font-size: 2.5rem; margin-bottom: 50px; } /* Kept original margin-bottom */
-h3 { font-size: 1.75rem; color: var(--clr-accent2); text-shadow: none; } /* Secondary accent for H3 */
-h4 { font-size: 1.25rem; color: var(--clr-text); text-shadow: none; }
-
-p {
-  margin-bottom: 1em;
-  max-width: 70ch; /* Improve readability */
-  margin-left: auto;
-  margin-right: auto;
+h3 {
+    font-family: var(--font-family-heading);
+    color: var(--color-dark);
 }
 
 a {
-  color: var(--clr-accent1);
-  text-decoration: none;
-  transition: color var(--transition-speed) ease, text-shadow var(--transition-speed) ease;
+    color: var(--color-accent);
+    text-decoration: none;
 }
 
-a:hover,
-a:focus {
-  color: #ffffff; /* Brighter on hover */
-  text-decoration: underline;
-  text-shadow: 0 0 10px var(--clr-shadow);
+a:hover {
+    text-decoration: underline;
+    color: var(--color-dark);
 }
 
-strong, b {
-    font-weight: 700;
-    color: var(--clr-accent2); /* Highlight strong text */
-}
 
-code, pre {
-  font-family: var(--font-family-mono);
-  background-color: var(--clr-bg-alt);
-  border: 1px solid var(--clr-border);
-  padding: 0.2em 0.4em;
-  border-radius: var(--border-radius);
-  font-size: 0.9em;
-}
+/* ------------------------- *\
+\* ---------- NAV ---------- */
 
-pre {
-  padding: 1em;
-  overflow-x: auto;
-}
-
-/* --- NAVIGATION (.navbar) --- */
-/* Assuming Bootstrap structure, overriding styles */
 .navbar {
-  margin: 0;
-  border: none;
-  border-bottom: 1px solid var(--clr-border);
+    margin: 0;
+    border: none;
+    background-color: rgba(255,255,255,0.8); /* Keep semi-transparent white */
+    position: relative; /* Ensure nav is above grain */
+    z-index: 2; /* Higher z-index than grain */
 }
 .navbar-default {
-  background-color: rgba(31, 42, 64, 0.85); /* --clr-bg-alt with transparency */
-  backdrop-filter: blur(5px); /* Frosted glass effect */
-  -webkit-backdrop-filter: blur(5px);
-  position: fixed; /* Make it sticky */
-  width: 100%;
-  z-index: 1000;
-}
-.navbar-brand {
-  padding: 10px 15px; /* Adjust padding */
+     background-color: rgba(255,255,255,0.8);
 }
 .navbar-brand > img {
-  width: 30px; /* Slightly larger */
-  height: auto;
-  border-radius: var(--border-radius);
-  margin-right: 10px;
-  vertical-align: middle;
+    width: 25px;
+    border-radius: .5em;
 }
-.navbar-default .navbar-brand {
-    color: var(--clr-accent1);
-    font-family: var(--font-family-heading);
-    font-size: 1.5rem;
-    height: auto; /* Let content define height */
-    transition: color var(--transition-speed) ease;
+.navbar-default .navbar-brand span {
+    font-family: var(--font-family-navigation);
+    color: var(--color-dark);
 }
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #ffffff;
-}
-
-/* Nav Links */
+/* link */
 .navbar-default .navbar-nav > li > a {
-  color: var(--clr-text);
-  font-family: var(--font-family-navigation);
-  font-weight: 500;
-  font-size: 1rem;
-  padding-top: 20px; /* Align with potentially taller brand */
-  padding-bottom: 20px;
-  transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+    color: var(--color-accent); /* Use accent color for links */
+    font-size: 16px;
+    font-family: var(--font-family-navigation);
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: var(--clr-accent1);
-  background-color: transparent; /* Remove default hover bg */
-  text-decoration: none; /* Keep consistent with base 'a' */
+    color: var(--color-dark); /* Darker color on hover */
+    text-decoration: underline;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: var(--clr-accent1);
-  background: none;
-  /* text-decoration: underline; */ /* Optional: Underline active */
-  box-shadow: inset 0 -2px 0 var(--clr-accent1); /* Underline effect */
+    color: var(--color-dark);
+    background: none;
+    text-decoration: underline;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  color: #ffffff;
-  background-color: rgba(42, 58, 88, 0.7); /* Darker transparent bg */
+    color: var(--color-dark);
+    background-color: rgba(255,255,255,0.5);
 }
-
-/* Mobile Toggle Button */
+/* mobile version */
 .navbar-default .navbar-toggle {
-  border-color: var(--clr-border);
-  margin-top: 13px; /* Adjust vertical alignment */
-  margin-bottom: 13px;
-  transition: background-color var(--transition-speed) ease;
+    border-color: #DDD;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: var(--clr-bg-alt);
+    background-color: rgba(255,255,255,0.7);
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: var(--clr-accent1); /* Make bars stand out */
+    background-color: var(--color-dark);
 }
 
-/* Mobile/Dropdown Menu */
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: var(--clr-text);
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: var(--clr-accent1);
-    background-color: var(--clr-bg-alt);
-  }
-}
+/* ---------------------------- *\
+\* --------- WELCOME ---------- */
 
-
-/* --- WELCOME SECTION --- */
 .welcome-page {
-  padding-top: 120px; /* Account for fixed navbar */
-  padding-bottom: 100px;
-  min-height: 100vh; /* Full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-image: linear-gradient(rgba(18, 24, 40, 0.85), rgba(18, 24, 40, 0.95)), url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8SmdtMVRkdVJBdlU"); /* Dark overlay */
-  /* remove fixed attachment for better performance on mobile */
-  /* background-attachment: fixed;  */
-  text-align: center;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    /* Keeping background image, but consider layering a gradient/grain over it */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30% 25%;
+    background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8SmdtMVRkdVJBdlU");
+    position: relative;
+    /* Add a subtle gradient overlay to the background image */
+    /* You might need to adjust the background-image and background-size/position
+       if you combine it with a gradient directly on the same element.
+       A pseudo-element is often better for overlays. */
+    /* Example using a pseudo-element overlay: */
 }
 
-/* Removing Jumbotron styling, apply directly to welcome-page content container if needed */
+.welcome-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top left, rgba(var(--color-gradient-start), 0.3), rgba(var(--color-gradient-end), 0.3)); /* Subtle overlay */
+    z-index: 1;
+}
+
 .welcome-page > .jumbotron {
-    background-color: transparent; /* Remove jumbotron background */
-    padding: 0; /* Remove jumbotron padding */
-    max-width: 900px; /* Limit content width */
+    background-color: rgba(255,255,255,0.5); /* Keep existing semi-transparent background */
+    padding: 110px;
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
 }
-
 
 .welcome-page h1 {
-  font-size: 4.5rem; /* Adjusted size */
-  font-family: var(--font-family-heading);
-  margin: 0 0 0.5em 0; /* Adjusted margin */
-  color: #ffffff; /* Make main heading white for contrast */
-  text-shadow: 0 0 15px rgba(0, 245, 212, 0.5); /* Stronger glow */
+    font-size: 9.85em;
+    font-family: var(--font-family-heading);
+    margin: .25em 0;
+    color: var(--color-dark);
 }
 
-/* Removed the H1:after line, simpler look */
+.welcome-page h1:after {
+    content: "";
+    display: block;
+    background-color: var(--color-dark);
+    height: 2px;
+    width: 200px;
+    border-radius: 25%;
+    margin: 15px auto;
+}
 
 .welcome-page p {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: var(--clr-text);
-  margin-bottom: 1.5em;
+    font-size: 1.15em;
+    font-family: var(--font-family-body);
+    color: var(--color-dark);
 }
 
-.welcome-page a.btn { /* Style links as buttons if they have .btn class */
-    margin: 0.5em;
+.welcome-page a {
+    margin-right: 1.25em;
+}
+.welcome-page a:last-child {
+    margin-right: 0;
 }
 
-/* --- BIOGRAPHY SECTION --- */
-.biography {
-    text-align: center;
-}
+/* ------------------------------ *\
+\* --------- BIOGRAPHY ---------- */
 
-.biography-david-regg { /* Assuming this is the image */
-  border: 3px solid var(--clr-accent1);
-  border-radius: 50%;
-  margin: 0 auto 1.5em auto; /* Center image */
-  width: 200px;
-  height: 200px; /* Ensure it's square for circle */
-  object-fit: cover; /* Prevent distortion */
-  box-shadow: 0 0 15px var(--clr-shadow);
+.biography-david-regg {
+    /* Consider a softer border or no border */
+    border: none; /* Removing hard border */
+    border-radius: 50%;
+    margin-bottom: 1em;
+    width: 200px;
+    height: auto;
+    /* Add a subtle shadow instead of a hard border */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .biography__text {
-  padding: 0 1em;
-  line-height: 1.7;
-  text-align: left; /* Justify text for better reading */
-  max-width: 70ch;
-  margin: 0 auto;
+    padding: 0 2em;
+    line-height: 1.25em;
+    color: var(--color-text-dark);
 }
-
-.biography__text--body {
-  font-size: 1.1rem;
-  color: var(--clr-text);
-}
-
-/* Retro First-Line effect (Optional) */
 .biography__text--body:first-line {
-  /* color: var(--clr-accent2); */ /* Can be too much, use sparingly */
-  /* font-weight: bold; */
+    color: var(--color-accent); /* Use accent color */
+    font-weight: bold;
+    font-family: var(--font-family-highlight);
+}
+.biography__text--body {
+    font-size: 100%;
+    color: var(--color-text-dark);
+    font-family: var(--font-family-body);
+    line-height: 1.6; /* Improve readability */
 }
 
-/* --- PORTFOLIO / TIMELINE SECTION --- */
-.portfolio, #experience, #education, .positions {
-  background: transparent; /* Sections inherit body background */
-  width: 100%;
+/* ------------------------------ *\
+\* --------- PORTFOLIO ---------- */
+
+.portfolio {
+    /* Apply a different gradient background */
+    background: linear-gradient(to top left, var(--color-gradient-mid), var(--color-gradient-end));
+    width: 100%;
+    padding: 50px 0; /* Ensure consistent padding */
 }
 
-/* General Section Header */
-.portfolio h2, #experience h2, #education h2, .positions h2, .skills-interests h2, .code-stats h2, .gallery h2, .blog h2, .connect h2 {
-    margin-bottom: 60px;
+.portfolio .col-xs-12 {
+    margin-bottom: 1em;
 }
-
-/* Timeline Styles */
-.timeline {
-  position: relative;
-  max-width: 900px; /* Constrain width */
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 4px; /* Thinner line */
-  background-color: var(--clr-border);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -2px;
-  z-index: 0; /* Behind content */
-}
-
-.timeline-item {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-  z-index: 1;
-}
-
-/* Timeline Dot */
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  width: 18px; /* Smaller dot */
-  height: 18px;
-  right: -9px;
-  background-color: var(--clr-bg); /* Match background */
-  border: 3px solid var(--clr-accent1); /* Accent border */
-  top: 25px; /* Adjust vertical position */
-  border-radius: 50%;
-  z-index: 2; /* Above line */
-  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-}
-.timeline-item:hover::after {
-    background-color: var(--clr-accent1);
-    transform: scale(1.2);
-}
-
-/* Positioning Items */
-.left { left: 0; }
-.right { left: 50%; }
-
-/* Arrow Pointers (Removed for cleaner look) */
-.left::before, .right::before {
-  content: none; /* Disabled arrows */
-}
-
-.right::after { left: -9px; } /* Adjust dot position for right items */
-
-/* Timeline Content Box */
-.timeline-content {
-  padding: 25px;
-  background-color: var(--clr-bg-alt);
-  position: relative;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--clr-border);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
-}
-.timeline-content:hover {
-    border-color: var(--clr-accent1);
-    box-shadow: 0 0 20px var(--clr-shadow);
-}
-
-.timeline-content h3 {
-  margin-top: 0;
-  color: var(--clr-accent1); /* Use accent for titles */
-  font-size: 1.3rem;
-  margin-bottom: 0.5em;
-}
-
-.timeline-content p {
-  font-size: 0.95rem;
-  color: var(--clr-text);
-  margin-bottom: 0.5em;
-  max-width: none; /* Allow paragraphs to fill content box */
-  margin-left: 0;
-  margin-right: 0;
-}
-.timeline-content p:last-child {
+.portfolio .row:last-child .col-xs-12:last-child {
     margin-bottom: 0;
 }
 
-.timeline-content .date {
-  font-size: 0.85rem;
-  color: var(--clr-text-muted);
-  font-family: var(--font-family-mono); /* Use mono for dates */
-  display: block;
-  margin-bottom: 0.8em;
-}
-
-/* Timeline Responsive */
-@media screen and (max-width: 767px) { /* Adjusted breakpoint */
-  .timeline::after {
-      left: 15px; /* Move line to the left */
-  }
-  .timeline-item {
-      width: 100%;
-      padding-left: 50px; /* Space for dot */
-      padding-right: 15px;
-  }
-  .left, .right {
-      left: 0%; /* Stack items */
-  }
-  .left::after, .right::after {
-      left: 6px; /* Position dot relative to the line */
-  }
-}
-
-/* --- SIMPLE PORTFOLIO ITEMS (if used alongside timeline) --- */
 .portfolio img {
-  height: auto; /* Let width control height */
-  max-height: 250px; /* Set max */
-  width: 100%;
-  object-fit: cover;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--clr-border);
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-  display: block; /* Remove extra space below image */
+    height: 250px;
+    width: 100%;
+    object-fit: cover; /* Ensure images cover the area */
+    border-radius: 8px; /* Slightly rounded corners for softness */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .portfolio img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px var(--clr-shadow);
+    transform: scale(1.03); /* Slightly less aggressive scale */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Softer, larger shadow */
 }
 
-/* --- DETAILS / ACADEMIC / SKILLS SECTIONS --- */
-.details, .academic-details, .skills-interests {
-  background: var(--clr-bg-alt); /* Use alternate background */
-  padding: 60px 20px;
+/* Portfolio enhancements */
+.portfolio h3 {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: var(--color-dark);
+    font-family: var(--font-family-heading);
 }
 
-.details p, .academic-details p, .skills-interests li {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--clr-text);
-  text-align: left;
-  max-width: 70ch;
-  margin: 0.5em auto;
+.portfolio p {
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    font-family: var(--font-family-body);
 }
 
-.academic-details h3, .skills-interests h3 {
-  font-size: 1.5rem;
-  color: var(--clr-accent2); /* Secondary accent */
-  margin-bottom: 1em;
-  text-align: center;
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--color-accent); /* Use accent color for timeline line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit; /* Inherit background from parent section */
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -12.5px;
+    background-color: var(--color-text-light); /* Light background for dots */
+    border: 4px solid var(--color-accent); /* Accent color border */
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid var(--color-text-light); /* Use light color for pointer */
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent var(--color-text-light);
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid var(--color-text-light); /* Use light color for pointer */
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--color-text-light) transparent transparent;
+}
+
+.right::after {
+    left: -12.5px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: var(--color-text-light); /* Light background for content box */
+    position: relative;
+    border-radius: 6px; /* Slightly rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Optional: Add a subtle background gradient to the content box */
+    /* background: linear-gradient(to bottom right, #fff, #f0f0f0); */
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--color-accent); /* Use accent color for heading */
+    font-family: var(--font-family-heading);
+}
+
+.timeline-content p {
+    margin: 10px 0;
+    color: var(--color-text-dark);
+    font-family: var(--font-family-body);
+}
+
+.timeline-content .date {
+    font-size: 0.9em;
+    color: var(--color-dark); /* Use dark color for date */
+    font-family: var(--font-family-body);
+}
+
+/* ---------------------------- *\
+\* --------- CONTACT ---------- */
+
+.icons {
+    margin-bottom: 1em;
+    color: var(--color-dark);
+}
+.icons-left {
+    text-align: right;
+}
+.icons-right {
+    text-align: left;
+}
+
+/* --------------------------- *\
+\* --------- FOOTER ---------- */
+
+footer {
+    padding: 5em 0;
+    background: linear-gradient(to top, var(--color-gradient-end), var(--color-gradient-mid)); /* Another gradient example */
+    color: var(--color-dark);
+}
+
+footer p {
+    font-size: .8em;
+    line-height: 1.25em;
+    font-family: var(--font-family-body);
+}
+
+/* -------------------------------- *\
+\* --------- MEDIA QUERY ---------- */
+
+@media only screen and (min-width: 992px) { /* DESKTOP */
+
+    /* ---------------------------- *\
+    \* --------- WELCOME ---------- */
+
+    .welcome-page {
+        background-attachment: fixed;
+        background-position: center;
+    }
+    .welcome-page h1 {
+        font-size: 5em; /* Adjusting desktop font size back */
+    }
+    .welcome-page h1:after {
+        width: 500px;
+    }
+    .welcome-page p {
+        font-size: 1.6em;
+    }
+
+    .biography img {
+        margin-bottom: 0;
+    }
+    .biography__text--body:first-line {
+        color: var(--color-accent);
+    }
+    .biography__text--body {
+        font-size: 1.25em;
+    }
+
+    .portfolio .row {
+        margin-bottom: 1em;
+    }
+    .portfolio .row:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact .icons {
+        margin: 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid var(--color-text-light);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--color-text-light) transparent transparent;
+    }
+
+    .left::after, .right::after {
+        left: 15px;
+    }
+
+    .right {
+        left: 0%;
+    }
+
+     .welcome-page h1 {
+        font-size: 4em; /* Adjust welcome heading size for smaller screens */
+     }
+}
+
+
+/* Portfolio enhancements */
+.portfolio h3 {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: var(--color-dark);
+}
+
+.portfolio p {
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+
+/* Details Section */
+.details {
+    background: linear-gradient(to bottom, var(--color-gradient-end), var(--color-gradient-start)); /* Another gradient example */
+    padding: 50px 0;
+    color: var(--color-text-dark);
+}
+
+.details p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    line-height: 1.5;
+    font-family: var(--font-family-body);
+}
+
+/* Academic Details Section */
+.academic-details {
+    padding: 50px 0;
+    background-color: var(--color-text-light); /* Use light background, grain will apply */
+    color: var(--color-text-dark);
+}
+
+.academic-details h3 {
+    font-size: 1.5em;
+    color: var(--color-accent);
+    margin-top: 20px;
+    font-family: var(--font-family-heading);
+}
+
+.academic-details p {
+    font-size: 1.1em;
+    margin: 5px 0;
+    font-family: var(--font-family-body);
+}
+
+/* Positions Timeline (Reuse existing timeline styles with minor adjustments) */
+.positions {
+    padding: 50px 0;
+    /* Background inherited from body or parent section, or apply a specific gradient */
+}
+
+.positions .timeline-content p {
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: var(--font-family-body);
+}
+
+/* Key Skills & Interests Section */
+.skills-interests {
+    padding: 50px;
+     background: linear-gradient(to top right, var(--color-gradient-start), var(--color-gradient-mid)); /* Another gradient example */
+     color: var(--color-dark);
 }
 
 .skills-interests ul {
-  list-style-type: none; /* Remove default bullets */
-  padding-left: 0;
-  max-width: 70ch;
-  margin: 0 auto;
+    list-style-type: disc;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .skills-interests li {
-  position: relative;
-  padding-left: 1.5em; /* Space for custom bullet */
-  margin-bottom: 0.8em;
+    font-size: 1.1em;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-family: var(--font-family-body);
 }
 
-.skills-interests li::before {
-  content: '>'; /* Retro > bullet */
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--clr-accent1);
-  font-family: var(--font-family-mono); /* Use mono for bullet */
-  font-weight: bold;
+.skills-interests h3 {
+    font-size: 1.5em;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-family: var(--font-family-heading);
 }
 
-/* --- CODE STATS SECTION --- */
-.code-stats {
-  padding: 60px 20px;
-}
-
-.code-stats p {
-  font-size: 1.1rem;
-  font-family: var(--font-family-body);
-  margin: 10px auto;
-  max-width: 70ch;
-  color: var(--clr-text-muted);
-}
-
-.code-stats strong {
-  color: var(--clr-accent1); /* Use primary accent */
-  font-family: var(--font-family-highlight); /* Use heading font for emphasis */
-  font-weight: 700;
-}
-
-.code-stats small {
-  font-size: 0.9em;
-  color: var(--clr-text-muted);
-  font-family: var(--font-family-body);
-  display: block; /* Put on new line */
-  margin-top: 0.5em;
-}
-
-/* --- GALLERY SECTION --- */
-.gallery {
-  padding: 60px 20px;
-  background: var(--clr-bg-alt);
-}
-
-.gallery .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px; /* Spacing between photos */
-}
-
-.gallery-photo {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--clr-border);
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-
-.gallery-photo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--clr-shadow);
-  border-color: var(--clr-accent1);
-}
-
-/* --- BLOG SECTION --- */
-.blog {
-  padding: 60px 20px;
-}
-
-.blog-post {
-  background: var(--clr-bg-alt);
-  padding: 25px;
-  margin-bottom: 30px;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--clr-border);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  text-align: left;
-  max-width: 800px; /* Limit width */
-  margin-left: auto;
-  margin-right: auto;
-  transition: box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
-}
-.blog-post:hover {
-    border-color: var(--clr-accent2);
-    box-shadow: 0 0 20px rgba(255, 77, 148, 0.3); /* Accent 2 shadow */
+/* Body Text - Overriding previous definition for clarity */
+html, body {
+    font-family: var(--font-family-body);
+    color: var(--color-text-dark); /* Default text color set here */
 }
 
 
-.blog-post h3 {
-  font-family: var(--font-family-heading);
-  color: var(--clr-accent1);
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-
-.blog-post p {
-  font-family: var(--font-family-body);
-  color: var(--clr-text);
-  margin-left: 0; /* Align left within the card */
-  margin-right: 0;
-  max-width: none; /* Fill card */
-}
-
-.blog-post .date {
-  font-size: 0.85rem;
-  color: var(--clr-text-muted);
-  font-family: var(--font-family-mono);
-  display: block;
-  margin-bottom: 1em;
-}
-
-/* --- CONNECT / CONTACT FORM SECTION --- */
-.connect {
-  padding: 60px 20px;
-  max-width: 700px; /* Limit form width */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.connect h3 {
-  font-size: 1.75rem;
-  color: var(--clr-accent2);
-  font-family: var(--font-family-heading);
-  margin-bottom: 1em;
-}
-
-.connect p {
-  font-size: 1.1rem;
-  font-family: var(--font-family-body);
-  margin-bottom: 2em;
-  color: var(--clr-text-muted);
-}
-
-.form-group {
-  margin-bottom: 1.5em;
-  text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5em;
-    font-weight: 500;
-    color: var(--clr-text-muted);
-}
-
-.form-control {
-  width: 100%;
-  padding: 12px 15px;
-  font-size: 1rem;
-  font-family: var(--font-family-body);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--border-radius);
-  background-color: var(--clr-bg); /* Dark input background */
-  color: var(--clr-text);
-  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: var(--clr-accent1);
-  box-shadow: 0 0 10px var(--clr-shadow);
-}
-
-textarea.form-control {
-  resize: vertical;
-  min-height: 120px;
-}
-
-/* --- BUTTONS --- */
-.btn { /* General button styling */
-    display: inline-block;
-    padding: 12px 25px;
+/* Buttons (Load More) */
+.btn-primary {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    padding: 10px 20px;
+    font-size: 1.1em;
     font-family: var(--font-family-button);
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: var(--border-radius);
-    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    margin: 5px; /* Add some space around buttons */
-}
-
-.btn-primary { /* Primary button style */
-  background-color: var(--clr-accent1);
-  color: var(--clr-bg); /* Dark text on bright button */
-  border-color: var(--clr-accent1);
+    color: var(--color-text-light); /* Light text on accent button */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #ffffff; /* White hover */
-  color: var(--clr-accent1);
-  border-color: #ffffff;
-  transform: translateY(-2px); /* Subtle lift */
-  text-decoration: none; /* Override link hover */
+    background-color: darken(var(--color-accent), 10%); /* Needs a CSS preprocessor like Sass for darken() */
+    border-color: darken(var(--color-accent), 10%);
+    /* Alternatively, use a fixed darker color: */
+    /* background-color: #6a8295; */
+    /* border-color: #6a8295; */
 }
 
-.btn-secondary { /* Secondary button style */
-    background-color: transparent;
-    color: var(--clr-accent2);
-    border-color: var(--clr-accent2);
+
+.code-stats {
+    padding: 50px 0;
+    background-color: var(--color-text-light); /* Light background, grain applies */
+    color: var(--color-text-dark);
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
-    background-color: var(--clr-accent2);
-    color: var(--clr-bg);
-    transform: translateY(-2px);
-    text-decoration: none;
+.code-stats p {
+    font-size: 1.2em;
+    font-family: var(--font-family-body);
+    margin: 10px 0;
 }
 
-/* --- RESUME LIST --- */
+.code-stats strong {
+    color: var(--color-accent);
+    font-family: var(--font-family-highlight);
+}
+
+.code-stats small {
+    font-size: 0.9em;
+    color: var(--color-dark);
+    font-family: var(--font-family-body);
+}
+
+.gallery {
+    padding: 50px 0;
+    background: linear-gradient(to bottom left, var(--color-gradient-mid), var(--color-gradient-start)); /* Another gradient example */
+}
+
+.gallery .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-photo {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 15px; /* More pronounced rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Stronger shadow on hover */
+}
+
+.blog {
+    padding: 100px 0 50px;
+    background-color: var(--color-text-light); /* Light background, grain applies */
+    color: var(--color-text-dark);
+}
+
+.blog-post {
+    background: var(--color-text-light); /* Keep light background for post */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.blog-post h3 {
+    font-family: var(--font-family-heading);
+    color: var(--color-accent);
+}
+
+.blog-post p {
+    font-family: var(--font-family-body);
+    color: var(--color-text-dark);
+}
+
+.blog-post .date {
+    font-size: 0.9em;
+    color: var(--color-dark);
+    font-family: var(--font-family-body);
+}
+
+.connect {
+    padding: 50px 20px;
+    background: linear-gradient(to top right, var(--color-gradient-end), var(--color-gradient-mid)); /* Another gradient example */
+    color: var(--color-dark);
+}
+
+.connect h3 {
+    font-size: 1.5em;
+    color: var(--color-dark);
+    font-family: var(--font-family-heading);
+    margin-bottom: 15px;
+}
+
+.connect p {
+    font-size: 1.1em;
+    font-family: var(--font-family-body);
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-family: var(--font-family-body);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--color-text-light); /* Light background for inputs */
+    color: var(--color-dark);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 5px rgba(123, 146, 165, 0.5);
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.connect .btn-primary {
+    font-family: var(--font-family-button);
+}
+
 .resume-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 20px auto;
-  max-width: 500px; /* Constrain list width */
-  text-align: left;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
 }
 
 .resume-list li {
-  font-family: var(--font-family-body);
-  font-size: 1.1rem;
-  margin: 15px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px dashed var(--clr-border);
+    font-family: var(--font-family-body);
+    font-size: 1.1em;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text-dark);
 }
 
 .resume-list a {
-  color: var(--clr-accent1);
-  font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
 }
+
 .resume-list a:hover {
-    color: #ffffff;
-}
-
-.resume-list span { /* File type/size info */
-  font-size: 0.9em;
-  color: var(--clr-text-muted);
-  font-family: var(--font-family-mono);
-}
-
-/* --- FOOTER --- */
-footer {
-  padding: 40px 20px;
-  border-top: 1px solid var(--clr-border);
-  background-color: var(--clr-bg-alt); /* Slightly different background */
-}
-
-footer p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--clr-text-muted);
-  margin: 0 auto;
-  max-width: none; /* Allow footer text to span wider */
-}
-footer a {
-    color: var(--clr-text-muted); /* Muted links in footer */
     text-decoration: underline;
+    color: var(--color-dark);
 }
-footer a:hover {
-    color: var(--clr-accent1);
+
+.resume-list span {
+    font-size: 0.9em;
+    color: var(--color-dark);
+}
+
+/* Example of a "Grainy Gradient Shape" class
+   Apply this class to a div or section you want to style as an organic shape */
+.grainy-shape {
+    /* Base Gradient */
+    background: linear-gradient(to bottom right, var(--color-gradient-mid), var(--color-gradient-end));
+    position: relative;
+    padding: 40px; /* Example padding */
+    margin: 40px auto; /* Center the block */
+    width: 80%; /* Example width */
+    max-width: 600px; /* Example max width */
+    color: var(--color-dark);
+    font-family: var(--font-family-body);
+
+    /* Organic Shape (Example using border-radius) */
+    /* Adjust these values to create different organic forms */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    overflow: hidden; /* Hide grain overflow if using a smaller shape */
+
+    /* Add Grain Overlay to the Shape (Optional - can inherit from body grain) */
+    /* If you want grain *only* on the shape, comment out the body::before rule
+       and uncomment and adjust the following: */
+    /*
+    &::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-image: radial-gradient(circle, #000 10%, transparent 10%), radial-gradient(circle, #fff 10%, transparent 10%);
+         background-size: 2px 2px;
+         background-position: 0 0, 1px 1px;
+         opacity: var(--grain-opacity);
+         pointer-events: none;
+         z-index: 1;
+    }
+    position: relative; // Ensure content is above shape grain
+    z-index: 2;
+    */
+}
+
+.grainy-shape h3 {
+    color: var(--color-dark);
+    font-family: var(--font-family-heading);
+    margin-top: 0;
 }
 
 
-/* --- CONTACT ICONS --- */
-/* Reusing connect styles for consistency if needed, or add specific icon styles */
-.icons {
-  margin-bottom: 1em;
+/* Style for interactive elements (optional) */
+button, .btn {
+    font-family: var(--font-family-button);
+    cursor: pointer;
 }
-.icons a i { /* Assuming FontAwesome or similar */
-    font-size: 1.8rem;
-    margin: 0 10px;
-    color: var(--clr-text-muted);
-    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
-}
-.icons a:hover i {
-    color: var(--clr-accent1);
-    transform: scale(1.2);
-}
-/* Removed icons-left/right specific alignment, center is default */
-
-
