@@ -1,49 +1,22 @@
-/*
- * Grainy Gradient Shape Trend Makeover
- *
- * Key additions:
- * - CSS variables for colors suitable for gradients.
- * - Background gradients applied to body and sections.
- * - A pseudo-element added to the body for a site-wide grain overlay.
- * - Examples of how to apply soft shapes (using border-radius) and apply the gradient/grain.
- *
- * Note: Creating complex, dynamic organic shapes often requires JavaScript or SVG.
- * The CSS below focuses on applying the grainy gradient effect to existing elements
- * and showing how soft CSS shapes can be styled.
- */
-
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@400;500;700&display=swap');
 
+
 :root {
-    --font-family-body: "DM Sans", Arial, sans-serif;
-    --font-family-button: "Fraunces", Georgia, serif;
-    --font-family-heading: "SharpGrotesk", Georgia, Impact, sans-serif;
-    --font-family-highlight: "Fraunces", Georgia, serif;
-    --font-family-navigation: "Fraunces", Georgia, serif;
-
-    /* -- Grainy Gradient Colors -- */
-    /* Define a palette that works well together in gradients */
-    --color-gradient-start: #a8edea; /* Soft Teal */
-    --color-gradient-mid: #fed6e3;   /* Muted Pink */
-    --color-gradient-end: #f0b0e0;   /* Light Purple */
-    --color-dark: #333;
-    --color-text-dark: #444;
-    --color-text-light: #f9f9f9;
-    --color-accent: #7b92a5; /* Keeping one original accent */
-
-    /* -- Grain Effect -- */
-    /* Define properties for the pseudo-element grain overlay */
-    --grain-opacity: 0.05; /* Adjust for desired intensity */
+  --font-family-body: "DM Sans", Arial, sans-serif;
+  --font-family-button: "Fraunces", Georgia, serif;
+  --font-family-heading: "SharpGrotesk", Georgia, Impact, sans-serif;
+  --font-family-highlight: "Fraunces", Georgia, serif;
+  --font-family-navigation: "Fraunces", Georgia, serif;
 }
 
-/* Note: SharpGrotesk isn't freely available on Google Fonts.
+/* Note: SharpGrotesk isn't freely available on Google Fonts. 
    If you have a license/source, include it here, or we'll use fallbacks. */
 /* ------------------------- *\
 \* ------- CSS RESET ------- */
 
 /**
- * Eric Meyer's Reset CSS v2.0
+ * Eric Meyer's Reset CSS v2.0 
 (https://meyerweb.com/
 eric/tools/css/reset/)
  * http://cssreset.com
@@ -57,39 +30,39 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+ 	margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
+article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-    display: block;
+  display: block;
 }
 body {
-    line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-    list-style: none;
+  list-style: none;
 }
 blockquote, q {
-    quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-    content: '';
-    content: none;
+  content: '';
+  content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 /* End CSS Reset */
 
@@ -97,409 +70,208 @@ table {
 \* --------- BODY --------- */
 
 * {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
 }
 
 html, body {
-    font-size: 16px;
-    font-family: var(--font-family-body);
-    text-align: center;
-    margin: 0 auto;
-    /* Apply the base gradient background */
-    background: linear-gradient(to bottom right, var(--color-gradient-start), var(--color-gradient-mid), var(--color-gradient-end));
-    color: var(--color-text-dark); /* Default text color */
-    overflow-x: hidden;
-    position: relative; /* Needed for the grain overlay pseudo-element */
-    min-height: 100vh; /* Ensure gradient covers the whole page */
+  font-size: 16px;
+  font-family: 'Times New Roman';
+  text-align: center;
+  margin: 0 auto;
+  background-color: #efefef;
+  overflow-x: hidden;
 }
-
-/* Grain Overlay Pseudo-element */
-body::before {
-    content: '';
-    position: fixed; /* Fixed so it covers the whole viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Create a noise pattern using CSS gradients */
-    background-image: radial-gradient(circle, #000 10%, transparent 10%), radial-gradient(circle, #fff 10%, transparent 10%);
-    background-size: 2px 2px; /* Adjust size for grain density */
-    background-position: 0 0, 1px 1px; /* Offset the two patterns */
-    opacity: var(--grain-opacity);
-    pointer-events: none; /* Allow clicks to pass through */
-    z-index: 9999; /* Ensure it's on top */
-}
-
 
 .container {
-    padding: 50px 0;
-    position: relative; /* Ensure content is above the grain overlay */
-    z-index: 1;
+  padding: 50px 0;
+  /*padding: 250px 0;*/
+  /*border-top: 5px solid black;*/
 }
 
 h2 {
-    font-size: 2.5em;
-    margin-bottom: 50px;
-    font-family: var(--font-family-heading);
-    color: var(--color-dark);
+  font-size: 2.5em;
+  margin-bottom: 50px;
 }
 
-h3 {
-    font-family: var(--font-family-heading);
-    color: var(--color-dark);
+.a i:hover {
+  text-decoration: none;
 }
-
-a {
-    color: var(--color-accent);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: var(--color-dark);
-}
-
 
 /* ------------------------- *\
 \* ---------- NAV ---------- */
 
 .navbar {
-    margin: 0;
-    border: none;
-    background-color: rgba(255,255,255,0.8); /* Keep semi-transparent white */
-    position: relative; /* Ensure nav is above grain */
-    z-index: 2; /* Higher z-index than grain */
+  margin: 0;
+  border: none;
 }
 .navbar-default {
-     background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.8);
 }
 .navbar-brand > img {
-    width: 25px;
-    border-radius: .5em;
-}
-.navbar-default .navbar-brand span {
-    font-family: var(--font-family-navigation);
-    color: var(--color-dark);
+  width: 25px;
+  border-radius: .5em;
 }
 /* link */
 .navbar-default .navbar-nav > li > a {
-    color: var(--color-accent); /* Use accent color for links */
-    font-size: 16px;
-    font-family: var(--font-family-navigation);
+  color: #b9a176;
+  /* do not use
+  font-weight: bold;
+  text-shadow: 0 1px 1px #d3d3d3; */
+  font-size: 16px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: var(--color-dark); /* Darker color on hover */
-    text-decoration: underline;
+  color: #65956d;
+  text-decoration: underline;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-    color: var(--color-dark);
-    background: none;
-    text-decoration: underline;
+  color: #65956d;
+  background: none;
+  text-decoration: underline;
 }
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
-    color: var(--color-dark);
-    background-color: rgba(255,255,255,0.5);
+  color: #555;
+  background-color: rgba(255,255,255,0.5);
 }
 /* mobile version */
 .navbar-default .navbar-toggle {
-    border-color: #DDD;
+  border-color: #DDD;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.7);
 }
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: var(--color-dark);
+  background-color: #333;
 }
 
 /* ---------------------------- *\
 \* --------- WELCOME ---------- */
 
 .welcome-page {
-    padding-top: 200px;
-    padding-bottom: 200px;
-    /* Keeping background image, but consider layering a gradient/grain over it */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 30% 25%;
-    background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8SmdtMVRkdVJBdlU");
-    position: relative;
-    /* Add a subtle gradient overlay to the background image */
-    /* You might need to adjust the background-image and background-size/position
-       if you combine it with a gradient directly on the same element.
-       A pseudo-element is often better for overlays. */
-    /* Example using a pseudo-element overlay: */
-}
-
-.welcome-page::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top left, rgba(var(--color-gradient-start), 0.3), rgba(var(--color-gradient-end), 0.3)); /* Subtle overlay */
-    z-index: 1;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 30% 25%;
+  background-image: url("https://docs.google.com/uc?export=download&id=0B3_V506_wrD8SmdtMVRkdVJBdlU");
+  /* use without jumbotron
+  text-shadow: 0 0 15px #eee; */
 }
 
 .welcome-page > .jumbotron {
-    background-color: rgba(255,255,255,0.5); /* Keep existing semi-transparent background */
-    padding: 110px;
-    position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
+  background-color: rgba(255,255,255,0.5);
+  padding: 110px;
 }
 
 .welcome-page h1 {
-    font-size: 9.85em;
-    font-family: var(--font-family-heading);
-    margin: .25em 0;
-    color: var(--color-dark);
+  font-size: 2.85em;
+  font-family: Righteous, cursive;
+  margin: .25em 0;
 }
 
 .welcome-page h1:after {
-    content: "";
-    display: block;
-    background-color: var(--color-dark);
-    height: 2px;
-    width: 200px;
-    border-radius: 25%;
-    margin: 15px auto;
+  content: "";
+  display: block;
+  background-color: #222;
+  height: 2px;
+  width: 200px;
+  border-radius: 25%;
+  margin: 15px auto;
 }
 
 .welcome-page p {
-    font-size: 1.15em;
-    font-family: var(--font-family-body);
-    color: var(--color-dark);
+  font-size: 1.15em;
+  /* use without jumbotron */
+  line-height: 1.5em;
 }
 
 .welcome-page a {
-    margin-right: 1.25em;
+  margin-right: 1.25em;
 }
 .welcome-page a:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 /* ------------------------------ *\
 \* --------- BIOGRAPHY ---------- */
 
 .biography-david-regg {
-    /* Consider a softer border or no border */
-    border: none; /* Removing hard border */
-    border-radius: 50%;
-    margin-bottom: 1em;
-    width: 200px;
-    height: auto;
-    /* Add a subtle shadow instead of a hard border */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 3px solid black;
+  border-radius: 50%;
+  margin-bottom: 1em;
+  width: 200px;
+  height: auto;
 }
 
 .biography__text {
-    padding: 0 2em;
-    line-height: 1.25em;
-    color: var(--color-text-dark);
+  padding: 0 2em;
+  line-height: 1.25em;
 }
 .biography__text--body:first-line {
-    color: var(--color-accent); /* Use accent color */
-    font-weight: bold;
-    font-family: var(--font-family-highlight);
+  color: #c99a3f;
 }
 .biography__text--body {
-    font-size: 100%;
-    color: var(--color-text-dark);
-    font-family: var(--font-family-body);
-    line-height: 1.6; /* Improve readability */
+  font-size: 1.15em;
+  color: #333;
 }
 
 /* ------------------------------ *\
 \* --------- PORTFOLIO ---------- */
 
 .portfolio {
-    /* Apply a different gradient background */
-    background: linear-gradient(to top left, var(--color-gradient-mid), var(--color-gradient-end));
-    width: 100%;
-    padding: 50px 0; /* Ensure consistent padding */
+  background: #fff;
+  width: 100%;
 }
 
 .portfolio .col-xs-12 {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 .portfolio .row:last-child .col-xs-12:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .portfolio img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover; /* Ensure images cover the area */
-    border-radius: 8px; /* Slightly rounded corners for softness */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 250px;
+  width: 100%;
+  
 }
 .portfolio img:hover {
-    transform: scale(1.03); /* Slightly less aggressive scale */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Softer, larger shadow */
-}
-
-/* Portfolio enhancements */
-.portfolio h3 {
-    margin-top: 15px;
-    font-size: 1.5em;
-    color: var(--color-dark);
-    font-family: var(--font-family-heading);
-}
-
-.portfolio p {
-    font-size: 0.9em;
-    color: var(--color-text-dark);
-    margin-bottom: 20px;
-    font-family: var(--font-family-body);
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-
-.timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: var(--color-accent); /* Use accent color for timeline line */
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
-}
-
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit; /* Inherit background from parent section */
-    width: 50%;
-}
-
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -12.5px;
-    background-color: var(--color-text-light); /* Light background for dots */
-    border: 4px solid var(--color-accent); /* Accent color border */
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.left {
-    left: 0;
-}
-
-.right {
-    left: 50%;
-}
-
-.left::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    right: 30px;
-    border: medium solid var(--color-text-light); /* Use light color for pointer */
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent var(--color-text-light);
-}
-
-.right::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid var(--color-text-light); /* Use light color for pointer */
-    border-width: 10px 10px 10px 0;
-    border-color: transparent var(--color-text-light) transparent transparent;
-}
-
-.right::after {
-    left: -12.5px;
-}
-
-.timeline-content {
-    padding: 20px;
-    background-color: var(--color-text-light); /* Light background for content box */
-    position: relative;
-    border-radius: 6px; /* Slightly rounded corners */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    /* Optional: Add a subtle background gradient to the content box */
-    /* background: linear-gradient(to bottom right, #fff, #f0f0f0); */
-}
-
-.timeline-content h3 {
-    margin-top: 0;
-    color: var(--color-accent); /* Use accent color for heading */
-    font-family: var(--font-family-heading);
-}
-
-.timeline-content p {
-    margin: 10px 0;
-    color: var(--color-text-dark);
-    font-family: var(--font-family-body);
-}
-
-.timeline-content .date {
-    font-size: 0.9em;
-    color: var(--color-dark); /* Use dark color for date */
-    font-family: var(--font-family-body);
+  box-shadow: 0 0 20px #333;
 }
 
 /* ---------------------------- *\
 \* --------- CONTACT ---------- */
 
 .icons {
-    margin-bottom: 1em;
-    color: var(--color-dark);
+  margin-bottom: 1em;
 }
 .icons-left {
-    text-align: right;
+  text-align: right;
 }
 .icons-right {
-    text-align: left;
+  text-align: left;
 }
 
 /* --------------------------- *\
 \* --------- FOOTER ---------- */
 
 footer {
-    padding: 5em 0;
-    background: linear-gradient(to top, var(--color-gradient-end), var(--color-gradient-mid)); /* Another gradient example */
-    color: var(--color-dark);
+  padding: 5em 0;
 }
 
 footer p {
-    font-size: .8em;
-    line-height: 1.25em;
-    font-family: var(--font-family-body);
+  font-size: .8em;
+  line-height: 1.25em;
 }
 
 /* -------------------------------- *\
@@ -507,400 +279,544 @@ footer p {
 
 @media only screen and (min-width: 992px) { /* DESKTOP */
 
-    /* ---------------------------- *\
-    \* --------- WELCOME ---------- */
-
-    .welcome-page {
-        background-attachment: fixed;
-        background-position: center;
-    }
-    .welcome-page h1 {
-        font-size: 5em; /* Adjusting desktop font size back */
-    }
-    .welcome-page h1:after {
-        width: 500px;
-    }
-    .welcome-page p {
-        font-size: 1.6em;
-    }
-
-    .biography img {
-        margin-bottom: 0;
-    }
-    .biography__text--body:first-line {
-        color: var(--color-accent);
-    }
-    .biography__text--body {
-        font-size: 1.25em;
-    }
-
-    .portfolio .row {
-        margin-bottom: 1em;
-    }
-    .portfolio .row:last-child {
-        margin-bottom: 0;
-    }
-
-    .contact .icons {
-        margin: 0;
-        text-align: center;
-    }
+  /* ---------------------------- *\
+  \* --------- WELCOME ---------- */
+  
+  .welcome-page {
+    background-attachment: fixed;
+    background-position: center;
+  }
+  .welcome-page h1 {
+    font-size: 5em;
+  }
+  .welcome-page h1:after {
+    width: 500px;
+  }
+  .welcome-page p {
+    font-size: 1.6em;
+  }
+  
+  .biography img {
+    margin-bottom: 0;
+  }
+  .biography__text--body:first-line {
+    color: #c99a3f;
+  }
+  .biography__text--body {
+    font-size: 1.25em;
+  }
+  
+  .portfolio .row {
+    margin-bottom: 1em;
+  }
+  .portfolio .row:last-child {
+    margin-bottom: 0;
+  }
+  
+  .contact .icons {
+    margin: 0;
+    text-align: center;
+  }
 }
 
-@media screen and (max-width: 600px) {
-    .timeline::after {
-        left: 31px;
-    }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-
-    .timeline-item::before {
-        left: 60px;
-        border: medium solid var(--color-text-light);
-        border-width: 10px 10px 10px 0;
-        border-color: transparent var(--color-text-light) transparent transparent;
-    }
-
-    .left::after, .right::after {
-        left: 15px;
-    }
-
-    .right {
-        left: 0%;
-    }
-
-     .welcome-page h1 {
-        font-size: 4em; /* Adjust welcome heading size for smaller screens */
-     }
+@media (max-width: 767px) { /* TABLET */
+  
+  /* ------------------------ *\
+  \* --------- NAV ---------- */
+  
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #00670D;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #4CB359;
+    text-decoration: underline;
+  }
 }
 
+
+
+a {
+  color: #7b92a5;
+  text-decoration: none;
+}
 
 /* Portfolio enhancements */
 .portfolio h3 {
-    margin-top: 15px;
-    font-size: 1.5em;
-    color: var(--color-dark);
+  margin-top: 15px;
+  font-size: 1.5em;
+  color: #333;
 }
 
 .portfolio p {
-    font-size: 0.9em;
-    color: var(--color-text-dark);
-    margin-bottom: 20px;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 20px;
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive images */
+.portfolio img {
+  transition: transform 0.3s ease;
+}
+
+.portfolio img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #333;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -12.5px;
+  background-color: #fff;
+  border: 4px solid #7b92a5;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  left: 50%;
+}
+
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid #333;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #333;
+}
+
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #333;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #333 transparent transparent;
+}
+
+.right::after {
+  left: -12.5px;
+}
+
+.timeline-content {
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: #7b92a5;
+}
+
+.timeline-content p {
+  margin: 10px 0;
+}
+
+.timeline-content .date {
+  font-size: 0.9em;
+  color: #666;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline::after {
+      left: 31px;
+  }
+  
+  .timeline-item {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+  }
+  
+  .timeline-item::before {
+      left: 60px;
+      border: medium solid #333;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #333 transparent transparent;
+  }
+
+  .left::after, .right::after {
+      left: 15px;
+  }
+  
+  .right {
+      left: 0%;
+  }
+}
+
+#education, #experience {
+  padding: 50px 0;
+}
+
+#education h3, #experience h3 {
+  color: #7b92a5;
+  margin-top: 20px;
+}
+
+#experience ul {
+  text-align: left;
+  margin-left: 20px;
+}
 
 /* Details Section */
 .details {
-    background: linear-gradient(to bottom, var(--color-gradient-end), var(--color-gradient-start)); /* Another gradient example */
-    padding: 50px 0;
-    color: var(--color-text-dark);
+  background: #f9f9f9;
+  padding: 50px 0;
 }
 
 .details p {
-    font-size: 1.1em;
-    margin: 10px 0;
-    line-height: 1.5;
-    font-family: var(--font-family-body);
+  font-size: 1.1em;
+  margin: 10px 0;
+  line-height: 1.5;
 }
 
 /* Academic Details Section */
 .academic-details {
-    padding: 50px 0;
-    background-color: var(--color-text-light); /* Use light background, grain will apply */
-    color: var(--color-text-dark);
+  padding: 50px 0;
+  background-color: #f9f9f9;
 }
 
 .academic-details h3 {
-    font-size: 1.5em;
-    color: var(--color-accent);
-    margin-top: 20px;
-    font-family: var(--font-family-heading);
+  font-size: 1.5em;
+  color: #7b92a5;
+  margin-top: 20px;
 }
 
 .academic-details p {
-    font-size: 1.1em;
-    margin: 5px 0;
-    font-family: var(--font-family-body);
+  font-size: 1.1em;
+  margin: 5px 0;
 }
 
 /* Positions Timeline (Reuse existing timeline styles with minor adjustments) */
 .positions {
-    padding: 50px 0;
-    /* Background inherited from body or parent section, or apply a specific gradient */
+  padding: 50px 0;
+  
 }
 
 .positions .timeline-content p {
-    font-size: 1em;
-    line-height: 1.4;
-    font-family: var(--font-family-body);
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 /* Key Skills & Interests Section */
 .skills-interests {
-    padding: 50px;
-     background: linear-gradient(to top right, var(--color-gradient-start), var(--color-gradient-mid)); /* Another gradient example */
-     color: var(--color-dark);
+  padding: 50px;
+  background: #f9f9f9;
 }
 
 .skills-interests ul {
-    list-style-type: disc;
-    text-align: left;
-    padding-left: 20px;
+  list-style-type: disc;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .skills-interests li {
-    font-size: 1.1em;
-    margin: 10px 0;
-    line-height: 1.4;
-    font-family: var(--font-family-body);
+  font-size: 1.1em;
+  margin: 10px 0;
+  line-height: 1.4;
 }
 
 .skills-interests h3 {
-    font-size: 1.5em;
-    color: var(--color-dark);
-    margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #7b92a5;
+  margin-bottom: 15px;
+}
+
+/* Body Text */
+html, body {
+    font-size: 16px;
+    font-family: var(--font-family-body);
+    text-align: center;
+    margin: 0 auto;
+    background-color: #efefef;
+    overflow-x: hidden;
+}
+
+/* Headings */
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
     font-family: var(--font-family-heading);
 }
 
-/* Body Text - Overriding previous definition for clarity */
-html, body {
-    font-family: var(--font-family-body);
-    color: var(--color-text-dark); /* Default text color set here */
+h3 {
+    font-family: var(--font-family-heading);
 }
 
+/* Navigation */
+.navbar-default .navbar-nav > li > a {
+    color: #000000;
+    font-size: 16px;
+    font-family: var(--font-family-navigation);
+}
+
+.navbar-default .navbar-brand span {
+    font-family: var(--font-family-navigation);
+}
+
+/* Welcome Section */
+.welcome-page h1 {
+    font-size: 9.85em;
+    font-family: var(--font-family-heading); /* Replacing Righteous */
+    margin: .25em 0;
+}
+
+.welcome-page p {
+    font-size: 1.15em;
+    font-family: var(--font-family-body);
+}
+
+/* Biography */
+.biography__text--body {
+    font-size: 100%;
+    color: #333;
+    font-family: var(--font-family-body);
+}
+
+/* Portfolio Timeline */
+.timeline-content h3 {
+    margin-top: 0;
+    color: #7b92a5;
+    font-family: var(--font-family-heading);
+}
+
+.timeline-content p {
+    font-family: var(--font-family-body);
+}
+
+.timeline-content .date,
+.timeline-content .stats {
+    font-family: var(--font-family-body);
+}
 
 /* Buttons (Load More) */
 .btn-primary {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
+    background-color: #7b92a5;
+    border-color: #7b92a5;
     padding: 10px 20px;
     font-size: 1.1em;
     font-family: var(--font-family-button);
-    color: var(--color-text-light); /* Light text on accent button */
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: darken(var(--color-accent), 10%); /* Needs a CSS preprocessor like Sass for darken() */
-    border-color: darken(var(--color-accent), 10%);
-    /* Alternatively, use a fixed darker color: */
-    /* background-color: #6a8295; */
-    /* border-color: #6a8295; */
-}
-
-
-.code-stats {
-    padding: 50px 0;
-    background-color: var(--color-text-light); /* Light background, grain applies */
-    color: var(--color-text-dark);
-}
-
-.code-stats p {
-    font-size: 1.2em;
+/* Details, Academic, Skills Sections */
+.details p,
+.academic-details p,
+.skills-interests li {
     font-family: var(--font-family-body);
-    margin: 10px 0;
 }
 
-.code-stats strong {
-    color: var(--color-accent);
+.academic-details h3,
+.skills-interests h3 {
+    font-family: var(--font-family-heading);
+}
+
+/* Footer */
+footer p {
+    font-size: .8em;
+    line-height: 1.25em;
+    font-family: var(--font-family-body);
+}
+
+/* Highlight (e.g., first line of bio) */
+.biography__text--body:first-line {
+    color: #7b92a5;
+    font-weight: bold;
     font-family: var(--font-family-highlight);
 }
 
+.code-stats {
+  padding: 50px 0;
+  
+}
+
+.code-stats p {
+  font-size: 1.2em;
+  font-family: var(--font-family-body);
+  margin: 10px 0;
+}
+
+.code-stats strong {
+  color: #7b92a5;
+  font-family: var(--font-family-highlight);
+}
+
 .code-stats small {
-    font-size: 0.9em;
-    color: var(--color-dark);
-    font-family: var(--font-family-body);
+  font-size: 0.9em;
+  color: #666;
+  font-family: var(--font-family-body);
 }
 
 .gallery {
-    padding: 50px 0;
-    background: linear-gradient(to bottom left, var(--color-gradient-mid), var(--color-gradient-start)); /* Another gradient example */
+  padding: 50px 0;
+  background: #f9f9f9;
 }
 
 .gallery .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery-photo {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    object-fit: cover;
-    border-radius: 15px; /* More pronounced rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
 }
 
 .gallery-photo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Stronger shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .blog {
-    padding: 100px 0 50px;
-    background-color: var(--color-text-light); /* Light background, grain applies */
-    color: var(--color-text-dark);
+  padding: 100px 0 50px;
 }
 
 .blog-post {
-    background: var(--color-text-light); /* Keep light background for post */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .blog-post h3 {
-    font-family: var(--font-family-heading);
-    color: var(--color-accent);
+  font-family: var(--font-family-heading);
+  color: #7b92a5;
 }
 
 .blog-post p {
-    font-family: var(--font-family-body);
-    color: var(--color-text-dark);
+  font-family: var(--font-family-body);
 }
 
 .blog-post .date {
-    font-size: 0.9em;
-    color: var(--color-dark);
-    font-family: var(--font-family-body);
+  font-size: 0.9em;
+  color: #666;
+  font-family: var(--font-family-body);
 }
 
 .connect {
-    padding: 50px 20px;
-    background: linear-gradient(to top right, var(--color-gradient-end), var(--color-gradient-mid)); /* Another gradient example */
-    color: var(--color-dark);
+  padding: 50px 20px;
 }
 
 .connect h3 {
-    font-size: 1.5em;
-    color: var(--color-dark);
-    font-family: var(--font-family-heading);
-    margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #7b92a5;
+  font-family: var(--font-family-heading);
+  margin-bottom: 15px;
 }
 
 .connect p {
-    font-size: 1.1em;
-    font-family: var(--font-family-body);
-    margin-bottom: 20px;
+  font-size: 1.1em;
+  font-family: var(--font-family-body);
+  margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .form-control {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    font-family: var(--font-family-body);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: var(--color-text-light); /* Light background for inputs */
-    color: var(--color-dark);
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  font-family: var(--font-family-body);
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .form-control:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 5px rgba(123, 146, 165, 0.5);
+  outline: none;
+  border-color: #7b92a5;
+  box-shadow: 0 0 5px rgba(123, 146, 165, 0.5);
 }
 
 textarea.form-control {
-    resize: vertical;
+  resize: vertical;
 }
 
 .connect .btn-primary {
-    font-family: var(--font-family-button);
+  font-family: var(--font-family-button);
 }
 
 .resume-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
 }
 
 .resume-list li {
-    font-family: var(--font-family-body);
-    font-size: 1.1em;
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--color-text-dark);
+  font-family: var(--font-family-body);
+  font-size: 1.1em;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .resume-list a {
-    color: var(--color-accent);
-    text-decoration: none;
+  color: #7b92a5;
+  text-decoration: none;
 }
 
 .resume-list a:hover {
-    text-decoration: underline;
-    color: var(--color-dark);
+  text-decoration: underline;
 }
 
 .resume-list span {
-    font-size: 0.9em;
-    color: var(--color-dark);
-}
-
-/* Example of a "Grainy Gradient Shape" class
-   Apply this class to a div or section you want to style as an organic shape */
-.grainy-shape {
-    /* Base Gradient */
-    background: linear-gradient(to bottom right, var(--color-gradient-mid), var(--color-gradient-end));
-    position: relative;
-    padding: 40px; /* Example padding */
-    margin: 40px auto; /* Center the block */
-    width: 80%; /* Example width */
-    max-width: 600px; /* Example max width */
-    color: var(--color-dark);
-    font-family: var(--font-family-body);
-
-    /* Organic Shape (Example using border-radius) */
-    /* Adjust these values to create different organic forms */
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    overflow: hidden; /* Hide grain overflow if using a smaller shape */
-
-    /* Add Grain Overlay to the Shape (Optional - can inherit from body grain) */
-    /* If you want grain *only* on the shape, comment out the body::before rule
-       and uncomment and adjust the following: */
-    /*
-    &::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background-image: radial-gradient(circle, #000 10%, transparent 10%), radial-gradient(circle, #fff 10%, transparent 10%);
-         background-size: 2px 2px;
-         background-position: 0 0, 1px 1px;
-         opacity: var(--grain-opacity);
-         pointer-events: none;
-         z-index: 1;
-    }
-    position: relative; // Ensure content is above shape grain
-    z-index: 2;
-    */
-}
-
-.grainy-shape h3 {
-    color: var(--color-dark);
-    font-family: var(--font-family-heading);
-    margin-top: 0;
-}
-
-
-/* Style for interactive elements (optional) */
-button, .btn {
-    font-family: var(--font-family-button);
-    cursor: pointer;
+  font-size: 0.9em;
+  color: #666;
 }
