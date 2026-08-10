@@ -820,3 +820,322 @@ textarea.form-control {
   font-size: 0.9em;
   color: #666;
 }
+
+.technical-skills {
+  padding: 50px;
+  background: #f9f9f9;
+}
+
+.freelance {
+  padding: 50px;
+}
+
+.technical-skills h3, .freelance h3 {
+  font-size: 1.5em;
+  color: #7b92a5;
+  font-family: var(--font-family-heading);
+  margin-bottom: 15px;
+}
+
+#skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.skills-list {
+  width: 45%; /* Adjust for two columns */
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.skills-list li {
+  font-family: var(--font-family-body);
+  font-size: 1.1em;
+  margin: 10px 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.skills-list li:before {
+  content: "✓";
+  color: #7b92a5;
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 767px) {
+  .skills-list {
+      width: 100%; /* Stack on mobile */
+  }
+}
+
+.freelance {
+    padding: 50px 0;
+}
+
+.toggle-timeline {
+    font-family: var(--font-family-button);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -12.5px;
+    background-color: #fff;
+    border: 4px solid #7b92a5;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid #333;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #333;
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid #333;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #333 transparent transparent;
+}
+
+.right::after {
+    left: -12.5px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #7b92a5;
+    font-family: var(--font-family-heading);
+    font-size: 1.3em;
+}
+
+.timeline-content p {
+    font-family: var(--font-family-body);
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.timeline-content span {
+    font-size: 0.9em;
+    color: #666;
+    font-family: var(--font-family-body);
+}
+
+/* Collapse adjustments */
+.collapse:not(.show) {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid #333;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #333 transparent transparent;
+    }
+
+    .left::after, .right::after {
+        left: 15px;
+    }
+    
+    .right {
+        left: 0%;
+    }
+}
+
+/* Semplice Cursor Styles */
+.semplice-cursor {
+  cursor: none;
+}
+
+.semplice-cursor #respond #submit,
+.semplice-cursor #respond input,
+.semplice-cursor #respond textarea,
+.semplice-cursor .accordion-item,
+.semplice-cursor .accordion-item .title,
+.semplice-cursor .apg .flickity-button,
+.semplice-cursor .apg-grid-item,
+.semplice-cursor .apg-post-title .title,
+.semplice-cursor .ba-handle,
+.semplice-cursor .close-overlay,
+.semplice-cursor .flickity-page-dots .dot,
+.semplice-cursor .flickity-slider,
+.semplice-cursor .gg-hover,
+.semplice-cursor .hamburger,
+.semplice-cursor .lightbox-item,
+.semplice-cursor .mailchimp-submit-button,
+.semplice-cursor .post-password-submit,
+.semplice-cursor .post-thumbnail,
+.semplice-cursor .search-field,
+.semplice-cursor .semplice-gallery .flickity-button,
+.semplice-cursor .smp-nav-button,
+.semplice-cursor .smp-video,
+.semplice-cursor .smp-vimeo,
+.semplice-cursor .smp-youtube,
+.semplice-cursor .swiper-pagination-bullet,
+.semplice-cursor .swiper-slide,
+.semplice-cursor [data-module=singleproject] .thumb,
+.semplice-cursor [data-smp-link],
+.semplice-cursor a,
+.semplice-cursor input[type=password] {
+  cursor: none !important;
+}
+
+.semplice-cursor .mailchimp-newsletter input {
+  cursor: none;
+}
+
+.semplice-cursor #semplice-cursor {
+  position: fixed;
+  z-index: 999999;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  pointer-events: none;
+}
+
+.semplice-cursor #semplice-cursor .semplice-cursor-inner {
+  position: relative;
+  background-color: #000000af;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease; /* Smooth transition for hover effects */
+}
+
+.semplice-cursor #semplice-cursor .semplice-cursor-inner .cursor-text {
+  display: none;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-right: -1px;
+  color: #fff;
+}
+
+.semplice-cursor #semplice-cursor .semplice-cursor-inner .cursor-icon {
+  display: none;
+}
+
+.semplice-cursor #semplice-cursor .semplice-cursor-inner .cursor-icon svg {
+  width: 40%;
+  height: auto;
+  fill: #fff;
+  margin: 0 auto;
+}
+
+.semplice-cursor .pswp,
+.semplice-cursor .smp-video.has-controls,
+.semplice-cursor .smp-video.has-controls a {
+  cursor: default !important;
+}
+
+.semplice-cursor #semplice-cursor.mouseover-cursor {
+  mix-blend-mode: normal;
+}
+
+/* Gallery cursor overrides (if applicable) */
+.gallery-cursor .semplice-gallery .flickity-button {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0 !important;
+  border-radius: 0;
+  transform: none;
+}
+
+.gallery-cursor .semplice-gallery .flickity-button svg {
+  display: none;
+}
+
+.gallery-cursor .semplice-gallery .next {
+  left: inherit !important;
+  right: 0 !important;
+}
+
+/* Hover effects */
+.semplice-cursor a:hover ~ #semplice-cursor .semplice-cursor-inner,
+.semplice-cursor button:hover ~ #semplice-cursor .semplice-cursor-inner {
+  transform: scale(1.5) translate(-33%, -33%);
+  background-color: #7b92a5; /* Matches your site’s accent color */
+}

@@ -10,9 +10,8 @@
 <script src="https://use.fontawesome.com/3606f702fd.js"></script><link rel="stylesheet" href="https://use.fontawesome.com/3606f702fd.css" media="all"><link rel="stylesheet" href="https://use.fontawesome.com/3606f702fd.css" media="all"><link rel="stylesheet" href="./style.css">
 
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="10">
+<body data-spy="scroll" data-target=".navbar" data-offset="10" class="semplice-cursor">
 <!-- partial:index.partial.html -->
-
 
   
   
@@ -53,7 +52,7 @@
         Aryan <span>Rai</span>
       </h1>
       <p>
-        mechanical/electrical/electronic/software developer
+        mechatronic/electrical/electronic/software developer
       </p>
       <a href="https://www.linkedin.com/in/aryan-rai-503a59201/" target="_blank">
         <i class="fa fa-2x fa-linkedin" aria-hidden="true"></i>
@@ -89,10 +88,10 @@
         </div>
         <div class="col-xs-12 col-md-8 col-lg-8 biography__text">
           <p class="biography__text--body">
-              I’ve been fascinated by computers, electronics, microcontrollers, robotics, IoT devices, and sensors for as long as I can remember. Currently pursuing a Mechatronics Engineering (Honours) degree at The University of Sydney, I specialize in embedded systems and have hands-on experience with a diverse set of programming languages, including Python, C, C++, and JavaScript, alongside exposure to C#, Node.js, and Rust. My skills extend beyond coding—I’m proficient in CAD (SolidWorks), PCB design (KiCad, EasyEDA), and technical documentation (LaTeX, Markdown), honed through student clubs, coursework, and personal projects.
+              I've been fascinated by computers, electronics, microcontrollers, robotics, IoT devices, and sensors for as long as I can remember. Currently pursuing a Mechatronics Engineering (Honours) degree at The University of Sydney, I specialize in embedded systems and have hands-on experience with a diverse set of programming languages, including Python, C, C++, and JavaScript, alongside exposure to C#, Node.js, and Rust. My skills extend beyond coding—I'm proficient in CAD (SolidWorks), PCB design (KiCad, EasyEDA), and technical documentation (LaTeX, Markdown), honed through student clubs, coursework, and personal projects.
           </p>
           <p class="biography__text--body">
-              I thrive in collaborative environments, leading teams and contributing student initiatives focused on electronics and robotics. While my foundation is in mechatronics, I’m passionate about bridging software, electronics, and innovative technologies. My goal is to leverage platforms like this to learn, innovate, and connect with inspiring professionals while working on impactful engineering challenges.
+              I thrive in collaborative environments, leading teams and contributing student initiatives focused on electronics and robotics. While my foundation is in mechatronics, I'm passionate about bridging software, electronics, and innovative technologies. My goal is to leverage platforms like this to learn, innovate, and connect with inspiring professionals while working on impactful engineering challenges.
           </p>
       </div>
     </article>
@@ -211,7 +210,34 @@
       </div>
   </article>
 </section>
+<!-- Technical Skills Section -->
+<section class="container technical-skills" id="technical-skills">
+  <h2>Technical Skills</h2>
+  <article>
+      <div class="row" id="skills-list">
+          <!-- Skills will be populated dynamically -->
+      </div>
+      <div class="text-center">
+          <button id="add-skill" class="btn btn-primary" style="margin-top: 20px;">Add New Skill</button>
+      </div>
+  </article>
+</section>
 
+<!-- Freelance Section -->
+<section class="container freelance" id="freelance">
+  <h2>Freelance Experience</h2>
+  <article>
+      <button class="btn btn-primary toggle-timeline" data-bs-toggle="collapse" data-bs-target="#freelance-timeline" aria-expanded="true" aria-controls="freelance-timeline" style="margin-bottom: 20px;">
+          Toggle Timeline
+      </button>
+      <div class="timeline collapse show" id="freelance-timeline">
+          <!-- Timeline items will be populated dynamically -->
+      </div>
+      <div class="text-center">
+          <button id="add-freelance" class="btn btn-primary" style="margin-top: 20px;">Add Freelance Project</button>
+      </div>
+  </article>
+</section>
 <!-- Social Photos Gallery -->
 <section class="container gallery" id="social-photos">
   <h2>Social Photos</h2>
@@ -285,6 +311,9 @@
       </div>
   </article>
 </section>
+
+
+
 <section class="container details" id="details">
   <h2>Details</h2>
   <article>
@@ -335,6 +364,11 @@
           <i class="fa fa-3x fa-facebook-square" aria-hidden="true"></i>
         </a>
       </div>
+      <div class="col-xs-6 col-lg-2 icons icons-left">
+        <a href="#" target="_blank">
+          <i class="fa fa-3x fa-spotify" aria-hidden="true"></i>
+        </a>
+      </div>
     </article>
   </section>
   
@@ -346,7 +380,16 @@
   </p></footer>
 
 
-  
+
+    <!-- Existing content remains unchanged -->
+    <div id="semplice-cursor">
+        <div class="semplice-cursor-inner">
+            <span class="cursor-text"></span>
+            <span class="cursor-icon"></span>
+        </div>
+    </div>
+    <!-- Existing scripts remain here -->
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -611,7 +654,7 @@ async function sendMessage(event) {
         console.error('Error sending message:', error.message);
         alert('Failed to send message: ' + error.message);
     } else {
-        alert('Message sent successfully! I’ll get back to you soon.');
+        alert('Message sent successfully! I\'ll get back to you soon.');
         document.getElementById('contact-form').reset();
     }
 }
@@ -693,6 +736,150 @@ async function uploadResume() {
     };
     input.click();
 }
+
+
+// Fetch freelance projects as a timeline
+async function fetchFreelance() {
+    const { data, error } = await supabase.from('freelance').select('*').order('start_date', { ascending: false });
+    if (error) {
+        console.error('Error fetching freelance projects:', error.message);
+        return;
+    }
+
+    const timelineContainer = document.getElementById('freelance-timeline');
+    timelineContainer.innerHTML = '';
+    data.forEach((project, index) => {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = `timeline-item ${index % 2 === 0 ? 'left' : 'right'}`;
+        timelineItem.innerHTML = `
+            <div class="timeline-content">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <span>Start: ${new Date(project.start_date).toLocaleDateString()}</span>
+                ${project.end_date ? `<br><span>End: ${new Date(project.end_date).toLocaleDateString()}</span>` : '<br><span>Ongoing</span>'}
+            </div>
+        `;
+        timelineContainer.appendChild(timelineItem);
+    });
+}
+
+// Add freelance project
+async function addFreelance() {
+    const session = await checkAuth();
+    if (!session) {
+        const loggedIn = await login();
+        if (!loggedIn) return;
+    }
+
+    const title = prompt('Enter project title:');
+    const description = prompt('Enter project description:');
+    const startDate = prompt('Enter start date (YYYY-MM-DD):');
+    const endDate = prompt('Enter end date (YYYY-MM-DD) or leave blank if ongoing:') || null;
+
+    if (!title || !description || !startDate) return;
+
+    const { error } = await supabase.from('freelance').insert([
+        { title, description, start_date: startDate, end_date: endDate }
+    ]);
+
+    if (error) {
+        console.error('Error adding freelance project:', error.message);
+        alert('Failed to add project: ' + error.message);
+    } else {
+        fetchFreelance();
+    }
+}
+
+// Load freelance on page load
+document.addEventListener('DOMContentLoaded', fetchFreelance);
+document.getElementById('add-freelance').addEventListener('click', addFreelance);
+// Fetch technical skills
+async function fetchSkills() {
+    const { data, error } = await supabase.from('skills').select('*').order('category, skill');
+    if (error) {
+        console.error('Error fetching skills:', error.message);
+        return;
+    }
+
+    const skillsList = document.getElementById('skills-list');
+    skillsList.innerHTML = '';
+
+    // Group skills by category
+    const categories = {};
+    data.forEach(skill => {
+        if (!categories[skill.category]) {
+            categories[skill.category] = [];
+        }
+        categories[skill.category].push(skill.skill);
+    });
+
+    // Create columns for each category
+    for (const [category, skills] of Object.entries(categories)) {
+        const div = document.createElement('div');
+        div.className = 'skills-list';
+        const ul = document.createElement('ul');
+        ul.innerHTML = `<h3>${category}</h3>`;
+        skills.forEach(skill => {
+            const li = document.createElement('li');
+            li.textContent = skill;
+            ul.appendChild(li);
+        });
+        div.appendChild(ul);
+        skillsList.appendChild(div);
+    }
+}
+
+// Add new skill
+async function addSkill() {
+    const session = await checkAuth();
+    if (!session) {
+        const loggedIn = await login();
+        if (!loggedIn) return;
+    }
+
+    const category = prompt('Enter skill category (e.g., Programming Languages, Tools):');
+    const skill = prompt('Enter skill name:');
+
+    if (!category || !skill) return;
+
+    const { error } = await supabase.from('skills').insert([
+        { category, skill }
+    ]);
+
+    if (error) {
+        console.error('Error adding skill:', error.message);
+        alert('Failed to add skill: ' + error.message);
+    } else {
+        fetchSkills();
+    }
+}
+
+// Custom cursor movement
+document.addEventListener('mousemove', (e) => {
+    const cursor = document.getElementById('semplice-cursor');
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+});
+
+// Optional: Add hover effects
+document.querySelectorAll('a, button').forEach(element => {
+    element.addEventListener('mouseenter', () => {
+        const cursor = document.getElementById('semplice-cursor');
+        cursor.classList.add('mouseover-cursor');
+    });
+    element.addEventListener('mouseleave', () => {
+        const cursor = document.getElementById('semplice-cursor');
+        cursor.classList.remove('mouseover-cursor');
+    });
+});
+
+// Load skills on page load
+document.addEventListener('DOMContentLoaded', fetchSkills);
+document.getElementById('add-skill').addEventListener('click', addSkill);
+
+// Load freelance on page load
+document.addEventListener('DOMContentLoaded', fetchFreelance);
+document.getElementById('add-freelance').addEventListener('click', addFreelance);
 
 // Monitor auth state changes
 supabase.auth.onAuthStateChange((event, session) => {
