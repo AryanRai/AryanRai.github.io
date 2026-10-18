@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="portfolio.css"><script src="portfolio.js" defer></script>
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><a class="brand" href="#home" aria-label="Aryan Rai home">Aryan Rai</a><nav aria-label="Main navigation"><a href="#journey">My journey</a><a href="#projects">Projects</a><a href="#about">About</a><a class="nav-contact" href="#contact">Say hello <span aria-hidden="true">↗</span></a></nav></header>
+<header class="site-header"><a class="brand" href="#home" aria-label="Aryan Rai home">Aryan Rai</a><nav aria-label="Main navigation"><a href="#journey">Timeline</a><a href="#projects">Projects</a><a href="#about">About</a><a class="nav-contact" href="#contact">Say hello <span aria-hidden="true">↗</span></a></nav></header>
 <main id="main">
 <section class="hero wrap" id="home">
  <div class="hero-intro"><p class="eyebrow"><span class="status-dot"></span> Robotics & embedded systems <span class="hero-location">/ Sydney, Australia</span></p>
@@ -18,53 +18,92 @@
  <div class="hero-caption"><span>From a workbench at home to robots in the real world.</span><span class="mono">A personal field notebook / 2026</span></div>
 </section>
 
-<section class="journey wrap" id="journey" aria-labelledby="journey-title">
- <div class="section-heading"><p class="eyebrow">01 / THE THREAD THAT CONNECTS IT ALL</p><h2 id="journey-title">One thing led<br> to <em>another.</em></h2><p>Different projects. The same curiosity.<br> A timeline of learning by building.</p></div>
- <nav class="chapter-nav" aria-label="Timeline chapters"><a href="#beginnings">The beginning</a><a href="#year-2023">2023</a><a href="#year-2024">2024</a><a href="#year-2025">2025</a><a href="#year-2026">2026</a><a href="#now">Now</a></nav>
- <div class="timeline">
- <article class="chapter" id="beginnings"><div class="chapter-date"><span class="timeline-dot"></span><span class="mono">CHAPTER 01</span><h3>The beginning</h3><p>Before university</p></div><div class="chapter-content">
- <p class="eyebrow">CURIOSITY STARTS AT HOME</p><h3 class="chapter-title">For as long as<br> I can remember.</h3>
- <blockquote>“I've been obsessed with computers, electronics, microcontrollers, robotics, IoT devices, and sensors.”</blockquote>
- <p>That interest grew through building with my father. Digital electronics, motors, batteries, small microcontrollers - and the code that made them do something.</p><p>Hobby quadcopters became RC cars, electric skateboards and a bike. Arduino robots sat alongside smart lights and a door-unlock system. I liked working on every part: the hardware, the firmware, and the interface someone would actually use.</p>
- <div class="image-pair"><figure class=""><img src="assets/work/drone.webp" alt="An early hobby quadcopter" width="1500" height="837" loading="lazy" decoding="async"><figcaption>Hobby quadcopters / electronics, flight and a lot of learning</figcaption></figure><figure class=""><img src="assets/work/skateboard.webp" alt="An electric skateboard assembled from parts" width="1500" height="1125" loading="lazy" decoding="async"><figcaption>Electric skateboard / a build that later became a bike</figcaption></figure></div>
- <a class="text-link project-jump" href="#project-early">See the early builds <span aria-hidden="true">↗</span></a></div></article>
+<section class=”proj-tl wrap” id=”journey” aria-label=”Project timeline”>
+<div class=”section-heading”><p class=”eyebrow”>01 / EVERYTHING I'VE BUILT</p><h2>The work,<br><em>all of it.</em></h2><p>Every project. Most recent first.</p></div>
 
- <article class="chapter" id="year-2023"><div class="chapter-date"><span class="timeline-dot"></span><span class="mono">CHAPTER 02</span><h3>2023</h3><p>A new place to build</p></div><div class="chapter-content">
- <p class="eyebrow">THE UNIVERSITY OF SYDNEY</p><h3 class="chapter-title">Putting foundations<br> under the curiosity.</h3>
- <p>I started a Bachelor of Engineering (Honours) in Mechatronic Engineering, specialising in Robotics & Intelligent Systems. University gave the things I loved building a deeper foundation in sensing, control, mechanics and software.</p>
- <div class="note"><span class="mono">2023 - 2027 / EDUCATION</span><p>Mechatronic Engineering (Honours)<br> <span>Robotics & Intelligent Systems</span></p></div>
- <p>Coursework became another place to experiment: interactive electronics, C programming, microcontroller games, and later autonomous warehouse robotics.</p><a class="text-link project-jump" href="#project-sequencer">Explore university projects <span aria-hidden="true">↗</span></a>
- </div></article>
+<div class=”tl-block”>
+<div class=”tl-block-label”><span class=”mono”>NOW</span><h2>Current</h2></div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>MAR 2026 – PRESENT</span><h3>Imitation Machines</h3><p>Robotics systems engineering intern. Physical robot integration, motion planning, simulation and VR teleoperation across UR10e, Inspire RH56 and M750 arms with ACT, Diffusion Policy and VLA models.</p><span class=”tl-stack”>ROS 2 · Isaac Sim · MuJoCo · PyTorch · LeRobot</span></div>
+<div class=”tl-photos p3”><img src=”assets/work/robot-arm.webp” alt=”Elephant Robotics M750 arm” loading=”lazy”><img src=”assets/work/robot-dog.webp” alt=”Robot dog in workspace” loading=”lazy”><img src=”assets/work/robot-sim.webp” alt=”Robot simulation view” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>2026 – PRESENT / CO-FOUNDER</span><h3>Perception — Orbit, Raven &amp; Orion</h3><p>Mission planning, live fleet operations, drone hardware and mesh comms. Selected for Antler AUS16 residency.</p><span class=”tl-stack”>ROS 2 · ArduPilot · MAVLink · GStreamer · KiCad</span><br><a class=”text-link” href=”https://prxptn.com” target=”_blank” rel=”noopener noreferrer” style=”margin-top:14px”>Visit Perception ↗</a></div>
+<div class=”tl-photos p3”><img src=”assets/work/orbit.webp” alt=”Orbit mission planner” loading=”lazy” class=”screen”><img src=”assets/work/raven.webp” alt=”Raven drone prototype” loading=”lazy”><img src=”assets/work/orion.webp” alt=”Orion mesh comms hardware” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>ONGOING</span><h3>HowYouSeeMe + DroidCore + Ally</h3><p>Personal side projects — a persistent semantic world state for robots, a modular robotics platform, and Ally.</p><span class=”tl-stack”>ROS 2 · RGB-D · SLAM · Python</span></div>
+<div class=”tl-photos p2”><img src=”assets/work/perception.webp” alt=”HowYouSeeMe perception experiments” loading=”lazy” class=”screen”><img src=”assets/work/droidcore.webp” alt=”DroidCore platform render” loading=”lazy”></div>
+</div>
+</div>
 
- <article class="chapter" id="year-2024"><div class="chapter-date"><span class="timeline-dot"></span><span class="mono">CHAPTER 03</span><h3>2024</h3><p>From my bench<br> to a team effort</p></div><div class="chapter-content">
- <p class="eyebrow">ROVERS / ROCKETS / UAVS</p><h3 class="chapter-title">Bigger systems.<br> More people. Real tests.</h3>
- <p>Joining student engineering teams meant learning to build things that had to work together, and helping other people do the same.</p>
- <figure class="wide-photo"><img src="assets/work/rover.webp" alt="SIRI rover on display" width="1500" height="1170" loading="lazy" decoding="async"><figcaption>Sydney Interplanetary Rover Initiative / collective work of the rover team</figcaption></figure>
- <div class="role-heading"><h4>Electrical Co-Lead, SIRI</h4><span class="mono">MAR 2024 - MAR 2026</span></div>
- <p>I led a 17-engineer electrical, embedded and controls team through the Australian Rover Challenge 2026. Power distribution, custom PCBs, CAN motor control, onboard compute and radios all had to become one working rover.</p><a class="text-link project-jump" href="#project-rover">Inside the rover work <span aria-hidden="true">↗</span></a>
- <div class="two-notes"><div><span class="mono">FEB 2024 - JAN 2025</span><h4>USYD Rocketry</h4><p>STM32 flight data acquisition, telemetry and tank-test instrumentation.</p><a class="text-link project-jump" href="#project-rocketry">Rocketry work <span aria-hidden="true">↗</span></a></div><div><span class="mono">FEB - SEP 2024</span><h4>Sydney UAV / FASTR</h4><p>PX4 hardware, ROS 2 integration and field testing as the team's primary pilot.</p><a class="text-link project-jump" href="#project-uav">UAV work <span aria-hidden="true">↗</span></a></div></div>
- </div></article>
+<div class=”tl-block”>
+<div class=”tl-block-label”><span class=”mono”>EARLIER IN</span><h2>2026</h2></div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>JAN 2026 / TU BERLIN</span><h3>CanSat Winter School</h3><p>Hands-on satellite design at Technische Universität Berlin — compact hardware, sensing and embedded engineering in a CanSat build.</p><span class=”tl-stack”>CanSat · Embedded systems · Integration</span></div>
+<div class=”tl-photos p1”><img src=”assets/work/cansat.webp” alt=”CanSat electronics assembly” loading=”lazy”></div>
+</div>
+</div>
 
- <article class="chapter" id="year-2025"><div class="chapter-date"><span class="timeline-dot"></span><span class="mono">CHAPTER 04</span><h3>2025</h3><p>A little closer<br> to space</p></div><div class="chapter-content">
- <p class="eyebrow">SATMAP / ANT61 / SPACE SYSTEMS</p><h3 class="chapter-title">From simulating a link<br> to building one.</h3>
- <p>Space robotics had been a long-running interest. In May, our team won the USRC x ANT61 Space Handshakes Hackathon with SatMap, a tool for exploring satellite communication opportunities.</p>
- <figure class="screen-photo"><img src="assets/work/satmap.webp" alt="SatMap satellite constellation visualisation" width="1497" height="1200" loading="lazy" decoding="async"><figcaption>SatMap / satellite communication simulation</figcaption></figure>
- <div class="award"><span aria-hidden="true">↗</span><div><strong>1st place / Space Handshakes Hackathon</strong><p>USRC x ANT61 · May 2025</p></div><a class="text-link project-jump" href="#project-satmap">View project <span aria-hidden="true">↗</span></a></div>
- <div class="story-split"><figure class=""><img src="assets/work/ant61.webp" alt="Aryan holding ANT61 hardware" width="904" height="1200" loading="lazy" decoding="async"><figcaption>At ANT61 / embedded systems internship</figcaption></figure><div><p class="eyebrow">JUN - JUL 2025</p><h4>Embedded systems at ANT61</h4><p>I worked on Beacon RevG: GNSS acquisition, STM32 firmware and CubeSat Space Protocol communications. It was a chance to take the careful work of embedded engineering into space hardware.</p><a class="text-link project-jump" href="#project-ant61">My contribution <span aria-hidden="true">↗</span></a><p class="small-note">Later that year, I attended the International Astronautical Congress in Sydney with the SIRI rover display.</p></div></div>
- </div></article>
+<div class=”tl-block”>
+<div class=”tl-block-label”><span class=”mono”></span><h2>2025</h2></div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>JUN – JUL 2025 / ANT61</span><h3>Beacon RevG — ANT61</h3><p>Embedded systems internship at ANT61 in Sydney. GNSS acquisition, UART DMA, STM32 firmware and CubeSat Space Protocol for space robotics hardware.</p><span class=”tl-stack”>STM32 · C++ · GNSS · libcsp · CRC32</span><br><a class=”text-link” href=”https://www.ant61.com/beacon” target=”_blank” rel=”noopener noreferrer” style=”margin-top:14px”>About Beacon ↗</a></div>
+<div class=”tl-photos p2”><img src=”assets/work/ant61.webp” alt=”At ANT61 with Beacon hardware” loading=”lazy” class=”portrait”><img src=”assets/work/beacon.webp” alt=”Beacon RevG hardware” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>MAY 2025 / 1ST PLACE</span><h3>SatMap — Space Handshakes Hackathon</h3><p>Won the USRC × ANT61 hackathon with a satellite communication simulation tool. 2D/3D visualisation of Iridium constellation opportunities against an ANT61 Beacon.</p><span class=”tl-stack”>TypeScript · WebGL · Orbital simulation</span><br><a class=”text-link” href=”https://github.com/AryanRai/SatMap” target=”_blank” rel=”noopener noreferrer” style=”margin-top:14px”>GitHub ↗</a></div>
+<div class=”tl-photos p2”><img src=”assets/work/satmap.webp” alt=”SatMap constellation visualisation” loading=”lazy” class=”screen”><img src=”assets/work/hackathon.webp” alt=”Space Handshakes Hackathon” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>2025 / USYD</span><h3>Autonomous warehouse robotics</h3><p>MTRX3760 project — ROS 2 navigation, LiDAR, camera sensing, SLAM and autonomous task execution on TurtleBot in Gazebo and RViz.</p><span class=”tl-stack”>ROS 2 · SLAM · Gazebo · RViz · TurtleBot</span></div>
+<div class=”tl-photos p1”><img src=”assets/work/robot-sim.webp” alt=”Robot simulation in RViz” loading=”lazy” class=”screen”></div>
+</div>
+</div>
 
- <article class="chapter" id="year-2026"><div class="chapter-date"><span class="timeline-dot"></span><span class="mono">CHAPTER 05</span><h3>2026</h3><p>Machines that learn.<br> Systems that connect.</p></div><div class="chapter-content">
- <p class="eyebrow">ROBOT LEARNING / PERCEPTION</p><h3 class="chapter-title">Bringing the pieces<br> into the real world.</h3>
- <p>The year began with hands-on CanSat design at TU Berlin. Back in Sydney, my work grew in two connected directions: helping robots learn, and building the systems to operate them.</p>
- <div class="work-feature"><div><img src="assets/work/robot-arm.webp" alt="Elephant Robotics M750 arm in the workspace" width="675" height="1200" loading="lazy" decoding="async"></div><div><p class="eyebrow">MAR 2026 - PRESENT</p><h4>Imitation Machines</h4><p class="role-label">Robotics Systems Engineer Intern</p><p>Robot integration, motion planning, simulation and VR teleoperation. Working across ROS 2, Isaac Sim, MuJoCo and robot-learning workflows to connect demonstrations with physical behaviour.</p><a class="text-link project-jump" href="#project-imitation">Explore the work <span aria-hidden="true">↗</span></a></div></div>
- <div class="orbit-feature"><div class="orbit-heading"><div><p class="eyebrow">2026 - PRESENT / CO-FOUNDER</p><h4>Perception<span class="accent">.</span></h4></div><a class="text-link" href="https://prxptn.com" target="_blank" rel="noopener noreferrer">Visit Perception <span aria-hidden="true">↗</span></a></div><img src="assets/work/orbit.webp" alt="Orbit planner showing mission nodes alongside a 3D map" width="1600" height="903" loading="lazy" decoding="async"><div class="orbit-copy"><h5>From a mission idea<br> to a working fleet.</h5><p>I work across hardware, robotics and embedded systems: Orbit for mission design and live operations, Raven for the reference vehicle, and Orion for mesh communications. Selected for the Antler AUS16 residency.</p></div><a class="text-link project-jump" href="#project-orbit">Explore Orbit, Raven & Orion <span aria-hidden="true">↗</span></a></div>
- </div></article>
+<div class=”tl-block”>
+<div class=”tl-block-label”><span class=”mono”></span><h2>2024</h2></div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>MAR 2024 – MAR 2026 / ELEC CO-LEAD</span><h3>SIRI — Sydney Interplanetary Rover Initiative</h3><p>Led a 17-engineer electrical, embedded and controls team through the Australian Rover Challenge 2026. Power distribution, custom PCBs, CAN motor control, onboard compute and radios.</p><span class=”tl-stack”>KiCad · Teensy · C++ · CAN · Jetson</span></div>
+<div class=”tl-photos p3”><img src=”assets/work/rover.webp” alt=”SIRI rover on display” loading=”lazy”><img src=”assets/work/rover-team.webp” alt=”SIRI electrical team” loading=”lazy”><img src=”assets/work/rover-board.webp” alt=”Custom rover PCB” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>FEB 2024 – JAN 2025</span><h3>USYD Rocketry — Datalogger &amp; test systems</h3><p>STM32 datalogger firmware, pressure and temperature acquisition, LoRa telemetry and LabJack tank-test instrumentation for the rocketry team.</p><span class=”tl-stack”>STM32 · RS485 · LoRa · LabJack · DAQ</span></div>
+<div class=”tl-photos p1”><img src=”assets/work/rocketry.webp” alt=”Rocketry instrumentation on the workbench” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>FEB – SEP 2024</span><h3>Sydney UAV — Project FASTR</h3><p>PX4/Pixhawk quadrotor build and calibration, ROS 2 and OpenCV integration and field testing as primary pilot.</p><span class=”tl-stack”>PX4 · Pixhawk · ROS 2 · OpenCV</span></div>
+<div class=”tl-photos p1”><img src=”assets/work/drone-flight.webp” alt=”Drone flight test” loading=”lazy” class=”screen”></div>
+</div>
+</div>
 
- <article class="chapter" id="now"><div class="chapter-date"><span class="timeline-dot current"></span><span class="mono">STILL IN PROGRESS</span><h3>Now</h3><p>The next experiment</p></div><div class="chapter-content">
- <p class="eyebrow">BUILD / TEST / LEARN / ITERATE</p><h3 class="chapter-title">Still following<br> the curiosity.</h3><p>Alongside my work at Imitation Machines and Perception, I keep building personal projects. HowYouSeeMe explores a persistent semantic world state for robots. DroidCore is a modular robotics platform. Ally takes my interest in useful software in another direction.</p>
- <div class="now-links"><a class="text-link project-jump" href="#project-howyouseeme">HowYouSeeMe <span aria-hidden="true">↗</span></a><a class="text-link project-jump" href="#project-droidcore">DroidCore <span aria-hidden="true">↗</span></a><a class="text-link project-jump" href="#project-ally">Ally <span aria-hidden="true">↗</span></a></div>
- <p class="closing-note">The scale has changed.<br> <em>The urge to build hasn't.</em></p>
- </div></article></div>
+<div class=”tl-block”>
+<div class=”tl-block-label”><span class=”mono”></span><h2>2023</h2></div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>2023 / USYD</span><h3>Interactive sequencer &amp; microcontroller projects</h3><p>MTRX1705 light-pattern sequencer, MTRX2700 treasure hunt and interactive magnet-detector game — embedded programming, physical interfaces, C and teamwork.</p><span class=”tl-stack”>C · Digital electronics · Microcontrollers</span></div>
+<div class=”tl-photos p2”><img src=”assets/work/sequencer.webp” alt=”Light sequencer circuit” loading=”lazy” class=”portrait”><img src=”assets/work/treasure.webp” alt=”Interactive electronics game” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>PERSONAL PROJECTS</span><h3>Comms, BlueLily, CarCanCant &amp; LTE monitor</h3><p>A ground station dashboard, configurable sensing and control platform, automotive CAN logger and a remote LTE battery monitor. Tools built as I needed them.</p><span class=”tl-stack”>C++ · RS485 · LoRa · CAN · KiCad</span></div>
+<div class=”tl-photos p4”><img src=”assets/work/comms.webp” alt=”Comms dashboard” loading=”lazy” class=”screen”><img src=”assets/work/bluelily.webp” alt=”BlueLily prototype” loading=”lazy”><img src=”assets/work/carcan.webp” alt=”CarCanCant interface” loading=”lazy” class=”screen”><img src=”assets/work/lte.webp” alt=”LTE battery monitor” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>PERSONAL PROJECTS</span><h3>RGBeatz, SmartLights &amp; DoorUnlock</h3><p>Music-reactive RGB lighting via Spotify, whole-house Wi-Fi lighting automation, and an ESP8266 door access system used at home.</p><span class=”tl-stack”>ESP32 / ESP8266 · Python · Firebase · IoT</span></div>
+<div class=”tl-photos p3”><img src=”assets/work/rgbeatz.webp” alt=”RGBeatz lighting interface” loading=”lazy” class=”screen”><img src=”assets/work/smartlights.webp” alt=”SmartLights wiring” loading=”lazy”><img src=”assets/work/doorunlock.webp” alt=”DoorUnlock prototype” loading=”lazy”></div>
+</div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>PERSONAL PROJECTS</span><h3>SimplyWise, testing platform &amp; Unity multiplayer</h3><p>Inventory management for local businesses, a web-based IELTS practice platform, and a Firebase-backed Unity multiplayer PvP game.</p><span class=”tl-stack”>Python · JavaScript · Unity · C# · Firebase</span></div>
+<div class=”tl-photos p3”><img src=”assets/work/simplywise.webp” alt=”SimplyWise dashboard” loading=”lazy” class=”screen”><img src=”assets/work/testing.webp” alt=”Testing platform” loading=”lazy” class=”screen”><img src=”assets/work/unity.webp” alt=”Unity multiplayer game” loading=”lazy”></div>
+</div>
+</div>
+
+<div class=”tl-block”>
+<div class=”tl-block-label”><span class=”mono”></span><h2>Earlier</h2></div>
+<div class=”tl-entry”>
+<div class=”tl-entry-meta”><span class=”mono”>BEFORE UNIVERSITY</span><h3>Drones, RC cars &amp; electric boards</h3><p>Building with my father — hobby quadcopters, RC cars, an electric skateboard that became a bike, and small Arduino robots. Where it all started.</p><span class=”tl-stack”>Motors · ESCs · Batteries · Arduino</span></div>
+<div class=”tl-photos p3”><img src=”assets/work/drone.webp” alt=”Early hobby quadcopter” loading=”lazy”><img src=”assets/work/rc-car.webp” alt=”RC car build” loading=”lazy”><img src=”assets/work/skateboard.webp” alt=”Electric skateboard” loading=”lazy”></div>
+</div>
+</div>
 </section>
 
 <section class="archive-section" id="projects"><div class="wrap"><div class="section-heading"><p class="eyebrow">02 / THE WORKBENCH</p><h2>The work,<br> <em>in detail.</em></h2><p>A closer look at the work along the way.<br> Open a project to see the story and the build.</p></div>
