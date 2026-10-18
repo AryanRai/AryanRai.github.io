@@ -39,6 +39,19 @@ if (tools) {
   window.addEventListener('hashchange', () => openProject(location.hash));
   openProject(location.hash);
 }
+const emailBtn = document.getElementById('email-copy');
+if (emailBtn) {
+  emailBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('buzzaryanrai@gmail.com').then(() => {
+      emailBtn.textContent = 'Copied!';
+      emailBtn.classList.add('copied');
+      setTimeout(() => {
+        emailBtn.textContent = 'buzzaryanrai@gmail.com';
+        emailBtn.classList.remove('copied');
+      }, 2000);
+    });
+  });
+}
 const chapters = [...document.querySelectorAll('.chapter')];
 if (chapters.length && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
