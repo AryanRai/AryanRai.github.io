@@ -2,12 +2,17 @@ import { useState } from 'react'
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
+  const [copyFailed, setCopyFailed] = useState(false)
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText('buzzaryanrai@gmail.com').then(() => {
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('buzzaryanrai@gmail.com')
+      setCopyFailed(false)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
-    })
+    } catch {
+      setCopyFailed(true)
+    }
   }
 
   return (
@@ -19,6 +24,8 @@ export default function Contact() {
       <button className={`email-btn${copied ? ' copied' : ''}`} onClick={copyEmail} aria-label="Copy email address">
         {copied ? 'Copied!' : 'buzzaryanrai@gmail.com'}
       </button>
+      <span className="sr-only" role="status">{copied ? 'Email address copied to clipboard.' : ''}</span>
+      {copyFailed && <p className="copy-fallback">Copy unavailable. <a className="text-link" href="mailto:buzzaryanrai@gmail.com">Open your email app ↗</a></p>}
       <div className="contact-links">
         <a className="text-link" href="https://www.linkedin.com/in/aryan-rai-503a59201/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         <a className="text-link" href="https://github.com/AryanRai" target="_blank" rel="noopener noreferrer">GitHub ↗</a>

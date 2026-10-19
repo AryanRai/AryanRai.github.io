@@ -11,12 +11,12 @@ export default function Nav() {
 
   return (
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
-      <a className="brand" href="#home" aria-label="Aryan Rai home">Aryan Rai</a>
+      <a className="brand" href="#home" aria-label="Aryan Rai home"><span className="brand-symbol" aria-hidden="true">✳</span> ARYAN RAI<span className="brand-note">ENGINEER & BUILDER</span></a>
       <nav aria-label="Main navigation">
-        <a href="#journey">Timeline</a>
-        <a href="#projects">Projects</a>
+        <a href="#selected">Work <sup>01</sup></a>
+        <a href="#journey">Journey <sup>02</sup></a>
         <a href="#about">About</a>
-        <a className="nav-contact" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+        <a className="nav-contact" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
   )

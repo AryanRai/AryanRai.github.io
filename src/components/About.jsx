@@ -6,7 +6,7 @@ export default function About() {
         <span className="image-label mono">ARYAN RAI / SYDNEY</span>
       </div>
       <div>
-        <p className="eyebrow">03 / THE PERSON</p>
+        <p className="eyebrow">04 / THE PERSON</p>
         <h2>Hardware person.<br />Software person.<br /><em>Curious person.</em></h2>
         <p>Mechatronic engineering student at the University of Sydney, working at the intersection of electronics, embedded software and robotics.</p>
         <p>I enjoy the whole system: designing a board, writing the firmware, making sense of a sensor, and building an interface that makes the result useful.</p>

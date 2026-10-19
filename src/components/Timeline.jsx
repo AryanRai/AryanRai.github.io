@@ -36,19 +36,19 @@ export default function Timeline() {
   return (
     <section className="proj-tl wrap" id="journey" aria-label="Project timeline">
       <div className="tl-intro">
-        <h2>The work,<br /><em>all of it.</em></h2>
-        <p className="mono">01 / EVERYTHING I'VE BUILT<br />Every project. Most recent first.</p>
+        <h2>Following<br /><em>the curiosity.</em></h2>
+        <p className="mono">03 / THE JOURNEY<br />The experiments that got me here.</p>
       </div>
       {timeline.map((block) => (
-        <div className="tl-block" key={block.year}>
-          <div className="tl-block-label">
+        <details className="tl-block" key={block.year} open={block.year === 'Current'}>
+          <summary className="tl-block-label">
             {block.label && <span className="mono">{block.label}</span>}
-            <h2>{block.year}</h2>
-          </div>
+            <span className="tl-year">{block.year}</span><span className="tl-plus" aria-hidden="true">+</span>
+          </summary>
           {block.entries.map((entry) => (
             <TlEntry key={entry.title} entry={entry} />
           ))}
-        </div>
+        </details>
       ))}
     </section>
   )

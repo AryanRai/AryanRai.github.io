@@ -1,44 +1,26 @@
 import { useState, useMemo, useEffect } from 'react'
 import { projects, categories } from '../data/projects'
 
-function CursorPreview({ preview }) {
-  if (!preview.src) return null
-  return (
-    <div
-      className={`wl-cursor-preview${preview.visible ? ' visible' : ''}`}
-      style={{ left: preview.x + 28, top: preview.y }}
-      aria-hidden="true"
-    >
-      <img src={preview.src} alt="" />
-    </div>
-  )
-}
-
-function WorkRow({ project, index, isOpen, onToggle, onMouseEnter, onMouseLeave, onMouseMove }) {
+function WorkRow({ project, index, isOpen, onToggle }) {
   const { id, title, category, when, subtitle, body, stack, image, imageAlt, url, urlLabel } = project
 
   return (
     <div className={`wl-row${isOpen ? ' open' : ''}`} id={`project-${id}`} data-category={category}>
-      <div
+      <button type="button"
         className="wl-row-header"
         onClick={() => onToggle(id)}
-        onMouseEnter={() => onMouseEnter(project)}
-        onMouseLeave={onMouseLeave}
-        onMouseMove={onMouseMove}
-        role="button"
-        tabIndex={0}
-        onKeyDown={e => e.key === 'Enter' && onToggle(id)}
         aria-expanded={isOpen}
+        aria-controls={isOpen ? `detail-${id}` : undefined}
       >
         <span className="wl-num">{String(index + 1).padStart(2, '0')}</span>
         <span className="wl-title">{title}</span>
         <span className="wl-sub">{subtitle}</span>
         <span className="wl-cat">{category}</span>
         <span className="wl-expand" aria-hidden="true">{isOpen ? '−' : '+'}</span>
-      </div>
+      </button>
 
       {isOpen && (
-        <div className="wl-detail">
+        <div className="wl-detail" id={`detail-${id}`}>
           <div className={`wl-detail-inner${!image ? ' text-only' : ''}`}>
             {image && (
               <div className="wl-detail-media">
@@ -67,7 +49,6 @@ export default function Projects() {
   const [category, setCategory] = useState('All')
   const [query, setQuery] = useState('')
   const [openId, setOpenId] = useState(null)
-  const [preview, setPreview] = useState({ visible: false, x: 0, y: 0, src: '' })
 
   useEffect(() => {
     const openFromHash = () => {
@@ -96,24 +77,11 @@ export default function Projects() {
 
   const handleToggle = (id) => setOpenId(prev => prev === id ? null : id)
 
-  const handleMouseEnter = (project) => {
-    if (!project.image) return
-    setPreview(p => ({ ...p, visible: true, src: `/assets/work/${project.image}.webp` }))
-  }
-
-  const handleMouseMove = (e) => {
-    setPreview(p => ({ ...p, x: e.clientX, y: e.clientY }))
-  }
-
-  const handleMouseLeave = () => {
-    setPreview(p => ({ ...p, visible: false }))
-  }
-
   return (
     <section className="archive-section" id="projects">
       <div className="wrap">
         <div className="archive-intro">
-          <h2>The work,<br /><em>in detail.</em></h2>
+          <h2>The workbench.</h2>
           <p className="mono">02 / THE WORKBENCH<br />Open a project to see the build.</p>
         </div>
         <div className="archive-tools">
@@ -129,7 +97,7 @@ export default function Projects() {
             <input type="search" placeholder="Search..." value={query} onChange={e => setQuery(e.target.value)} />
           </label>
         </div>
-        <p className="mono result-count">{visible.length} {visible.length === 1 ? 'project' : 'projects'}</p>
+        <p className="mono result-count" aria-live="polite">{visible.length} {visible.length === 1 ? 'project' : 'projects'}</p>
         <div className="wl">
           {visible.map((p, i) => (
             <WorkRow
@@ -138,14 +106,10 @@ export default function Projects() {
               index={i}
               isOpen={openId === p.id}
               onToggle={handleToggle}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onMouseMove={handleMouseMove}
             />
           ))}
           {visible.length === 0 && <p className="empty-state">No matches.</p>}
         </div>
-        <CursorPreview preview={preview} />
         <div className="archive-end">
           <p>More in the visual portfolio.</p>
           <a className="text-link" href="https://www.canva.com/design/DAGrMs5FilU/B8yaZq9XQcU6J3cw5SShiA/view" target="_blank" rel="noopener noreferrer">

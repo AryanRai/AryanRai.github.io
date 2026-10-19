@@ -1,4 +1,4 @@
-import Cursor from './components/Cursor'
+import SelectedWork from './components/SelectedWork'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Timeline from './components/Timeline'
@@ -10,13 +10,13 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <>
-      <Cursor />
       <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
       <main id="main">
         <Hero />
-        <Timeline />
+        <SelectedWork />
         <Projects />
+        <Timeline />
         <About />
         <Contact />
       </main>
