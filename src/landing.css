@@ -77,3 +77,5 @@
   .hero-emblem { display: none; }
   .hero .hero-stage { min-height: 0; padding-block: 20px; }
 }
+/* Keep the contact heading in one ink color. */
+.contact h2 em { color: inherit; }
