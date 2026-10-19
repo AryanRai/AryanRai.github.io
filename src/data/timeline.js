@@ -36,8 +36,10 @@ export const timeline = [
         body: 'Personal side projects — a persistent semantic world state for robots, a modular robotics platform, and Ally.',
         stack: 'ROS 2 · RGB-D · SLAM · Python',
         photos: [
-          { src: 'semantic-map', alt: 'HowYouSeeMe semantic mapping in RViz', cls: 'screen' },
-          { src: 'droidcore-side', alt: 'DroidCore mobile robotics platform CAD' },
+          { src: 'howyouseeme-sim', alt: 'HowYouSeeMe object detections over the simulated robot camera', cls: 'screen' },
+          { src: 'droidcore-fetch', alt: 'DroidCore scripted fetch demo in MuJoCo with a sim-assisted grasp', cls: 'screen' },
+          { src: 'ally-desktop', alt: 'Ally desktop overlay with screen selection and contextual explanations' },
+          { src: 'ally-drawing', alt: 'Ally drawing reader with an explanatory diagram', cls: 'portrait' },
           { src: 'robot-prototype', alt: 'DroidCore electronics and sensor integration prototype' },
         ],
         grid: 'p2',

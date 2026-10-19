@@ -1,4 +1,11 @@
 export const projectGalleries = {
+  ally: [
+    { image: 'ally-drawing', caption: 'Ally / drawing reader with an explanatory diagram, October 2026' },
+  ],
+  howyouseeme: [
+    { image: 'howyouseeme-depth', caption: 'Simulated robot camera / depth frame' },
+    { image: 'semantic-map', caption: 'Earlier ROS 2 semantic mapping view' },
+  ],
   orbit: [
     { image: 'orbit-planning', caption: 'Orbit / visual mission planning' },
     { image: 'orbit-perception', caption: 'Orbit / perception and terrain views' },
@@ -23,6 +30,7 @@ export const projectGalleries = {
     { image: 'hackathon-present', caption: 'Presenting the Space Handshakes project' },
   ],
   droidcore: [
+    { image: 'droidcore-fetch', caption: 'Scripted MuJoCo fetch demo / simulated G1 with a sim-assisted grasp, October 2026' },
     { image: 'droidcore-side', caption: 'DroidCore / mechanical design' },
     { image: 'robot-prototype', caption: 'DroidCore / electronics and sensing prototype' },
   ],

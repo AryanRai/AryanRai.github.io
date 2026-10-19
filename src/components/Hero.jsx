@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="hero-stage wrap">
         <div className="hero-copy">
           <p className="eyebrow">Aryan Rai / Sydney</p>
-          <h1>I've always<br /><em>built things.</em></h1>
+          <h1 className="hero-quote">If it has wire,<br />solder, or code,<br /><em>I can work on it.</em></h1>
           <p className="hero-desc">Embedded · Robotics · Space · AI</p>
           <a className="pill-link" href="#questions">A few questions first <span aria-hidden="true">↓</span></a>
         </div>

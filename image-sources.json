@@ -98,5 +98,25 @@
   "satmap-groundtracks": {
     "source": "Public project repository",
     "original": "MapWithTrailandNames.png"
+  },
+  "ally-desktop": {
+    "source": "Recent local project screenshot, October 2026",
+    "original": "Screenshot 2026-10-18 235159.png"
+  },
+  "ally-drawing": {
+    "source": "Recent local project screenshot, October 2026",
+    "original": "Screenshot 2026-10-19 000919.png"
+  },
+  "howyouseeme-sim": {
+    "source": "Recent local project screenshot, October 2026",
+    "original": "get_vision_frame_overlay.jpg"
+  },
+  "howyouseeme-depth": {
+    "source": "Recent local project screenshot, October 2026",
+    "original": "get_vision_frame_depth.jpg"
+  },
+  "droidcore-fetch": {
+    "source": "Recent local project screenshot, October 2026",
+    "original": "v2_end.jpg"
   }
 }

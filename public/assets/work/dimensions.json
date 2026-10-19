@@ -234,5 +234,25 @@
   "satmap-groundtracks": [
     1726,
     1561
+  ],
+  "ally-desktop": [
+    938,
+    631
+  ],
+  "ally-drawing": [
+    495,
+    670
+  ],
+  "howyouseeme-sim": [
+    1280,
+    720
+  ],
+  "howyouseeme-depth": [
+    1280,
+    720
+  ],
+  "droidcore-fetch": [
+    1680,
+    540
   ]
 }
