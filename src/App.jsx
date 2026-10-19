@@ -17,6 +17,17 @@ export default function App() {
   const [intro, setIntro] = useState(shouldPlayIntro)
   const completeIntro = useCallback(() => setIntro(false), [])
   useEffect(() => {
+    const backToTop = event => {
+      if (!(event.target instanceof Element) || !event.target.closest('a[href="#home"]')) return
+      event.preventDefault()
+      history.replaceState(null, '', '#home')
+      window.scrollTo({top:0, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'})
+    }
+    document.addEventListener('click', backToTop)
+    return () => document.removeEventListener('click', backToTop)
+  }, [])
+  useEffect(() => {
+    if (location.hash === '#home') { window.scrollTo(0, 0); return }
     if (!location.hash || location.hash.startsWith('#project-')) return
     let active = true
     document.fonts.ready.then(() => {
