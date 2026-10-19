@@ -9,7 +9,7 @@ export const timeline = [
         body: 'Robotics systems engineering intern. Physical robot integration, motion planning, simulation and VR teleoperation across UR10e, Inspire RH56 and M750 arms with ACT, Diffusion Policy and VLA models.',
         stack: 'ROS 2 · Isaac Sim · MuJoCo · PyTorch · LeRobot',
         photos: [
-          { src: 'robot-arm', alt: 'Elephant Robotics M750 arm' },
+          { src: 'robot-arm', alt: 'Elephant Robotics M750 arm', cls: 'portrait' },
           { src: 'robot-dog', alt: 'Robot dog in workspace' },
           { src: 'robot-sim', alt: 'Robot simulation view' },
         ],
@@ -52,7 +52,7 @@ export const timeline = [
         title: 'CanSat Winter School',
         body: 'Hands-on satellite design at Technische Universität Berlin — compact hardware, sensing and embedded engineering in a CanSat build.',
         stack: 'CanSat · Embedded systems · Integration',
-        photos: [{ src: 'cansat', alt: 'CanSat electronics assembly' }],
+        photos: [{ src: 'cansat', alt: 'CanSat electronics assembly', cls: 'portrait' }],
         grid: 'p1',
         links: [],
       },

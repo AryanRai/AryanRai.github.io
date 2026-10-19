@@ -1,49 +1,65 @@
-import { useState, useMemo, useEffect, useRef } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { projects, categories } from '../data/projects'
 
-function ProjectItem({ project, isOpen, onToggle }) {
-  const { id, title, category, when, subtitle, body, stack, image, imageAlt, url, urlLabel } = project
-  const detailsRef = useRef(null)
+function CursorPreview({ preview }) {
+  if (!preview.src) return null
+  return (
+    <div
+      className={`wl-cursor-preview${preview.visible ? ' visible' : ''}`}
+      style={{ left: preview.x + 28, top: preview.y }}
+      aria-hidden="true"
+    >
+      <img src={preview.src} alt="" />
+    </div>
+  )
+}
 
-  useEffect(() => {
-    if (detailsRef.current) detailsRef.current.open = isOpen
-  }, [isOpen])
+function WorkRow({ project, index, isOpen, onToggle, onMouseEnter, onMouseLeave, onMouseMove }) {
+  const { id, title, category, when, subtitle, body, stack, image, imageAlt, url, urlLabel } = project
 
   return (
-    <details
-      ref={detailsRef}
-      className="project"
-      id={`project-${id}`}
-      data-category={category}
-      onToggle={(e) => onToggle(id, e.target.open)}
-    >
-      <summary>
-        <span className="project-name">
-          {title}
-          <small>{subtitle}</small>
-        </span>
-        <span className="project-category">{category}</span>
-        <span className="expand" aria-hidden="true">+</span>
-      </summary>
-      <div className={`project-body${!image ? ' text-only' : ''}`}>
-        {image && (
-          <div className="project-media">
-            <img src={`/assets/work/${image}.webp`} alt={imageAlt} loading="lazy" decoding="async" />
-          </div>
-        )}
-        <div>
-          <p className="eyebrow">{when}</p>
-          <h3>{subtitle}</h3>
-          <p>{body}</p>
-          <p className="stack">{stack}</p>
-          {url && (
-            <a className="text-link" href={url} target="_blank" rel="noopener noreferrer">
-              {urlLabel} <span aria-hidden="true">↗</span>
-            </a>
-          )}
-        </div>
+    <div className={`wl-row${isOpen ? ' open' : ''}`} id={`project-${id}`} data-category={category}>
+      <div
+        className="wl-row-header"
+        onClick={() => onToggle(id)}
+        onMouseEnter={() => onMouseEnter(project)}
+        onMouseLeave={onMouseLeave}
+        onMouseMove={onMouseMove}
+        role="button"
+        tabIndex={0}
+        onKeyDown={e => e.key === 'Enter' && onToggle(id)}
+        aria-expanded={isOpen}
+      >
+        <span className="wl-num">{String(index + 1).padStart(2, '0')}</span>
+        <span className="wl-title">{title}</span>
+        <span className="wl-sub">{subtitle}</span>
+        <span className="wl-cat">{category}</span>
+        <span className="wl-expand" aria-hidden="true">{isOpen ? '−' : '+'}</span>
       </div>
-    </details>
+
+      {isOpen && (
+        <div className="wl-detail">
+          <div className={`wl-detail-inner${!image ? ' text-only' : ''}`}>
+            {image && (
+              <div className="wl-detail-media">
+                <img src={`/assets/work/${image}.webp`} alt={imageAlt} loading="lazy" decoding="async" />
+              </div>
+            )}
+            <div className="wl-detail-text">
+              <p className="eyebrow">{when}</p>
+              <h3>{subtitle}</h3>
+              <p>{body}</p>
+              <p className="stack">{stack}</p>
+              {url && (
+                <a className="text-link" href={url} target="_blank" rel="noopener noreferrer">
+                  {urlLabel} ↗
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -51,6 +67,7 @@ export default function Projects() {
   const [category, setCategory] = useState('All')
   const [query, setQuery] = useState('')
   const [openId, setOpenId] = useState(null)
+  const [preview, setPreview] = useState({ visible: false, x: 0, y: 0, src: '' })
 
   useEffect(() => {
     const openFromHash = () => {
@@ -77,7 +94,20 @@ export default function Projects() {
     [category, query]
   )
 
-  const handleToggle = (id, open) => setOpenId(open ? id : (prev) => prev === id ? null : prev)
+  const handleToggle = (id) => setOpenId(prev => prev === id ? null : id)
+
+  const handleMouseEnter = (project) => {
+    if (!project.image) return
+    setPreview(p => ({ ...p, visible: true, src: `/assets/work/${project.image}.webp` }))
+  }
+
+  const handleMouseMove = (e) => {
+    setPreview(p => ({ ...p, x: e.clientX, y: e.clientY }))
+  }
+
+  const handleMouseLeave = () => {
+    setPreview(p => ({ ...p, visible: false }))
+  }
 
   return (
     <section className="archive-section" id="projects">
@@ -89,48 +119,37 @@ export default function Projects() {
         <div className="archive-tools">
           <div className="filters" role="group" aria-label="Filter projects">
             {categories.map(cat => (
-              <button
-                key={cat}
-                type="button"
-                data-filter={cat}
-                aria-pressed={category === cat}
-                onClick={() => setCategory(cat)}
-              >
+              <button key={cat} type="button" data-filter={cat} aria-pressed={category === cat} onClick={() => setCategory(cat)}>
                 {cat}
               </button>
             ))}
           </div>
           <label className="search-label">
             <span className="sr-only">Search projects</span>
-            <input
-              type="search"
-              id="project-search"
-              placeholder="Find a project..."
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-            />
+            <input type="search" placeholder="Search..." value={query} onChange={e => setQuery(e.target.value)} />
           </label>
         </div>
-        <p id="project-count" className="mono result-count" aria-live="polite">
-          {visible.length} {visible.length === 1 ? 'project' : 'projects'}
-        </p>
-        <div className="project-list">
-          {visible.map(p => (
-            <ProjectItem
+        <p className="mono result-count">{visible.length} {visible.length === 1 ? 'project' : 'projects'}</p>
+        <div className="wl">
+          {visible.map((p, i) => (
+            <WorkRow
               key={p.id}
               project={p}
+              index={i}
               isOpen={openId === p.id}
               onToggle={handleToggle}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onMouseMove={handleMouseMove}
             />
           ))}
+          {visible.length === 0 && <p className="empty-state">No matches.</p>}
         </div>
-        {visible.length === 0 && (
-          <p className="empty-state">No projects match. Try another word or choose All.</p>
-        )}
+        <CursorPreview preview={preview} />
         <div className="archive-end">
-          <p>More photos, prototypes and experiments in my visual portfolio.</p>
+          <p>More in the visual portfolio.</p>
           <a className="text-link" href="https://www.canva.com/design/DAGrMs5FilU/B8yaZq9XQcU6J3cw5SShiA/view" target="_blank" rel="noopener noreferrer">
-            Open the Canva portfolio <span aria-hidden="true">↗</span>
+            Canva portfolio ↗
           </a>
         </div>
       </div>
