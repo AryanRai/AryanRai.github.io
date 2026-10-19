@@ -1,3 +1,5 @@
+import AllyOrb from './AllyOrb'
+
 export default function Hero() {
   return (
     <section className="hero" id="home">
@@ -10,18 +12,9 @@ export default function Hero() {
           <a className="pill-link" href="#selected">Explore my work <span aria-hidden="true">↘</span></a>
         </div>
         <div className="orbital" aria-hidden="true">
-          <span className="orbital-label mono">FIG. 01 — FROM SIGNAL TO SYSTEM</span>
+          <span className="orbital-label mono">FIG. 01 — ALLY / DESKTOP COMPANION</span>
           <div className="orbit-field">
-            <div className="orbit-glow" /><div className="planet" />
-            <svg className="orbit-lines" viewBox="0 0 640 640" fill="none">
-              <g transform="rotate(-32 320 320)" stroke="currentColor" strokeWidth=".8">
-                {[110, 150, 190, 230, 270].map(r => <ellipse key={r} cx="320" cy="320" rx="300" ry={r} />)}
-                <path d="M12 320h616M320 12v616" strokeDasharray="2 8" />
-              </g>
-              <circle cx="320" cy="320" r="302" stroke="currentColor" strokeWidth=".5" strokeDasharray="1 9" />
-              <circle cx="553" cy="128" r="5" fill="currentColor" />
-              <path d="M542 128h22M553 117v22M90 476h18M99 467v18" stroke="currentColor" />
-            </svg>
+            <AllyOrb className="ally-orb-hero" />
           </div>
           <div className="orbital-caption mono"><span>HUMAN CURIOSITY<br />MACHINE POSSIBILITY</span><span>↗<br />ALWAYS EXPLORING</span></div>
         </div>

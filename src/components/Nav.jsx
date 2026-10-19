@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import AllyOrb from './AllyOrb'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -11,7 +12,7 @@ export default function Nav() {
 
   return (
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
-      <a className="brand" href="#home" aria-label="Aryan Rai home"><span className="brand-symbol" aria-hidden="true">✳</span> ARYAN RAI<span className="brand-note">ENGINEER & BUILDER</span></a>
+      <a className="brand" href="#home" aria-label="Aryan Rai home"><AllyOrb className="ally-orb-brand" /> ARYAN RAI<span className="brand-note">ENGINEER & BUILDER</span></a>
       <nav aria-label="Main navigation">
         <a href="#selected">Work <sup>01</sup></a>
         <a href="#journey">Journey <sup>02</sup></a>
