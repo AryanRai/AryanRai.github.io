@@ -34,3 +34,20 @@
 .ally-orb canvas{mask-image:radial-gradient(circle,transparent 22%,#000 35%,#000 48%,transparent 69%);filter:drop-shadow(0 0 15px #f7258533)}
 .ally-orb-fallback{background:radial-gradient(circle,transparent 25%,#ffb34799 37%,#f72585aa 45%,#ff6b3522 57%,transparent 70%)}
 .ally-orb-brand canvas{mask-image:radial-gradient(circle,transparent 18%,#000 32%,#000 49%,transparent 70%)}
+/* A centred signature forms, then settles into the header, inspired by TBC. */
+.intro-screen{position:fixed;inset:0;z-index:180;background:var(--bg);pointer-events:none;animation:intro-screen-out 2.15s both}
+.intro-emblem{position:absolute;width:230px;height:230px;left:50%;top:50%;transform:translate(-50%,-50%);animation:intro-settle 2.1s cubic-bezier(.87,0,.13,1) both;will-change:top,left,transform,opacity}
+.intro-lettering{position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:intro-lettering-in 1.25s cubic-bezier(.22,1,.36,1) both}
+.intro-lettering text{font-family:var(--mono);font-size:13px;fill:var(--fg)}
+.intro-orb{position:absolute;width:78%;height:78%;inset:11%;animation:intro-orb-in 1.1s cubic-bezier(.22,1,.36,1) both}
+.intro-name{position:absolute;inset:0;display:grid;place-items:center;font:500 46px var(--sans);letter-spacing:-.08em;animation:intro-name-in 1.1s both}
+.is-entering .hero-copy,.is-entering .orbital,.is-entering .hero-bottom,.is-entering .hero-topline{animation:page-arrive .85s cubic-bezier(.22,1,.36,1) both;animation-delay:1.6s}
+.is-entering .orbital{animation-delay:1.75s}.is-entering .hero-bottom{animation-delay:1.9s}
+@keyframes intro-lettering-in{from{opacity:0;transform:rotate(-100deg) scale(.65);filter:blur(6px)}to{opacity:1;transform:rotate(0) scale(1);filter:blur(0)}}
+@keyframes intro-orb-in{from{opacity:0;transform:scale(.25)}to{opacity:1;transform:scale(1)}}
+@keyframes intro-name-in{0%,25%{opacity:0;transform:translateY(8px)}70%,100%{opacity:1;transform:translateY(0)}}
+@keyframes intro-settle{0%,63%{left:50%;top:50%;opacity:1;transform:translate(-50%,-50%) scale(1)}100%{left:72px;top:44px;opacity:0;transform:translate(-50%,-50%) scale(.16)}}
+@keyframes intro-screen-out{0%,66%{background:var(--bg);visibility:visible}95%{background:transparent}100%{background:transparent;visibility:hidden}}
+@keyframes page-arrive{from{opacity:0;transform:translateY(18px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(max-width:700px){.intro-emblem{width:190px;height:190px}@keyframes intro-settle{0%,63%{left:50%;top:50%;opacity:1;transform:translate(-50%,-50%) scale(1)}100%{left:36px;top:36px;opacity:0;transform:translate(-50%,-50%) scale(.16)}}}
+@media(prefers-reduced-motion:reduce){.intro-screen{display:none}.is-entering .hero-copy,.is-entering .orbital,.is-entering .hero-bottom,.is-entering .hero-topline{opacity:1;transform:none;filter:none}}
