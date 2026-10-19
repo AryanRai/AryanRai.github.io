@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react'
 
 const scenes = [
   {
-    number: '01', theme: 'light', question: <>What if an idea<br />left the screen?</>,
-    image: 'rover-workshop', alt: 'SIRI team integrating the rover in the engineering workshop',
-    collage: [{ image: 'rover-power-cad', alt: 'Rover power board CAD' }, { image: 'rover-pcb-test', alt: 'Rover electronics prototype' }],
-    answer: 'It ends up on a workbench.', detail: 'Circuits, firmware, and a team making the whole thing work.', label: 'SIRI / HARDWARE & INTEGRATION',
+    number: '01', theme: 'light', question: <>Where did<br />it start?</>,
+    image: 'skateboard', alt: 'My early electric skateboard build',
+    collage: [{ image: 'drone', alt: 'An early hobby quadcopter' }, { image: 'rc-car', alt: 'An RC car electronics build' }],
+    answer: 'Building things with my dad.', detail: 'Quadcopters, RC cars, an electric skateboard. Then a few more projects.', label: 'THE FIRST EXPERIMENTS',
   },
   {
     number: '02', theme: 'dark', question: <>Can a robot learn<br />by watching?</>,
@@ -14,7 +14,7 @@ const scenes = [
     answer: 'That question became my day job.', detail: 'Robot integration, teleoperation, simulation, and learning from demonstration.', label: 'IMITATION MACHINES / ROBOT LEARNING',
   },
   {
-    number: '03', theme: 'light', question: <>What if machines<br />worked together?</>,
+    number: '03', theme: 'light', question: <>What happens when<br />it all connects?</>,
     image: 'orbit-mission', alt: 'Orbit mission executor bringing together a mission graph, camera, map and telemetry',
     collage: [{ image: 'raven-hardware', alt: 'Raven drone prototype' }, { image: 'orion-board', alt: 'Orion mesh radio PCB design' }],
     answer: 'You start connecting the systems.', detail: 'At Perception: mission planning, drone hardware, and mesh communications.', label: 'PERCEPTION / ORBIT, RAVEN & ORION',
@@ -65,6 +65,5 @@ export default function QuestionStory() {
         <div className="question-frame-bottom mono"><span>KEEP SCROLLING <span aria-hidden="true">↓</span></span><div className="question-progress" aria-hidden="true"><span /></div><span>{scene.number} / 03</span></div>
       </div>
     </article>)}
-    <div className="question-bridge"><p className="eyebrow">THE QUESTIONS KEEP CHANGING.</p><h2>The habit of<br /><em>building stays.</em></h2><a className="text-link" href="#journey">Here's how I got here <span aria-hidden="true">↓</span></a></div>
   </section>
 }

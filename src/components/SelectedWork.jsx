@@ -1,9 +1,9 @@
 import { projects } from '../data/projects'
-const selected = ['imitation', 'rover', 'satmap', 'ant61']
+const selected = ['imitation', 'rover']
 export default function SelectedWork() {
   return (
     <section className="selected wrap" id="selected">
-      <div className="section-heading"><p className="eyebrow">01 / SELECTED WORK</p><h2>Ideas, meet<br /><em>the real world.</em></h2><p>A few things I've helped bring to life.<br />From the first circuit to the whole system.</p></div>
+      <div className="section-heading"><p className="eyebrow">01 / SELECTED WORK</p><h2>A few things<br /><em>I've built.</em></h2></div>
       <a className="mission-feature" href="#project-orbit">
         <div className="mission-visual">
           <div className="mission-bar mono"><span><i /> PERCEPTION / ORBIT</span><span>MISSION CONTROL ↗</span></div>

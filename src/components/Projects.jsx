@@ -48,6 +48,7 @@ function WorkRow({ project, index, isOpen, onToggle }) {
 }
 
 export default function Projects() {
+  const [indexOpen, setIndexOpen] = useState(false)
   const [category, setCategory] = useState('All')
   const [query, setQuery] = useState('')
   const [openId, setOpenId] = useState(null)
@@ -57,6 +58,7 @@ export default function Projects() {
       const hash = location.hash
       if (!hash.startsWith('#project-')) return
       const id = hash.slice('#project-'.length)
+      setIndexOpen(true)
       setCategory('All')
       setQuery('')
       setOpenId(id)
@@ -86,6 +88,8 @@ export default function Projects() {
           <h2>The workbench.</h2>
           <p className="mono">03 / THE WORKBENCH<br />Open a project to see the build.</p>
         </div>
+        <button type="button" className="project-index-toggle" aria-expanded={indexOpen} aria-controls="project-index" onClick={() => setIndexOpen(value => !value)}><span>{indexOpen ? "Close project index" : `Explore all ${projects.length} projects`}</span><span aria-hidden="true">{indexOpen ? "−" : "+"}</span></button>
+        <div id="project-index" hidden={!indexOpen}>
         <div className="archive-tools">
           <div className="filters" role="group" aria-label="Filter projects">
             {categories.map(cat => (
@@ -111,6 +115,7 @@ export default function Projects() {
             />
           ))}
           {visible.length === 0 && <p className="empty-state">No matches.</p>}
+        </div>
         </div>
         <div className="archive-end">
           <p>More in the visual portfolio.</p>

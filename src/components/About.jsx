@@ -7,9 +7,10 @@ export default function About() {
       </div>
       <div>
         <p className="eyebrow">04 / THE PERSON</p>
-        <h2>Hardware person.<br />Software person.<br /><em>Curious person.</em></h2>
-        <p>Mechatronic engineering student at the University of Sydney, working at the intersection of electronics, embedded software and robotics.</p>
-        <p>I enjoy the whole system: designing a board, writing the firmware, making sense of a sensor, and building an interface that makes the result useful.</p>
+        <h2>It started<br /><em>with my dad.</em></h2>
+        <p>We built quadcopters, RC cars, and an electric skateboard together. Somewhere between the wiring and getting things to move, electronics became a habit.</p>
+        <p>That habit took me to mechatronics at the University of Sydney, space hardware at ANT61, robot learning at Imitation Machines, and co-founding Perception.</p>
+        <p>I still like the whole process: design the board, write the firmware, build the interface, and keep going until it works.</p>
         <div className="skills">
           <div><h3>Sense & move</h3><p>ROS 2, SLAM, OpenCV, motion planning, teleoperation, robot learning</p></div>
           <div><h3>Build & connect</h3><p>STM32, Teensy, Jetson, CAN, MAVLink, KiCad, SolidWorks</p></div>

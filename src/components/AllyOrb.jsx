@@ -1,3 +1,6 @@
+import SiriOrb from './orbs/SiriOrb'
+import CloudWaveOrb from './orbs/CloudWaveOrb'
+import AgentAvatar from './orbs/AgentAvatar'
 import { useEffect, useRef, useState } from 'react'
 
 // Energy orb shader from Ally desktop: src/components/glow/EnergyOrb.tsx.
@@ -34,7 +37,7 @@ void main() {
 }
 `;
 
-export default function AllyOrb({ className = '' }) {
+function EnergyOrb({ className = '' }) {
   const canvasRef = useRef(null)
   const [ready, setReady] = useState(false)
   useEffect(() => {
@@ -126,5 +129,31 @@ export default function AllyOrb({ className = '' }) {
       shaders.forEach(shader => gl.deleteShader(shader))
     }
   }, [])
-  return <span className={`ally-orb ${ready ? 'is-ready' : ''} ${className}`} aria-hidden="true"><span className="ally-orb-fallback" /><canvas ref={canvasRef} /></span>
+  return <span className={`ally-orb ${ready ? 'is-ready' : ''} ${className}`} data-ally-style="energy" aria-hidden="true"><span className="ally-orb-fallback" /><canvas ref={canvasRef} /></span>
+}
+
+const styles = ['energy', 'siri', 'cloud', 'pixel']
+export const allyStyle = (() => {
+ let last
+ try { last = sessionStorage.getItem('ally-portfolio-style') } catch {}
+ const choices = styles.filter(style => style !== last)
+ const chosen = choices[Math.floor(Math.random() * choices.length)]
+ try { sessionStorage.setItem('ally-portfolio-style', chosen) } catch {}
+ return chosen
+})()
+export default function AllyOrb({ className = '' }) {
+ const ref = useRef(null)
+ const [size, setSize] = useState(192)
+ const [visible, setVisible] = useState(false)
+ useEffect(() => {
+  if (!ref.current) return
+  const resize = new ResizeObserver(([entry]) => setSize(Math.max(24, Math.round(entry.contentRect.width))))
+  const view = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {rootMargin:'100px'})
+  resize.observe(ref.current); view.observe(ref.current)
+  return () => { resize.disconnect(); view.disconnect() }
+ }, [])
+ if (allyStyle === 'energy') return <EnergyOrb className={className} />
+ return <span ref={ref} className={'ally-orb ally-variant ally-'+allyStyle+' '+className} data-ally-style={allyStyle} aria-hidden="true">
+  {visible && (allyStyle === 'siri' ? <SiriOrb size={size+'px'} animationDuration={18} colors={{bg:'#efeee7',c1:'#FF6B35',c2:'#F72585',c3:'#FFB347'}} /> : allyStyle === 'cloud' ? <CloudWaveOrb size={size} speed={.75} intensity={1.05} amplitude={.12} /> : <AgentAvatar seed="Orbit Live" size={size} animated />)}
+ </span>
 }

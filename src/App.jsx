@@ -3,6 +3,8 @@ import { useCallback, useEffect, useState } from 'react'
 import Intro, { shouldPlayIntro } from './components/Intro'
 import QuestionStory from './components/QuestionStory'
 import DotCursor from './components/DotCursor'
+import GithubActivity from './components/GithubActivity'
+import MusicPlayer from './components/MusicPlayer'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Timeline from './components/Timeline'
@@ -28,12 +30,14 @@ export default function App() {
       {intro && <Intro onComplete={completeIntro} />}
       <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
+      <MusicPlayer />
       <main id="main">
         <Hero />
-        <SelectedWork />
         <QuestionStory />
+        <SelectedWork />
         <Timeline />
         <Projects />
+        <GithubActivity />
         <About />
         <Contact />
       </main>
