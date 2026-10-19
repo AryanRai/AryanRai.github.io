@@ -134,5 +134,105 @@
   "unity": [
     1316,
     1200
+  ],
+  "robot-arm-close": [
+    743,
+    560
+  ],
+  "beacon-bench": [
+    743,
+    560
+  ],
+  "rover-power-cad": [
+    581,
+    511
+  ],
+  "rover-pcb-test": [
+    908,
+    1210
+  ],
+  "rover-radio": [
+    1224,
+    922
+  ],
+  "rover-enclosure": [
+    1210,
+    908
+  ],
+  "rover-side-cad": [
+    530,
+    521
+  ],
+  "rover-core-cad": [
+    1569,
+    851
+  ],
+  "rover-team-large": [
+    820,
+    546
+  ],
+  "rocketry-team": [
+    800,
+    533
+  ],
+  "uav-team": [
+    820,
+    546
+  ],
+  "rover-workshop": [
+    922,
+    1224
+  ],
+  "rover-talk": [
+    820,
+    546
+  ],
+  "treasure-build": [
+    560,
+    373
+  ],
+  "robot-prototype": [
+    1224,
+    922
+  ],
+  "droidcore-side": [
+    437,
+    391
+  ],
+  "hackathon-present": [
+    1224,
+    689
+  ],
+  "orbit-mission": [
+    1800,
+    1012
+  ],
+  "orbit-planning": [
+    799,
+    451
+  ],
+  "orbit-perception": [
+    1375,
+    932
+  ],
+  "raven-hardware": [
+    799,
+    685
+  ],
+  "orion-board": [
+    623,
+    799
+  ],
+  "perception-founders": [
+    480,
+    480
+  ],
+  "semantic-map": [
+    1209,
+    905
+  ],
+  "satmap-groundtracks": [
+    1726,
+    1561
   ]
 }

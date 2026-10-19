@@ -1,0 +1,102 @@
+{
+  "robot-arm-close": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p02-04.jpg"
+  },
+  "beacon-bench": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p04-04.jpg"
+  },
+  "rover-power-cad": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p06-01.jpg"
+  },
+  "rover-pcb-test": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p06-02.jpg"
+  },
+  "rover-radio": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p06-03.jpg"
+  },
+  "rover-enclosure": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p06-05.jpg"
+  },
+  "rover-side-cad": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p07-03.jpg"
+  },
+  "rover-core-cad": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p07-06.jpg"
+  },
+  "rover-team-large": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p08-01.jpg"
+  },
+  "rocketry-team": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p08-02.jpg"
+  },
+  "uav-team": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p08-04.jpg"
+  },
+  "rover-workshop": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p08-05.jpg"
+  },
+  "rover-talk": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p05-02.jpg"
+  },
+  "treasure-build": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p15-02.jpg"
+  },
+  "robot-prototype": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p17-04.jpg"
+  },
+  "droidcore-side": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p17-06.jpg"
+  },
+  "hackathon-present": {
+    "source": "Canva portfolio, 28 September 2026",
+    "original": "canva-p20-01.jpg"
+  },
+  "orbit-mission": {
+    "source": "Perception website / project source",
+    "original": "executor-live-mission.png"
+  },
+  "orbit-planning": {
+    "source": "Perception website / project source",
+    "original": "node-editor-google-earth.png"
+  },
+  "orbit-perception": {
+    "source": "Perception website / project source",
+    "original": "perception-segmentation.png"
+  },
+  "raven-hardware": {
+    "source": "Perception website / project source",
+    "original": "raven-prototype-side.png"
+  },
+  "orion-board": {
+    "source": "Perception website / project source",
+    "original": "orion-prototype.png"
+  },
+  "perception-founders": {
+    "source": "LinkedIn: Perception Antler announcement",
+    "original": "39ef7c0fe57640b4"
+  },
+  "semantic-map": {
+    "source": "Public project repository",
+    "original": "rviz.png"
+  },
+  "satmap-groundtracks": {
+    "source": "Public project repository",
+    "original": "MapWithTrailandNames.png"
+  }
+}

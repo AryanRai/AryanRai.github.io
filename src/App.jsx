@@ -1,6 +1,8 @@
 import SelectedWork from './components/SelectedWork'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Intro, { shouldPlayIntro } from './components/Intro'
+import QuestionStory from './components/QuestionStory'
+import DotCursor from './components/DotCursor'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Timeline from './components/Timeline'
@@ -12,16 +14,26 @@ import Footer from './components/Footer'
 export default function App() {
   const [intro, setIntro] = useState(shouldPlayIntro)
   const completeIntro = useCallback(() => setIntro(false), [])
+  useEffect(() => {
+    if (!location.hash || location.hash.startsWith('#project-')) return
+    let active = true
+    document.fonts.ready.then(() => {
+      if (active) requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'instant', block: 'start' }))
+    })
+    return () => { active = false }
+  }, [])
   return (
     <div className={`portfolio-page${intro ? ' is-entering' : ''}`}>
+      <DotCursor />
       {intro && <Intro onComplete={completeIntro} />}
       <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
       <main id="main">
         <Hero />
         <SelectedWork />
-        <Projects />
+        <QuestionStory />
         <Timeline />
+        <Projects />
         <About />
         <Contact />
       </main>

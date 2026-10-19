@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { projects, categories } from '../data/projects'
+import { projectGalleries } from '../data/projectGalleries'
 
 function WorkRow({ project, index, isOpen, onToggle }) {
   const { id, title, category, when, subtitle, body, stack, image, imageAlt, url, urlLabel } = project
@@ -39,6 +40,7 @@ function WorkRow({ project, index, isOpen, onToggle }) {
               )}
             </div>
           </div>
+          {projectGalleries[id] && <div className="project-extra-gallery">{projectGalleries[id].map(photo => <figure key={photo.image}><a href={`/assets/work/${photo.image}.webp`} target="_blank" rel="noopener noreferrer" aria-label={`Open full image: ${photo.caption}`}><img src={`/assets/work/${photo.image}.webp`} alt={photo.caption} loading="lazy" decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}</div>}
         </div>
       )}
     </div>
@@ -82,7 +84,7 @@ export default function Projects() {
       <div className="wrap">
         <div className="archive-intro">
           <h2>The workbench.</h2>
-          <p className="mono">02 / THE WORKBENCH<br />Open a project to see the build.</p>
+          <p className="mono">03 / THE WORKBENCH<br />Open a project to see the build.</p>
         </div>
         <div className="archive-tools">
           <div className="filters" role="group" aria-label="Filter projects">
