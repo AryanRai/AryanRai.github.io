@@ -1,5 +1,5 @@
 import SelectedWork from './components/SelectedWork'
-import { useCallback, useEffect, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react'
 import Intro, { shouldPlayIntro } from './components/Intro'
 import QuestionStory from './components/QuestionStory'
 import DotCursor from './components/DotCursor'
@@ -12,6 +12,8 @@ import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+
+const EngineeringStack = lazy(() => import('./components/EngineeringStack'))
 
 export default function App() {
   const [intro, setIntro] = useState(shouldPlayIntro)
@@ -44,6 +46,7 @@ export default function App() {
       <MusicPlayer />
       <main id="main">
         <Hero />
+        <Suspense fallback={<section id="systems" className="wrap" style={{ minHeight: 1200, paddingBlock: 100 }} aria-busy="true"><p className="eyebrow">HOW I WORK / HARDWARE + SOFTWARE</p><h2>From the MCU to the whole system.</h2></section>}><EngineeringStack /></Suspense>
         <QuestionStory />
         <SelectedWork />
         <Timeline />

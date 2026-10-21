@@ -8,16 +8,16 @@ const scenes = [
     answer: 'Building things with my dad.', detail: 'Quadcopters, RC cars, an electric skateboard. Then a few more projects.', label: 'THE FIRST EXPERIMENTS',
   },
   {
-    number: '02', theme: 'light', question: <>Can a robot learn<br />by watching?</>,
+    number: '02', theme: 'dark', question: <>Can a robot learn<br />by watching?</>,
     image: 'robot-arm-close', alt: 'Robot hardware and sensing equipment in the Imitation Machines workspace',
     collage: [{ image: 'robot-dog', alt: 'Robot dog in the workspace' }, { image: 'robot-sim', alt: 'Robot learning environment in simulation' }],
     answer: 'That question became my day job.', detail: 'Robot integration, teleoperation, simulation, and learning from demonstration.', label: 'IMITATION MACHINES / ROBOT LEARNING',
   },
   {
-    number: '03', theme: 'light', question: <>What am I<br />working on now?</>,
+    number: '03', theme: 'light', question: <>What happens when<br />it all connects?</>,
     image: 'orbit-mission', alt: 'Orbit mission executor bringing together a mission graph, camera, map and telemetry',
     collage: [{ image: 'raven-hardware', alt: 'Raven drone prototype' }, { image: 'orion-board', alt: 'Orion mesh radio PCB design' }],
-    answer: 'Building Perception.', detail: 'At Perception: mission planning, drone hardware, and mesh communications.', label: 'PERCEPTION / ORBIT, RAVEN & ORION',
+    answer: 'You start connecting the systems.', detail: 'At Perception: mission planning, drone hardware, and mesh communications.', label: 'PERCEPTION / ORBIT, RAVEN & ORION',
   },
 ]
 

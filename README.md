@@ -1,6 +1,6 @@
 # Aryan Rai — portfolio
 
-React and Vite portfolio for robotics, embedded systems and AI. The design uses off-white paper, slate text, blue accents, technical diagrams and subtle grain, with real project photography.
+React and Vite portfolio for robotics, embedded systems and AI. The design restores the centered monochrome opening from c02fa9b, with the existing journal, photography and story sections. A separate light engineering section follows the opening.
 
 ## Development
 
@@ -23,7 +23,7 @@ The existing work history and project photography are preserved. SIRI, UAV, rock
 
 ## Image curation and journal
 
-The journal presents open year chapters with captioned images, stable image frames, and direct links to full-size assets. The opening scrolls normally so the controller controls remain reachable on shorter screens. Additional galleries live in `src/data/projectGalleries.js`.
+The journal presents open year chapters with captioned images, stable image frames, and direct links to full-size assets. The original opening uses native sticky positioning on desktop; reduced-motion and mobile visitors use normal scrolling. The interactive engineering section scrolls normally. Additional galleries live in `src/data/projectGalleries.js`.
 
 `image-sources.json` records the new photos' origins: Aryan's 28 September 2026 Canva portfolio, the Perception website repository, public project screenshots, and the public Perception Antler announcement on LinkedIn. Photos are optimized as WebP, lazy-loaded, and retain team attribution where applicable. Local source PDFs and private contact details are not published.
 
@@ -31,8 +31,8 @@ The question sequence in `src/components/QuestionStory.jsx` pairs three original
 
 The desktop dot cursor uses a light eased trail and local grain texture, with native text cursors in editable fields and native pointers for touch/reduced-motion visitors. Question answers combine real project photos into layered collages rather than using stock or generated imagery.
 
-## Interactive controller figure
+## Interactive engineering section
 
-The opening uses the [Anatomy skill](https://github.com/wheresryan22/anatomy) for a 75-part isometric controller study inspired by BlueLily. It is explicitly conceptual, not an actual PCB layout. Native buttons select sensing, control and communications. The optional tour pauses for interaction, offscreen and hidden tabs; reduced motion disables it.
+The [Anatomy skill](https://github.com/wheresryan22/anatomy) powers a 123-part integration bench below the restored opening. Five hardware layers connect MCU, sensing, power, PCB and structure; a parallel software track covers firmware, interfaces, control, simulation and applications. UAV, robot-arm and rover/space branches link to actual portfolio projects and photos. The bench is explicitly illustrative, not a wiring diagram.
 
-`npm run figure` regenerates `src/generated/controller.svg` from `scripts/build-controller.mjs`. Production builds run it automatically. The minimal upstream kit is vendored with its MIT license and pinned source revision in `docs/controller-figure.md`.
+`npm run figure` regenerates `src/generated/controller.svg` from `scripts/build-controller.mjs`; production builds regenerate it automatically. The section is a separate lazy-loaded bundle, with native buttons, an optional paused-on-interaction tour and reduced-motion support. The vendored kit retains its MIT license. See `docs/engineering-stack.md` for the concept and verification.

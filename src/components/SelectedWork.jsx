@@ -10,7 +10,7 @@ export default function SelectedWork() {
           <img src="/assets/work/orbit-mission.webp" alt="Orbit mission executor with a live drone camera, mission graph, map and telemetry" width="1800" height="1012" loading="lazy" decoding="async" />
           <div className="mission-footnote mono"><span>01 / DESIGN → SIMULATE → DEPLOY</span><span>SOFTWARE + HARDWARE</span></div>
         </div>
-        <div className="mission-copy"><span className="eyebrow">CO-FOUNDER / 2026 - NOW</span><h3>Mission planning<br />at Perception.</h3><p>I'm co-founding Perception, working on mission planning software, drone hardware and mesh communications.</p><div className="mission-products"><span>ORBIT <small>Mission intelligence</small></span><span>RAVEN <small>Drone prototype</small></span><span>ORION <small>Mesh communications</small></span></div><span className="text-link">EXPLORE THE PROJECT <span>↗</span></span></div>
+        <div className="mission-copy"><span className="eyebrow">CO-FOUNDER / 2026 - NOW</span><h3>One mission.<br />Every system.</h3><p>At Perception, I'm building the connection between mission intent and the machines that carry it out.</p><div className="mission-products"><span>ORBIT <small>Mission intelligence</small></span><span>RAVEN <small>Drone prototype</small></span><span>ORION <small>Mesh communications</small></span></div><span className="text-link">EXPLORE THE PROJECT <span>↗</span></span></div>
       </a>
       <div className="selected-grid">
         {selected.map((id, i) => {

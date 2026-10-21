@@ -1,3 +1,5 @@
+> Historical record of the first controller illustration. The current expanded bench is described in [engineering-stack.md](engineering-stack.md).
+
 # BlueLily controller study
 
 Figure tier, using the Anatomy SVG kit. A small controller on a bench plate explains three areas of BlueLily: sensor interfaces, configurable control logic and communications. Selection lights the relevant physical components; it does not simulate a running board or invent measurements.

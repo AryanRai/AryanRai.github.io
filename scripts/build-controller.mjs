@@ -1,10 +1,10 @@
 import { writeFileSync } from 'node:fs'
 import * as k from '../vendor/anatomy/iso-kit.mjs'
 
-const width = 620, height = 410
-const base = { x: 0, y: 0, w: 184, d: 132, r: 5 }
+const width = 780, height = 550
+const base = { x: 0, y: 0, w: 314, d: 190, r: 5 }
 const board = { x: 9, y: 9, w: 166, d: 114, r: 3 }
-const P = k.fitProjection(k.boxCorners(base, -5, 38), width, height, { pad: 65, azimuth: 42, elevation: 36 })
+const P = k.fitProjection([...k.boxCorners(base, -5, 4), ...k.boxCorners({x:200,y:12,w:100,d:8},43,108)], width, height, { pad: 55, azimuth: 42, elevation: 36 })
 const at = p => k.iso(p, P)
 const layers = []
 const parts = []
@@ -21,8 +21,8 @@ function topDetail(part, x, y, w, d, z, group = 'structure') {
 }
 
 // Every component sits on a support plane. Layering keeps the board below its parts.
-for (const x of [8, 165]) for (const y of [8, 113]) slab('rubber foot', x, y, 11, 11, -5, 5, 'structure', 0, 'lo')
-slab('bench plate', 0, 0, 184, 132, 0, 4, 'structure', 1, 'lo')
+for (const x of [8, 295]) for (const y of [8, 171]) slab('rubber foot', x, y, 11, 11, -5, 5, 'structure', 0, 'lo')
+slab('bench plate', 0, 0, 314, 190, 0, 4, 'structure', 1, 'lo')
 for (const x of [14, 162]) for (const y of [14, 110]) slab('standoff', x, y, 7, 7, 4, 10, 'structure', 2)
 slab('PCB', 9, 9, 166, 114, 14, 2, 'board', 3)
 layers.push({ layer: 3.5, depth: 0, body: k.lineSvg(k.planOutline({ ...board, x: 12, y: 12, w: 160, d: 108 }, 16.05, P), { tone: 'faint' }) })
@@ -87,9 +87,51 @@ slab('regulator',64,94,11,9,16,3,'power',4)
 for (const x of [79,89]) slab('power capacitor',x,99,5,7,16,4,'power',4)
 for (const x of [105,114]) slab('status LED',x,107,4,3,16,2,'power',4)
 
+// Open carrier frame. Its low rails surround, rather than obscure, the electronics.
+for (const y of [0,184]) slab('frame crossmember',0,y,314,6,4,6,'structure',3)
+for (const x of [0,308]) slab('frame side member',x,6,6,178,4,6,'structure',3)
+for (const x of [7,295]) for (const y of [7,172]) {
+  const bracket=slab('corner bracket',x,y,11,11,4,3,'structure',3)
+  topDetail(bracket,x+2,y+2,7,7,7)
+  const fastener=slab('frame fastener',x+3,y+3,5,5,7,1.5,'structure',4)
+  topDetail(fastener,x+4,y+4,3,3,8.5)
+}
+
+// Battery bay: prismatic modules held by two straps. Ratings are intentionally unspecified.
+slab('battery carrier',192,65,103,65,4,3,'power',2)
+for(let i=0;i<4;i++) {
+  const cell=slab('battery pack section',197+i*23,71,21,50,7,19,'power',3,'hi')
+  topDetail(cell,200+i*23,74,15,44,26,'power')
+}
+for(const y of [81,108]) slab('pack hold-down strap',196,y,92,4,26,1.3,'power',4)
+slab('battery contact positive',201,122,10,5,7,5,'power',3,'hi')
+slab('battery contact negative',275,122,10,5,7,5,'power',3,'hi')
+slab('fuse housing',162,140,17,24,4,9,'power',3)
+const fuse=slab('fuse cover',165,143,11,18,13,1,'power',4)
+topDetail(fuse,168,146,5,12,14,'power')
+slab('power distribution',124,145,27,13,4,6,'power',3)
+for (const x of [128,140]) slab('distribution terminal',x,148,5,7,10,2,'power',4,'hi')
+
+// Workstation alongside the hardware: software is a parallel working surface.
+slab('display stand foot',221,9,58,30,4,3,'software',2)
+slab('display stand',246,15,8,8,7,36,'software',3)
+const monitor=slab('display case',200,12,100,8,43,65,'software',4,'hi')
+// Planar screen, flush with the front face, with interface marks clipped to its bounds.
+const face=(x,z)=>at([x,20.01,z])
+const facePath=(x,z,w,h)=>k.pathOf([face(x,z),face(x+w,z),face(x+w,z+h),face(x,z+h)],true)
+const screenPath=facePath(205,48,90,55)
+const screenLines=[]
+for (let row=0;row<5;row++) screenLines.push(k.lineSvg(k.pathOf([face(210,92-row*6),face(237-(row%3)*4,92-row*6)]),{tone:'mid',free:true}))
+screenLines.push(k.lineSvg(facePath(246,58,41,35),{tone:'mid'}))
+screenLines.push(k.lineSvg(k.pathOf([face(250,62),face(261,80),face(272,69),face(283,87)]),{tone:'hi',free:true}))
+monitor.body+=wrap('software',`<defs><clipPath id="bench-screen-clip"><path d="${screenPath}"/></clipPath></defs><path class="bench-screen" d="${screenPath}"/><g clip-path="url(#bench-screen-clip)">${screenLines.join('')}</g>`)
+const keyboard=slab('keyboard base',196,148,102,28,4,3,'software',3)
+topDetail(keyboard,199,151,96,22,7,'software')
+for(let row=0;row<3;row++) for(let col=0;col<6;col++) slab('keycap',202+col*15,153+row*6,11,4,7,1.6,'software',4)
+
 const body = [...parts,...layers].sort((a,b)=>a.layer-b.layer || a.depth-b.depth).map(p=>p.body).join('')
-const svg = k.figureSvg({ width,height,label:'Conceptual embedded controller with sensor connectors, central processor and communications modules',body })
-if (parts.length < 40 || parts.length > 80) throw new Error(`Figure part budget exceeded: ${parts.length}`)
+const svg = k.figureSvg({ width,height,label:'Robotics integration bench with MCU, sensor electronics, PCB, battery pack, structural frame and a software workstation',body })
+if (parts.length < 80 || parts.length > 150) throw new Error(`Hero part budget exceeded: ${parts.length}`)
 if (/NaN|Infinity/.test(svg)) throw new Error('Invalid geometry')
 writeFileSync(new URL('../src/generated/controller.svg',import.meta.url), svg+'\n')
-console.log(`Controller figure: ${parts.length} supported solid parts, ${traces.length} pad-terminated routes.`)
+console.log(`Integration bench: ${parts.length} supported solid parts, ${traces.length} pad-terminated routes.`)
