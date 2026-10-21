@@ -4,7 +4,7 @@ export const timeline = [
     year: 'Current',
     entries: [
       {
-        date: 'MAR 2026 – PRESENT',
+        date: 'MAR 2026 - PRESENT',
         title: 'Imitation Machines',
         body: 'Robotics systems engineering intern. Physical robot integration, motion planning, simulation and VR teleoperation across UR10e, Inspire RH56 and M750 arms with ACT, Diffusion Policy and VLA models.',
         stack: 'ROS 2 · Isaac Sim · MuJoCo · PyTorch · LeRobot',
@@ -17,8 +17,8 @@ export const timeline = [
         links: [],
       },
       {
-        date: '2026 – PRESENT / CO-FOUNDER',
-        title: 'Perception — Orbit, Raven & Orion',
+        date: '2026 - PRESENT / CO-FOUNDER',
+        title: 'Perception - Orbit, Raven & Orion',
         body: 'Mission planning, live fleet operations, drone hardware and mesh comms. Selected for Antler AUS16 residency.',
         stack: 'ROS 2 · ArduPilot · MAVLink · GStreamer · KiCad',
         photos: [
@@ -33,7 +33,7 @@ export const timeline = [
       {
         date: 'ONGOING',
         title: 'HowYouSeeMe + DroidCore + Ally',
-        body: 'Personal side projects — a persistent semantic world state for robots, a modular robotics platform, and Ally.',
+        body: 'Personal side projects - a persistent semantic world state for robots, a modular robotics platform, and Ally.',
         stack: 'ROS 2 · RGB-D · SLAM · Python',
         photos: [
           { src: 'howyouseeme-sim', alt: 'HowYouSeeMe object detections over the simulated robot camera', cls: 'screen' },
@@ -54,7 +54,7 @@ export const timeline = [
       {
         date: 'JAN 2026 / TU BERLIN',
         title: 'CanSat Winter School',
-        body: 'Hands-on satellite design at Technische Universität Berlin — compact hardware, sensing and embedded engineering in a CanSat build.',
+        body: 'Hands-on satellite design at Technische Universität Berlin - compact hardware, sensing and embedded engineering in a CanSat build.',
         stack: 'CanSat · Embedded systems · Integration',
         photos: [{ src: 'cansat', alt: 'CanSat electronics assembly', cls: 'portrait' }],
         grid: 'p1',
@@ -67,8 +67,8 @@ export const timeline = [
     year: '2025',
     entries: [
       {
-        date: 'JUN – JUL 2025 / ANT61',
-        title: 'Beacon RevG — ANT61',
+        date: 'JUN - JUL 2025 / ANT61',
+        title: 'Beacon RevG - ANT61',
         body: 'Embedded systems internship at ANT61 in Sydney. GNSS acquisition, UART DMA, STM32 firmware and CubeSat Space Protocol for space robotics hardware.',
         stack: 'STM32 · C++ · GNSS · libcsp · CRC32',
         photos: [
@@ -81,7 +81,7 @@ export const timeline = [
       },
       {
         date: 'MAY 2025 / 1ST PLACE',
-        title: 'SatMap — Space Handshakes Hackathon',
+        title: 'SatMap - Space Handshakes Hackathon',
         body: 'Won the USRC × ANT61 hackathon with a satellite communication simulation tool. 2D/3D visualisation of Iridium constellation opportunities against an ANT61 Beacon.',
         stack: 'TypeScript · WebGL · Orbital simulation',
         photos: [
@@ -95,7 +95,7 @@ export const timeline = [
       {
         date: '2025 / USYD',
         title: 'Autonomous warehouse robotics',
-        body: 'MTRX3760 project — ROS 2 navigation, LiDAR, camera sensing, SLAM and autonomous task execution on TurtleBot in Gazebo and RViz.',
+        body: 'MTRX3760 project - ROS 2 navigation, LiDAR, camera sensing, SLAM and autonomous task execution on TurtleBot in Gazebo and RViz.',
         stack: 'ROS 2 · SLAM · Gazebo · RViz · TurtleBot',
         photos: [
 
@@ -110,8 +110,8 @@ export const timeline = [
     year: '2024',
     entries: [
       {
-        date: 'MAR 2024 – MAR 2026 / ELEC CO-LEAD',
-        title: 'SIRI — Sydney Interplanetary Rover Initiative',
+        date: 'MAR 2024 - MAR 2026 / ELEC CO-LEAD',
+        title: 'SIRI - Sydney Interplanetary Rover Initiative',
         body: 'Led a 17-engineer electrical, embedded and controls team through the Australian Rover Challenge 2026. Power distribution, custom PCBs, CAN motor control, onboard compute and radios.',
         stack: 'KiCad · Teensy · C++ · CAN · Jetson',
         photos: [
@@ -119,15 +119,15 @@ export const timeline = [
           { src: 'rover-power-cad', alt: 'Team design: rover power distribution board' },
           { src: 'rover-pcb-test', alt: 'Rover electronics prototype and board testing', cls: 'portrait' },
           { src: 'rover-workshop', alt: 'Integration work with the SIRI team in the workshop' },
-          { src: 'rover-team-large', alt: 'The SIRI team — a collective engineering effort' },
+          { src: 'rover-team-large', alt: 'The SIRI team - a collective engineering effort' },
           { src: 'rover-talk', alt: 'Presenting electrical systems at a SIRI design review' },
         ],
         grid: 'p3',
         links: [],
       },
       {
-        date: 'FEB 2024 – JAN 2025',
-        title: 'USYD Rocketry — Datalogger & test systems',
+        date: 'FEB 2024 - JAN 2025',
+        title: 'USYD Rocketry - Datalogger & test systems',
         body: 'STM32 datalogger firmware, pressure and temperature acquisition, LoRa telemetry and LabJack tank-test instrumentation for the rocketry team.',
         stack: 'STM32 · RS485 · LoRa · LabJack · DAQ',
         photos: [
@@ -139,8 +139,8 @@ export const timeline = [
         links: [],
       },
       {
-        date: 'FEB – SEP 2024',
-        title: 'Sydney UAV — Project FASTR',
+        date: 'FEB - SEP 2024',
+        title: 'Sydney UAV - Project FASTR',
         body: 'PX4/Pixhawk quadrotor build and calibration, ROS 2 and OpenCV integration and field testing as primary pilot.',
         stack: 'PX4 · Pixhawk · ROS 2 · OpenCV',
         photos: [
@@ -158,7 +158,7 @@ export const timeline = [
       {
         date: '2023 / USYD',
         title: 'Interactive sequencer & microcontroller projects',
-        body: 'MTRX1705 light-pattern sequencer, MTRX2700 treasure hunt and interactive magnet-detector game — embedded programming, physical interfaces, C and teamwork.',
+        body: 'MTRX1705 light-pattern sequencer, MTRX2700 treasure hunt and interactive magnet-detector game - embedded programming, physical interfaces, C and teamwork.',
         stack: 'C · Digital electronics · Microcontrollers',
         photos: [
           { src: 'treasure-build', alt: 'Building and integrating the interactive electronics project' },
@@ -217,7 +217,7 @@ export const timeline = [
       {
         date: 'BEFORE UNIVERSITY',
         title: 'Drones, RC cars & electric boards',
-        body: 'Building with my father — hobby quadcopters, RC cars, an electric skateboard that became a bike, and small Arduino robots. Where it all started.',
+        body: 'Building with my father - hobby quadcopters, RC cars, an electric skateboard that became a bike, and small Arduino robots. Where it all started.',
         stack: 'Motors · ESCs · Batteries · Arduino',
         photos: [
           { src: 'drone', alt: 'Early hobby quadcopter' },

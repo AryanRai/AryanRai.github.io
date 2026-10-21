@@ -32,12 +32,12 @@ export default function Timeline() {
     return () => window.removeEventListener('hashchange', select)
   }, [])
   return <section className="project-journal wrap" id="journey" aria-labelledby="journey-heading">
-    <div className="journal-intro"><p className="eyebrow">02 / A FIELD NOTEBOOK</p><h2 id="journey-heading">One thing<br />led to <em>another.</em></h2><p>Robots, circuits, late nights.<br />A few years of following the curiosity.</p></div>
+    <div className="journal-intro"><p className="eyebrow">02 / A FIELD NOTEBOOK</p><h2 id="journey-heading">Projects<br /><em>over time.</em></h2><p>The builds, teams and jobs<br />that got me here.</p></div>
     <nav className="journal-years" aria-label="Choose a year">{timeline.map(block => <a href={`#year-${block.year.toLowerCase()}`} key={block.year} aria-current={year === block.year ? "true" : undefined} onClick={() => setYear(block.year)}>{block.year === 'Current' ? 'Now' : block.year}<span aria-hidden="true">↘</span></a>)}</nav>
     {timeline.filter(block => block.year === year).map(block => <section className="journal-chapter" id={`year-${block.year.toLowerCase()}`} key={block.year} aria-label={block.year}>
       <div className="journal-chapter-heading"><h3>{block.year === 'Current' ? 'In progress.' : block.year === 'Earlier' ? 'Where it started.' : block.year}</h3><span className="mono">{block.label || 'FROM THE ARCHIVE'} / {block.entries.length} {block.entries.length === 1 ? 'ENTRY' : 'ENTRIES'}</span></div>
       {block.entries.map((entry,index) => <TimelineEntry entry={entry} index={index} key={entry.title} />)}
     </section>)}
-    <div className="journal-end"><p className="mono">THE NOTEBOOK IS STILL OPEN.</p><a className="text-link" href="#projects">Explore the complete project index ↗</a></div>
+    <div className="journal-end"><p className="mono">MORE PROJECTS IN THE INDEX.</p><a className="text-link" href="#projects">Explore the complete project index ↗</a></div>
   </section>
 }
