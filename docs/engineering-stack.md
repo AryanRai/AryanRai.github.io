@@ -1,5 +1,7 @@
 # From the MCU to the whole system
 
+Historical bench study, superseded by the scroll-driven complete-machine sequence in [scroll-systems.md](scroll-systems.md).
+
 Anatomy Hero tier: one illustrative robotics integration bench, 123 solid parts. Expand the existing controller study with a battery bay, power distribution, an open structural frame, and a workstation. This is a map of engineering work, not an actual wiring diagram or a claim that all projects use the same hardware.
 
 ## Concept and interaction

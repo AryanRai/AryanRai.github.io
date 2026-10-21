@@ -11,7 +11,7 @@ const scenes = [
     number: '02', theme: 'dark', question: <>Can a robot learn<br />by watching?</>,
     image: 'robot-arm-close', alt: 'Robot hardware and sensing equipment in the Imitation Machines workspace',
     collage: [{ image: 'robot-dog', alt: 'Robot dog in the workspace' }, { image: 'robot-sim', alt: 'Robot learning environment in simulation' }],
-    answer: 'That question became my day job.', detail: 'Robot integration, teleoperation, simulation, and learning from demonstration.', label: 'IMITATION MACHINES / ROBOT LEARNING',
+    answer: 'That question became my day job.', detail: 'AI and machine learning for robotics: learning from demonstration, perception, computer vision and simulation.', label: 'IMITATION MACHINES / AI & ROBOT LEARNING',
   },
   {
     number: '03', theme: 'light', question: <>What happens when<br />it all connects?</>,

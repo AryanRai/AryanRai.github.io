@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="hero-copy">
           <p className="eyebrow">Aryan Rai / Sydney</p>
           <h1 className="hero-quote">If it has wire,<br />solder, or code,<br /><em>I can work on it.</em></h1>
-          <p className="hero-desc">Embedded · Robotics · Space · AI</p>
+          <p className="hero-desc">AI & robot learning · Perception · Embedded systems · Space</p>
           <div className="hero-links">
             <a href="#selected">Selected work <span aria-hidden="true">↗</span></a>
             <a href="#questions">A few questions <span aria-hidden="true">↓</span></a>

@@ -46,8 +46,8 @@ export default function App() {
       <MusicPlayer />
       <main id="main">
         <Hero />
-        <Suspense fallback={<section id="systems" className="wrap" style={{ minHeight: 1200, paddingBlock: 100 }} aria-busy="true"><p className="eyebrow">HOW I WORK / HARDWARE + SOFTWARE</p><h2>From the MCU to the whole system.</h2></section>}><EngineeringStack /></Suspense>
         <QuestionStory />
+        <Suspense fallback={<section id="systems" className="wrap" style={{ minHeight: '820svh', paddingBlock: 100 }} aria-busy="true"><p className="eyebrow">HOW I WORK / HARDWARE + SOFTWARE</p><h2>From the chip to the whole machine.</h2></section>}><EngineeringStack /></Suspense>
         <SelectedWork />
         <Timeline />
         <Projects />
